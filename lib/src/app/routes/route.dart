@@ -2,8 +2,8 @@ class Routes {
   // Splash Screen
   static const splash = '/';
 
-  // OnBoarding Screen
-  static const onBoard = '/onboard';
+  // Intro Screen
+  static const intro = '/intro';
 
   // Sign Up Screen
   static const signUp = '/signup';
