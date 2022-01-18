@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/size.dart';
+import '../themes/size.dart';
 
 // vertical
 SizedBox kSizeBoxVerticalTiny = SizedBox(height: kSizeTiny);
