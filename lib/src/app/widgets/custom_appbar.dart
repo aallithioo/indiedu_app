@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../theme/color.dart';
-import '../theme/theme.dart';
+import '../themes/color.dart';
+import '../themes/theme.dart';
 
 AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
   return AppBar(
