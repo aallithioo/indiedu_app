@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/size.dart';
+import '../themes/size.dart';
 
 // Padding all
 EdgeInsets kPaddingAllTiny = EdgeInsets.all(kSizeTiny);
