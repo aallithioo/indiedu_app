@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/size.dart';
+import '../themes/size.dart';
 
 RoundedRectangleBorder kRoundedBorderRadiusTiny = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(kSizeTiny),
