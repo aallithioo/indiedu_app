@@ -32,7 +32,7 @@ class Routes {
   static const favorites = '/app/favorites';
 
   // Messages Screen
-  static const messages = '/app/messages';
+  static const message = '/app/message';
 
   // Profile Screen
   static const profile = '/app/profile';
