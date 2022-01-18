@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/size.dart';
+import '../themes/size.dart';
 
 // Margin all
 EdgeInsets kMarginAllTiny = EdgeInsets.all(kSizeTiny);
