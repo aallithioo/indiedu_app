@@ -1,6 +1,8 @@
 import 'package:aallithioo/src/app/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/sign_in_body.dart';
+
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
@@ -8,7 +10,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: kAppBar('Sign In'),
-      // body:
+      body: SignInBody(),
     );
   }
 }

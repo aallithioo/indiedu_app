@@ -12,6 +12,7 @@ class Routes {
 
   // Sign In Screen
   static const signIn = '/signin';
+  static const signInSuccess = '/signin/success';
   static const forgot = '/signin/forgot';
   static const forgotAuth = '/signin/forgot/auth';
   static const reset = '/signin/reset';
