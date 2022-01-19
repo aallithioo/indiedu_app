@@ -7,9 +7,9 @@ import '../../../app/themes/theme.dart';
 
 import 'package:flutter/material.dart';
 
-class SplashContent extends StatelessWidget {
+class IntroContent extends StatelessWidget {
   final String? text, image;
-  const SplashContent({
+  const IntroContent({
     Key? key,
     this.text,
     this.image,

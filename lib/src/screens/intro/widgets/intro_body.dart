@@ -6,20 +6,20 @@ import '../../../app/themes/theme.dart';
 import '../../../app/widgets/custom_border.dart';
 import '../../../app/widgets/custom_padding.dart';
 
-import 'splash_content.dart';
+import 'intro_content.dart';
 
 import 'package:flutter/material.dart';
 
-class SplashBody extends StatefulWidget {
-  const SplashBody({Key? key}) : super(key: key);
+class IntroBody extends StatefulWidget {
+  const IntroBody({Key? key}) : super(key: key);
 
   @override
-  _SplashBodyState createState() => _SplashBodyState();
+  _IntroBodyState createState() => _IntroBodyState();
 }
 
-class _SplashBodyState extends State<SplashBody> {
+class _IntroBodyState extends State<IntroBody> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = [
+  List<Map<String, String>> introData = [
     {
       "text": "Welcome to Tooko, Let's shop!",
       "image": "assets/images/png/img_dummy_0.png",
@@ -48,11 +48,11 @@ class _SplashBodyState extends State<SplashBody> {
                   ctx,
                   index,
                 ) =>
-                    SplashContent(
-                  image: splashData[index]["image"],
-                  text: splashData[index]["text"],
+                    IntroContent(
+                  image: introData[index]["image"],
+                  text: introData[index]["text"],
                 ),
-                itemCount: splashData.length,
+                itemCount: introData.length,
                 onPageChanged: (index) {
                   setState(() {
                     currentPage = index;
@@ -70,7 +70,7 @@ class _SplashBodyState extends State<SplashBody> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                        splashData.length,
+                        introData.length,
                         (index) => buildDot(index: index),
                       ),
                     ),
