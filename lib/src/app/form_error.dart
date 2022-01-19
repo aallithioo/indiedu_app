@@ -20,15 +20,22 @@ class FormError extends StatelessWidget {
     );
   }
 
-  Row formErrorText({required String error}) {
-    return Row(
+  formErrorText({required String error}) {
+    return Column(
       children: [
-        SvgPicture.asset("assets/icons/Error.svg",
-            height: kSizeSmall, width: kSizeSmall),
-        SizedBox(
-          width: kSizeSmall,
+        Row(
+          children: [
+            SvgPicture.asset("assets/icons/svg/Error.svg",
+                height: kSizeSmall, width: kSizeSmall),
+            SizedBox(
+              width: kSizeTiny,
+            ),
+            Text(error),
+          ],
         ),
-        Text(error),
+        SizedBox(
+          height: kSizeTiny / 2,
+        ),
       ],
     );
   }
