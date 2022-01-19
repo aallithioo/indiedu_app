@@ -1,3 +1,5 @@
+import '../../../app/routes/route.dart';
+
 import '../../../app/themes/color.dart';
 import '../../../app/themes/fontweight.dart';
 import '../../../app/themes/size.dart';
@@ -83,7 +85,10 @@ class _IntroBodyState extends State<IntroBody> {
                         borderRadius: kBorderRadiusSmall,
                       ),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, Routes.signIn);
+                        },
                         child: Text(
                           "Continue",
                           style: tooko.textTheme.button!.copyWith(
