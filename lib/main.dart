@@ -1,3 +1,4 @@
+import 'src/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app/routes/route.dart';
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: Routes.splash,
-      routes: <String, WidgetBuilder>{},
+      routes: <String, WidgetBuilder>{
+        Routes.splash: (_) => const SplashScreen(),
+      },
     );
   }
 }
