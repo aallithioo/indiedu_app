@@ -1,6 +1,7 @@
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/textalign.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
+import '../../../app/themes/fontweight.dart';
+import '../../../app/themes/size.dart';
+import '../../../app/themes/textalign.dart';
+import '../../../app/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class SplashContent extends StatelessWidget {
@@ -31,8 +32,8 @@ class SplashContent extends StatelessWidget {
         const Spacer(flex: 2),
         Image.asset(
           image!,
-          height: 150,
-          width: 150,
+          height: getProportionateScreenHeight(256),
+          width: getProportionateScreenWidth(235),
         ),
       ],
     );
