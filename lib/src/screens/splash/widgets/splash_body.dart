@@ -14,15 +14,15 @@ class _SplashBodyState extends State<SplashBody> {
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Tooko, Let's shop!",
-      "image": "assets/images/png/img_dummy_00.png",
+      "image": "assets/images/png/img_dummy_0.png",
     },
     {
       "text": "We help people to find the best products",
-      "image": "assets/images/png/img_dummy_00.png",
+      "image": "assets/images/png/img_dummy_0.png",
     },
     {
       "text": "We show the easy way to buy",
-      "image": "assets/images/png/img_dummy_00.png",
+      "image": "assets/images/png/img_dummy_0.png",
     },
   ];
 

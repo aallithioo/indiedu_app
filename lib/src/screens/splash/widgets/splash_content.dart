@@ -1,5 +1,7 @@
+import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
+
 import '../../../app/themes/fontweight.dart';
-import '../../../app/themes/size.dart';
 import '../../../app/themes/textalign.dart';
 import '../../../app/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -18,22 +20,26 @@ class SplashContent extends StatelessWidget {
       children: [
         const Spacer(),
         Text(
-          'Tooko',
-          style: tooko.textTheme.headline6!.copyWith(
-            color: tooko.textTheme.headline6!.color,
+          'tooko',
+          style: tooko.textTheme.headline4!.copyWith(
+            color: tooko.textTheme.headline4!.color,
             fontWeight: kFontWeightBold,
           ),
           textAlign: kTextAlignCenter,
         ),
+        kSizeBoxVerticalSmall,
         Text(
           text!,
           textAlign: kTextAlignCenter,
         ),
         const Spacer(flex: 2),
-        Image.asset(
-          image!,
-          height: getProportionateScreenHeight(256),
-          width: getProportionateScreenWidth(235),
+        Padding(
+          padding: kPaddingSymetricHorizontalMedium,
+          child: Image.asset(
+            image!,
+            height: 200,
+            width: 200,
+          ),
         ),
       ],
     );
