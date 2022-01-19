@@ -2,7 +2,6 @@ import 'package:aallithioo/src/app/routes/route.dart';
 import 'themes/color.dart';
 import 'package:flutter/material.dart';
 
-import 'themes/size.dart';
 import 'themes/theme.dart';
 
 class NoAccountText extends StatelessWidget {
@@ -17,13 +16,13 @@ class NoAccountText extends StatelessWidget {
       children: [
         Text(
           "Don’t have an account? ",
-          style: tooko.textTheme.bodyText1,
+          style: tooko.textTheme.bodyText2,
         ),
         GestureDetector(
           onTap: () => Navigator.pushNamed(context, Routes.signUp),
           child: Text(
             "Sign Up",
-            style: tooko.textTheme.bodyText1!.copyWith(
+            style: tooko.textTheme.bodyText2!.copyWith(
               color: kBlueColorShade400,
             ),
           ),
