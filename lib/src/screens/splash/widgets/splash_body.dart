@@ -39,7 +39,7 @@ class _SplashBodyState extends State<SplashBody> {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: PageView.builder(
                 itemBuilder: (
                   ctx,
@@ -71,7 +71,7 @@ class _SplashBodyState extends State<SplashBody> {
                         (index) => buildDot(index: index),
                       ),
                     ),
-                    const Spacer(flex: 3),
+                    const Spacer(flex: 4),
                     Container(
                       width: double.infinity,
                       height: 60,
@@ -105,12 +105,12 @@ class _SplashBodyState extends State<SplashBody> {
   AnimatedContainer buildDot({int? index}) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.only(right: 5),
-      height: 6,
+      margin: EdgeInsets.only(right: kSizeTiny - 3),
+      height: kSizeTiny - 2,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
         color: currentPage == index ? kBlueColorShade400 : kGreyColorShade500,
-        borderRadius: BorderRadius.circular(3),
+        borderRadius: kBorderRadiusTiny,
       ),
     );
   }

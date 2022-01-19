@@ -37,8 +37,8 @@ class SplashContent extends StatelessWidget {
           padding: kPaddingSymetricHorizontalMedium,
           child: Image.asset(
             image!,
-            height: 200,
-            width: 200,
+            height: MediaQuery.of(context).size.height / 3,
+            width: MediaQuery.of(context).size.width,
           ),
         ),
       ],
