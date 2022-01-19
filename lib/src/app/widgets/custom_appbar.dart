@@ -19,24 +19,24 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconButton(
-              icon: firstIcon ??
-                  Icon(
-                    Icons.notifications_rounded,
-                    color: kWhiteColorShade500,
-                  ),
-              color: kWhiteColorShade500,
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: secondIcon ??
-                  Icon(
-                    Icons.shopping_bag_rounded,
-                    color: kWhiteColorShade500,
-                  ),
-              color: kWhiteColorShade500,
-              onPressed: () {},
-            ),
+            // IconButton(
+            //   icon: firstIcon ??
+            //       Icon(
+            //         Icons.notifications_rounded,
+            //         color: kWhiteColorShade500,
+            //       ),
+            //   color: kWhiteColorShade500,
+            //   onPressed: () {},
+            // ),
+            // IconButton(
+            //   icon: secondIcon ??
+            //       Icon(
+            //         Icons.shopping_bag_rounded,
+            //         color: kWhiteColorShade500,
+            //       ),
+            //   color: kWhiteColorShade500,
+            //   onPressed: () {},
+            // ),
           ],
         ),
       ],
