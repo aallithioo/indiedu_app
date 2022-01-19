@@ -1,4 +1,5 @@
 import 'package:aallithioo/src/app/themes/fontweight.dart';
+import 'package:aallithioo/src/app/themes/textalign.dart';
 import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,12 +22,18 @@ class SplashContent extends StatelessWidget {
             color: tooko.textTheme.headline6!.color,
             fontWeight: kFontWeightBold,
           ),
-          textAlign: TextAlign.center,
+          textAlign: kTextAlignCenter,
         ),
         Text(
           text!,
-          textAlign: TextAlign.center,
-        )
+          textAlign: kTextAlignCenter,
+        ),
+        const Spacer(flex: 2),
+        Image.asset(
+          image!,
+          height: 150,
+          width: 150,
+        ),
       ],
     );
   }
