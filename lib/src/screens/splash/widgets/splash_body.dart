@@ -1,3 +1,8 @@
+import 'package:aallithioo/src/app/themes/color.dart';
+import 'package:aallithioo/src/app/themes/fontweight.dart';
+import 'package:aallithioo/src/app/themes/size.dart';
+import 'package:aallithioo/src/app/themes/theme.dart';
+import 'package:aallithioo/src/app/widgets/custom_border.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
 import 'package:aallithioo/src/screens/splash/widgets/splash_content.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +49,7 @@ class _SplashBodyState extends State<SplashBody> {
                   image: splashData[index]["image"],
                   text: splashData[index]["text"],
                 ),
+                itemCount: splashData.length,
                 onPageChanged: (index) {
                   setState(() {
                     currentPage = index;
@@ -55,10 +61,56 @@ class _SplashBodyState extends State<SplashBody> {
               flex: 2,
               child: Padding(
                 padding: kPaddingAllMedium,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index: index),
+                      ),
+                    ),
+                    const Spacer(flex: 3),
+                    Container(
+                      width: double.infinity,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: kBlueColorShade400,
+                        borderRadius: kBorderRadiusSmall,
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Continue",
+                          style: tooko.textTheme.button!.copyWith(
+                            color: kGreyColorShade50,
+                            fontSize: kSizeSmall,
+                            fontWeight: kFontWeightMedium,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  AnimatedContainer buildDot({int? index}) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kBlueColorShade400 : kGreyColorShade500,
+        borderRadius: BorderRadius.circular(3),
       ),
     );
   }
