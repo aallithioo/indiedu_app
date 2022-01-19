@@ -1,21 +1,32 @@
+import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class SplashContent extends StatelessWidget {
-  const SplashContent({Key? key}) : super(key: key);
+  final String? text, image;
+  const SplashContent({
+    Key? key,
+    this.text,
+    this.image,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(),
+        const Spacer(),
         Text(
           'Tooko',
           style: tooko.textTheme.headline6!.copyWith(
             color: tooko.textTheme.headline6!.color,
-            fontWeight: FontWeight.w700,
+            fontWeight: kFontWeightBold,
           ),
+          textAlign: TextAlign.center,
         ),
+        Text(
+          text!,
+          textAlign: TextAlign.center,
+        )
       ],
     );
   }
