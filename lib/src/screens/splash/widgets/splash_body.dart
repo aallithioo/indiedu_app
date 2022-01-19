@@ -1,10 +1,13 @@
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/screens/splash/widgets/splash_content.dart';
+import '../../../app/themes/color.dart';
+import '../../../app/themes/fontweight.dart';
+import '../../../app/themes/size.dart';
+import '../../../app/themes/theme.dart';
+
+import '../../../app/widgets/custom_border.dart';
+import '../../../app/widgets/custom_padding.dart';
+
+import 'splash_content.dart';
+
 import 'package:flutter/material.dart';
 
 class SplashBody extends StatefulWidget {
@@ -60,7 +63,7 @@ class _SplashBodyState extends State<SplashBody> {
             Expanded(
               flex: 2,
               child: Padding(
-                padding: kPaddingAllMedium,
+                padding: kPaddingAllLarge,
                 child: Column(
                   children: [
                     const Spacer(),
@@ -71,7 +74,7 @@ class _SplashBodyState extends State<SplashBody> {
                         (index) => buildDot(index: index),
                       ),
                     ),
-                    const Spacer(flex: 4),
+                    const Spacer(flex: 10),
                     Container(
                       width: double.infinity,
                       height: 60,
@@ -91,7 +94,6 @@ class _SplashBodyState extends State<SplashBody> {
                         ),
                       ),
                     ),
-                    const Spacer(),
                   ],
                 ),
               ),

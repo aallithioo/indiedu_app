@@ -1,9 +1,10 @@
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
+import '../../../app/widgets/custom_padding.dart';
+import '../../../app/widgets/custom_sizebox.dart';
 
 import '../../../app/themes/fontweight.dart';
 import '../../../app/themes/textalign.dart';
 import '../../../app/themes/theme.dart';
+
 import 'package:flutter/material.dart';
 
 class SplashContent extends StatelessWidget {
@@ -32,7 +33,7 @@ class SplashContent extends StatelessWidget {
           text!,
           textAlign: kTextAlignCenter,
         ),
-        const Spacer(flex: 2),
+        const Spacer(),
         Padding(
           padding: kPaddingSymetricHorizontalMedium,
           child: Image.asset(
