@@ -1,23 +1,16 @@
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/widgets/custom_blur.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import '../../../app/widgets/custom_blur.dart';
+import '../../../app/widgets/custom_padding.dart';
+import '../../../app/widgets/custom_border.dart';
 
 import '../../../app/routes/route.dart';
 
+import '../../../app/themes/fontweight.dart';
 import '../../../app/themes/size.dart';
 import '../../../app/themes/theme.dart';
-
-import '../../../app/widgets/custom_border.dart';
-import '../../../app/widgets/custom_sizebox.dart';
-import '../../../app/widgets/custom_suffix_icon.dart';
-
-import '../../../app/form_error.dart';
-import '../../../app/constants.dart';
-
 import '../../../app/themes/color.dart';
 
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignInForm extends StatefulWidget {
