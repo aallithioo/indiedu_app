@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+
 import '../../../app/widgets/custom_blur.dart';
 import '../../../app/widgets/custom_padding.dart';
 import '../../../app/widgets/custom_border.dart';
@@ -20,29 +22,47 @@ class SignInForm extends StatefulWidget {
   _SignInFormState createState() => _SignInFormState();
 }
 
-final TextEditingController emailController = TextEditingController();
-final TextEditingController passwordController = TextEditingController();
-
 class _SignInFormState extends State<SignInForm> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   static bool isObscured = true;
-  final List<String?> errors = [];
+  // final List<String?> errors = [];
 
   // Add error messages to the errors list
-  void addError({String? error}) {
-    if (!errors.contains(error)) {
-      setState(() {
-        errors.add(error);
-      });
-    }
-  }
+  // void addError({String? error}) {
+  //   if (!errors.contains(error)) {
+  //     setState(() {
+  //       errors.add(error);
+  //     });
+  //   }
+  // }
 
   // Remove error messages from the errors list
-  void removeError({String? error}) {
-    if (errors.contains(error)) {
-      setState(() {
-        errors.remove(error);
-      });
+  // void removeError({String? error}) {
+  //   if (errors.contains(error)) {
+  //     setState(() {
+  //       errors.remove(error);
+  //     });
+  //   }
+  // }
+
+  Future err() async {
+    if (emailController.text.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is required!')!);
+    } else if (emailController.text.isNotEmpty &&
+        emailController.text.contains('@') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (passwordController.text.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password is required!')!);
+    } else {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      }
     }
   }
 
@@ -93,7 +113,6 @@ class _SignInFormState extends State<SignInForm> {
                     cursorColor: kBlueColorShade400,
                   ),
                 ),
-
                 // Password Input
                 Container(
                   margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
@@ -160,14 +179,17 @@ class _SignInFormState extends State<SignInForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // KeyboardUtil.hideKeyboard(context);
-                    Navigator.pushReplacementNamed(
-                        context, Routes.signInSuccess);
-                  }
-                },
+                onPressed: (emailController.text.isNotEmpty &&
+                        emailController.text.contains('@') &&
+                        passwordController.text.isNotEmpty)
+                    ? () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          Navigator.pushReplacementNamed(
+                              context, Routes.signInSuccess);
+                        }
+                      }
+                    : err,
                 child: Text(
                   'Let\'s Go',
                   style: tooko.textTheme.button!.copyWith(
@@ -183,7 +205,9 @@ class _SignInFormState extends State<SignInForm> {
               children: [
                 // Forgot password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.forgot);
+                  },
                   child: Text(
                     'Forgot Password?',
                     style: tooko.textTheme.button!.copyWith(
@@ -214,31 +238,6 @@ class _SignInFormState extends State<SignInForm> {
       ),
     );
   }
-
-  // Container(
-  //   width: MediaQuery.of(context).size.width,
-  //   height: 60,
-  //   decoration: BoxDecoration(
-  //     color: kBlueColorShade400,
-  //     borderRadius: kBorderRadiusTiny,
-  //   ),
-  //   child: TextButton(
-  //     onPressed: () {
-  //       if (_formKey.currentState!.validate()) {
-  //         _formKey.currentState!.save();
-  //         // KeyboardUtil.hideKeyboard(context);
-  //         Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-  //       }
-  //     },
-  //     child: Text(
-  //       'Continue',
-  //       style: tooko.textTheme.button!.copyWith(
-  //         color: kGreyColorShade50,
-  //       ),
-  //     ),
-  //   ),
-  // ),
-  // ------------------------------------------------------------
 
 //   TextFormField buildEmailFormField() {
 //     return TextFormField(
@@ -390,6 +389,14 @@ class _SignInFormState extends State<SignInForm> {
                 );
 
                 FirebaseAuth.instance.signInWithCredential(credential);
+
+                if (credential.accessToken != null &&
+                    credential.idToken != null) {
+                  // Navigator.pushReplacementNamed(
+                  //   context,
+                  //   Routes.controller,
+                  // );
+                }
               },
               child: Image.asset('assets/images/png/img_google_logo.png'),
             ),
@@ -410,9 +417,13 @@ class _SignInFormState extends State<SignInForm> {
               ),
             ],
           ),
-          child: Padding(
-            padding: kPaddingAllMedium,
-            child: Image.asset('assets/images/png/img_apple_logo.png'),
+          child: TextButton(
+            onPressed: () => ScaffoldMessenger.of(context)
+                .showSnackBar(kSnackBar('Kata sandi tidak boleh kosong!')!),
+            child: Padding(
+              padding: kPaddingAllMedium,
+              child: Image.asset('assets/images/png/img_apple_logo.png'),
+            ),
           ),
         ),
       ],

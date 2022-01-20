@@ -8,9 +8,10 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: kAppBar('Sign In'),
-      body: SignInBody(),
+    return const Scaffold(
+      body: Center(
+        child: SignInBody(),
+      ),
     );
   }
 }
