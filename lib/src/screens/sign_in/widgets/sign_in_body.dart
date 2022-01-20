@@ -1,5 +1,7 @@
 import 'package:aallithioo/src/app/no_account_text.dart';
+import 'package:aallithioo/src/app/themes/color.dart';
 import 'package:aallithioo/src/app/themes/fontweight.dart';
+import 'package:aallithioo/src/app/themes/size.dart';
 import 'package:aallithioo/src/app/themes/textalign.dart';
 import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
@@ -20,26 +22,30 @@ class SignInBody extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                kSizeBoxHorizontalSmall,
-                Text(
-                  'Welcome Back',
-                  style: tooko.textTheme.headline4!.copyWith(
-                    color: tooko.textTheme.headline4!.color,
-                    fontWeight: kFontWeightBold,
+                // Description title
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
+                  child: Text(
+                    'Welcome back!',
+                    style: tooko.textTheme.headline5!.copyWith(
+                      color: kGreyColorShade900,
+                      fontWeight: kFontWeightSemiBold,
+                    ),
                   ),
                 ),
-                Text(
-                  'Sign in with your email and password\nor continue with social media',
-                  style: tooko.textTheme.bodyText1!.copyWith(
-                    color: tooko.textTheme.bodyText1!.color!.withOpacity(0.7),
-                    fontWeight: kFontWeightLight,
+                // Description subtitle
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeLarge),
+                  padding: kPaddingSymetricHorizontalMedium,
+                  child: Text(
+                    'Please type your email and password to sign in.',
+                    style: tooko.textTheme.bodyText1!.copyWith(),
+                    textAlign: kTextAlignCenter,
                   ),
-                  textAlign: kTextAlignCenter,
                 ),
                 kSizeBoxHorizontalSmall,
                 SignInForm(),
                 kSizeBoxHorizontalSmall,
-                NoAccountText(),
               ],
             ),
           ),

@@ -1,3 +1,8 @@
+import 'package:aallithioo/src/app/widgets/custom_blur.dart';
+import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 import '../../../app/routes/route.dart';
 
 import '../../../app/themes/size.dart';
@@ -21,10 +26,11 @@ class SignInForm extends StatefulWidget {
   _SignInFormState createState() => _SignInFormState();
 }
 
+final TextEditingController emailController = TextEditingController();
+final TextEditingController passwordController = TextEditingController();
+
 class _SignInFormState extends State<SignInForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String? _emailController;
-  String? _passwordController;
   static bool isObscured = true;
   final List<String?> errors = [];
 
@@ -51,18 +57,34 @@ class _SignInFormState extends State<SignInForm> {
     return Form(
       key: _formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          buildEmailFormField(),
-          SizedBox(height: kSizeTiny),
-          buildPasswordFormField(),
-          SizedBox(height: kSizeTiny),
-          FormError(errors: errors),
+          // Sign in with third party
+
+          // Sign in with email
+          Column(
+            children: [
+              // Email Input
+
+              // Password Input
+            ],
+          ),
+          // Sign in button
           Container(
+            margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
             width: MediaQuery.of(context).size.width,
             height: 60,
             decoration: BoxDecoration(
+              borderRadius: kBorderRadiusSmall,
               color: kBlueColorShade400,
-              borderRadius: kBorderRadiusTiny,
+              boxShadow: [
+                BoxShadow(
+                  color: kWhiteColorShade800,
+                  blurRadius: kBlurRadiusHuge,
+                  offset: const Offset(0, 5),
+                ),
+              ],
             ),
             child: TextButton(
               onPressed: () {
@@ -73,58 +95,276 @@ class _SignInFormState extends State<SignInForm> {
                 }
               },
               child: Text(
-                'Continue',
+                'Let\'s Go',
                 style: tooko.textTheme.button!.copyWith(
-                  color: kGreyColorShade50,
+                  color: kWhiteColorShade900,
                 ),
               ),
             ),
+          ),
+          // Option to create an account or forgot password
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Forgot password
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Forgot Password?',
+                  style: tooko.textTheme.button!.copyWith(
+                    color: kBlueColorShade400,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
+              // Sign up
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.signUp);
+                },
+                child: Text(
+                  'Create Account',
+                  style: tooko.textTheme.button!.copyWith(
+                    color: kBlueColorShade400,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
+  // Container(
+  //   width: MediaQuery.of(context).size.width,
+  //   height: 60,
+  //   decoration: BoxDecoration(
+  //     color: kBlueColorShade400,
+  //     borderRadius: kBorderRadiusTiny,
+  //   ),
+  //   child: TextButton(
+  //     onPressed: () {
+  //       if (_formKey.currentState!.validate()) {
+  //         _formKey.currentState!.save();
+  //         // KeyboardUtil.hideKeyboard(context);
+  //         Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+  //       }
+  //     },
+  //     child: Text(
+  //       'Continue',
+  //       style: tooko.textTheme.button!.copyWith(
+  //         color: kGreyColorShade50,
+  //       ),
+  //     ),
+  //   ),
+  // ),
   // ------------------------------------------------------------
 
-  TextFormField buildEmailFormField() {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => _emailController = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-        }
-        return;
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        hintText: 'Email Address',
-        hintStyle: tooko.textTheme.bodyText2!.copyWith(
-          color: kGreyColorShade400,
+//   TextFormField buildEmailFormField() {
+//     return TextFormField(
+//       keyboardType: TextInputType.emailAddress,
+//       onSaved: (newValue) => _emailController = newValue,
+//       onChanged: (value) {
+//         if (value.isNotEmpty) {
+//           removeError(error: kEmailNullError);
+//         } else if (emailValidatorRegExp.hasMatch(value)) {
+//           addError(error: kInvalidEmailError);
+//         }
+//         return;
+//       },
+//       validator: (value) {
+//         if (value!.isEmpty) {
+//           addError(error: kEmailNullError);
+//           return "";
+//         } else if (!emailValidatorRegExp.hasMatch(value)) {
+//           addError(error: kInvalidEmailError);
+//           return "";
+//         }
+//         return null;
+//       },
+//       decoration: InputDecoration(
+//         hintText: 'Email Address',
+//         hintStyle: tooko.textTheme.bodyText2!.copyWith(
+//           color: kGreyColorShade400,
+//         ),
+//         errorText: errors.contains(kEmailNullError) ? kEmailNullError : null,
+//         errorStyle: TextStyle(color: kErrorColor),
+//         filled: true,
+//         fillColor: kGreyColorShade200,
+//         floatingLabelBehavior: FloatingLabelBehavior.always,
+//         border: OutlineInputBorder(
+//           borderRadius: kBorderRadiusTiny,
+//           borderSide: BorderSide.none,
+//         ),
+//         focusedBorder: OutlineInputBorder(
+//           borderRadius: kBorderRadiusTiny,
+//           borderSide: BorderSide(
+//             color: kBlueColorShade400,
+//           ),
+//         ),
+//         prefixIcon: Icon(
+//           Icons.email_rounded,
+//           color: kGreyColorShade400,
+//         ),
+//       ),
+//     );
+//   }
+
+//   TextFormField buildPasswordFormField() {
+//     return TextFormField(
+//       obscureText: isObscured,
+//       onSaved: (newValue) => _passwordController = newValue,
+//       onChanged: (value) {
+//         if (value.isNotEmpty) {
+//           removeError(error: kPassNullError);
+//         } else if (value.length >= 8) {
+//           addError(error: kShortPassError);
+//         }
+//         return;
+//       },
+//       validator: (value) {
+//         if (value!.isEmpty) {
+//           addError(error: kPassNullError);
+//           return "";
+//         } else if (value.length < 8) {
+//           addError(error: kShortPassError);
+//           return "";
+//         }
+//         return null;
+//       },
+//       decoration: InputDecoration(
+//         hintText: 'Password',
+//         hintStyle: tooko.textTheme.bodyText2!.copyWith(
+//           color: kGreyColorShade400,
+//         ),
+//         errorText: errors.contains(kPassNullError) ? kPassNullError : null,
+//         errorStyle: TextStyle(color: kErrorColor),
+//         filled: true,
+//         fillColor: kGreyColorShade200,
+//         floatingLabelBehavior: FloatingLabelBehavior.always,
+//         border: OutlineInputBorder(
+//           borderRadius: kBorderRadiusTiny,
+//           borderSide: BorderSide.none,
+//         ),
+//         focusedBorder: OutlineInputBorder(
+//           borderRadius: kBorderRadiusTiny,
+//           borderSide: BorderSide(
+//             color: kBlueColorShade400,
+//           ),
+//         ),
+//         prefixIcon: Icon(
+//           Icons.vpn_key_rounded,
+//           color: kGreyColorShade400,
+//         ),
+//         suffixIcon: IconButton(
+//           color: kGreyColorShade400,
+//           icon: Icon(
+//             isObscured ? Icons.visibility : Icons.visibility_off,
+//           ),
+//           onPressed: () {
+//             setState(
+//               () {
+//                 isObscured = !isObscured;
+//               },
+//             );
+//           },
+//         ),
+//       ),
+//       cursorColor: kBlueColorShade400,
+//     );
+//   }
+// }
+
+  buildThirdPartyButton() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        // Sign in with Google
+        Container(
+          width: MediaQuery.of(context).size.width / 2.5,
+          height: 100,
+          decoration: BoxDecoration(
+            borderRadius: kBorderRadiusSmall,
+            color: kWhiteColorShade900,
+            boxShadow: [
+              BoxShadow(
+                color: kWhiteColorShade800,
+                blurRadius: kBlurRadiusHuge,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: kPaddingAllMedium,
+            child: TextButton(
+              onPressed: () async {
+                final GoogleSignInAccount? googleUser =
+                    await GoogleSignIn().signIn();
+
+                final GoogleSignInAuthentication? googleAuth =
+                    await googleUser?.authentication;
+
+                final credential = GoogleAuthProvider.credential(
+                  accessToken: googleAuth?.accessToken,
+                  idToken: googleAuth?.idToken,
+                );
+
+                FirebaseAuth.instance.signInWithCredential(credential);
+              },
+              child: Image.asset('assets/images/png/img_google_logo.png'),
+            ),
+          ),
         ),
-        errorText: errors.contains(kEmailNullError) ? kEmailNullError : null,
-        errorStyle: TextStyle(color: kErrorColor),
+        // Sign in with Apple
+        Container(
+          width: MediaQuery.of(context).size.width / 2.5,
+          height: 100,
+          decoration: BoxDecoration(
+            borderRadius: kBorderRadiusSmall,
+            color: kWhiteColorShade900,
+            boxShadow: [
+              BoxShadow(
+                color: kWhiteColorShade800,
+                blurRadius: kBlurRadiusHuge,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: kPaddingAllMedium,
+            child: Image.asset('assets/images/png/img_apple_logo.png'),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+buildEmailFormField() {
+  Container(
+    margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
+    width: double.infinity,
+    child: TextFormField(
+      controller: emailController,
+      decoration: InputDecoration(
         filled: true,
-        fillColor: kGreyColorShade200,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        fillColor: kWhiteColorShade900,
+        hintText: 'Email Address',
+        hintStyle: tooko.textTheme.bodyText1!.copyWith(
+          color: kGreyColorShade300,
+          fontWeight: FontWeight.w300,
+        ),
         border: OutlineInputBorder(
-          borderRadius: kBorderRadiusTiny,
+          borderRadius: kBorderRadiusSmall,
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: kBorderRadiusTiny,
+          borderRadius: kBorderRadiusSmall,
           borderSide: BorderSide(
             color: kBlueColorShade400,
           ),
@@ -134,70 +374,7 @@ class _SignInFormState extends State<SignInForm> {
           color: kGreyColorShade400,
         ),
       ),
-    );
-  }
-
-  TextFormField buildPasswordFormField() {
-    return TextFormField(
-      obscureText: true,
-      onSaved: (newValue) => _passwordController = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 8) {
-          addError(error: kShortPassError);
-        }
-        return;
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 8) {
-          addError(error: kShortPassError);
-          return "";
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        hintText: 'Password',
-        hintStyle: tooko.textTheme.bodyText2!.copyWith(
-          color: kGreyColorShade400,
-        ),
-        errorText: errors.contains(kPassNullError) ? kPassNullError : null,
-        errorStyle: TextStyle(color: kErrorColor),
-        filled: true,
-        fillColor: kGreyColorShade200,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        border: OutlineInputBorder(
-          borderRadius: kBorderRadiusTiny,
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: kBorderRadiusTiny,
-          borderSide: BorderSide(
-            color: kBlueColorShade400,
-          ),
-        ),
-        prefixIcon: Icon(
-          Icons.vpn_key_rounded,
-          color: kGreyColorShade400,
-        ),
-        suffixIcon: IconButton(
-          color: kGreyColorShade400,
-          icon: Icon(
-            isObscured ? Icons.visibility : Icons.visibility_off,
-          ),
-          onPressed: () {
-            setState(
-              () {
-                isObscured = !isObscured;
-              },
-            );
-          },
-        ),
-      ),
       cursorColor: kBlueColorShade400,
-    );
-  }
+    ),
+  );
 }
