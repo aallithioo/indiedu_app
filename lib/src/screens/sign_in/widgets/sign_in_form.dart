@@ -113,7 +113,6 @@ class _SignInFormState extends State<SignInForm> {
                     cursorColor: kBlueColorShade400,
                   ),
                 ),
-
                 // Password Input
                 Container(
                   margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
