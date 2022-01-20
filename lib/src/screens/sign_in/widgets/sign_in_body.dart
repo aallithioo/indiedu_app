@@ -22,6 +22,13 @@ class SignInBody extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                kSizeBoxVerticalMedium,
+                // Logo
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/images/png/img_logo.png'),
+                ),
                 // Description title
                 Container(
                   margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
