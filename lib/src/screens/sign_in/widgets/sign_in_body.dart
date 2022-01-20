@@ -50,9 +50,15 @@ class SignInBody extends StatelessWidget {
                     textAlign: kTextAlignCenter,
                   ),
                 ),
-                kSizeBoxHorizontalSmall,
+                kSizeBoxVerticalSmall,
                 SignInForm(),
-                kSizeBoxHorizontalSmall,
+                kSizeBoxVerticalLarge,
+                Text(
+                  '\u00a9 2022 tooko, All rights reserved.',
+                  style: tooko.textTheme.caption!.copyWith(
+                    color: kGreyColorShade300,
+                  ),
+                ),
               ],
             ),
           ),
