@@ -7,6 +7,7 @@ import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:aallithioo/src/app/widgets/custom_blur.dart';
 import 'package:aallithioo/src/app/widgets/custom_border.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 
 class ForgotAuthResetBody extends StatefulWidget {
@@ -28,6 +29,34 @@ late String checkPasswordConfirmController =
 
 class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
   static bool isObscured = true;
+
+  Future err() async {
+    if (passwordController.text == "") {
+      if (checkPasswordController.isEmpty) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Password is required!')!);
+      } else if (checkPasswordController.length <= 8) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
+      } else if (numberReg.hasMatch(checkPasswordController)) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Password must be contain number!')!);
+      } else if (letterReg.hasMatch(checkPasswordController)) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Password must be contain letter!')!);
+      } else {
+        return ScaffoldMessenger.of(context).showSnackBar(
+            kSnackBar('Password must be contain number and letter!')!);
+      }
+    } else if (passwordConfirmController.text == "" &&
+        passwordConfirmController.text != passwordController.text) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password is required!')!);
+    } else {
+      Navigator.pushReplacementNamed(context, Routes.forgotAuthSuccess);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
