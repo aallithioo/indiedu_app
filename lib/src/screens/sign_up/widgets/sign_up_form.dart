@@ -1,14 +1,17 @@
-import 'package:aallithioo/src/app/routes/route.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_blur.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../../../app/routes/route.dart';
+
+import '../../../app/themes/color.dart';
+import '../../../app/themes/fontweight.dart';
+import '../../../app/themes/size.dart';
+import '../../../app/themes/theme.dart';
+
+import '../../../app/widgets/custom_blur.dart';
+import '../../../app/widgets/custom_border.dart';
+import '../../../app/widgets/custom_padding.dart';
+import '../../../app/widgets/custom_sizebox.dart';
+import '../../../app/widgets/custom_snackbar.dart';
+
+import "package:firebase_auth/firebase_auth.dart";
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -40,7 +43,6 @@ late String checkPasswordConfirmController =
     passwordConfirmController.text.trim();
 
 class _SignUpFormState extends State<SignUpForm> {
-  @override
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   static bool isObscured = true;
 
