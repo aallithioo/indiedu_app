@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'src/app/routes/route.dart';
 
 import 'src/screens/intro/intro_screen.dart';
-import 'src/screens/sign_in/screens/sign_in_success_screen.dart';
+import 'src/screens/sign_in/screens/success/sign_in_success_screen.dart';
 import 'src/screens/sign_in/sign_in_screen.dart';
 import 'src/screens/sign_up/sign_up_screen.dart';
 import 'src/screens/splash/splash_screen.dart';
