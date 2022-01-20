@@ -414,6 +414,14 @@ class _SignUpFormState extends State<SignUpForm> {
                 );
 
                 FirebaseAuth.instance.signInWithCredential(credential);
+
+                if (credential.accessToken != null &&
+                    credential.idToken != null) {
+                  // Navigator.pushReplacementNamed(
+                  //   context,
+                  //   Routes.controller,
+                  // );
+                }
               },
               child: Image.asset('assets/images/png/img_google_logo.png'),
             ),
