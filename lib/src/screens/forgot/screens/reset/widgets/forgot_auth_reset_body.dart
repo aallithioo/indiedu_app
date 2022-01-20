@@ -53,7 +53,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
     } else {
-      Navigator.pushReplacementNamed(context, Routes.forgotAuthSuccess);
+      Navigator.pushReplacementNamed(context, Routes.resetSuccess);
     }
   }
 
