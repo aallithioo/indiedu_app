@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../themes/color.dart';
+import '../themes/size.dart';
 import 'package:get/get.dart';
-import '../theme/size.dart';
-import '../theme/color.dart';
 import 'custom_border.dart';
 import 'custom_margin.dart';
 
