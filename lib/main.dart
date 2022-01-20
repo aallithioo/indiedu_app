@@ -1,4 +1,5 @@
 import 'package:aallithioo/src/screens/forgot/screens/reset/forgot_auth_reset_screen.dart';
+import 'package:aallithioo/src/screens/forgot/screens/success/forgot_auth_reset_success_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app/routes/route.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         Routes.forgot: (_) => const ForgotScreen(),
         Routes.forgotAuth: (_) => const ForgotAuthScreen(),
         Routes.reset: (_) => const ForgotAuthResetScreen(),
+        Routes.resetSuccess: (_) => const ForgotAuthResetSuccessScreen()
       },
     );
   }

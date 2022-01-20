@@ -1,15 +1,18 @@
-import 'package:aallithioo/src/app/routes/route.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/textalign.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_blur.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import '../../../../../app/routes/route.dart';
+
+import '../../../../../app/themes/color.dart';
+import '../../../../../app/themes/fontweight.dart';
+import '../../../../../app/themes/size.dart';
+import '../../../../../app/themes/textalign.dart';
+import '../../../../../app/themes/theme.dart';
+
+import '../../../../../app/widgets/custom_blur.dart';
+import '../../../../../app/widgets/custom_border.dart';
+import '../../../../../app/widgets/custom_padding.dart';
+
 import 'package:flutter/material.dart';
 
-final TextEditingController emailController = TextEditingController();
+final TextEditingController tokenController = TextEditingController();
 
 class ForgotAuthBody extends StatelessWidget {
   const ForgotAuthBody({Key? key}) : super(key: key);
@@ -56,7 +59,7 @@ class ForgotAuthBody extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeSmall),
                 width: double.infinity,
                 child: TextFormField(
-                  controller: emailController,
+                  controller: tokenController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: kWhiteColorShade900,
@@ -98,7 +101,7 @@ class ForgotAuthBody extends StatelessWidget {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+                  Navigator.pushReplacementNamed(context, Routes.reset);
                 },
                 child: Text(
                   'Verify Account',
