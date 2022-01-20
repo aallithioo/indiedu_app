@@ -42,18 +42,16 @@ late String checkPasswordConfirmController =
 class _SignUpFormState extends State<SignUpForm> {
   @override
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   static bool isObscured = true;
 
   Future err() async {
-    if (nameController.text == "" || nameController.text.length >= 4) {
+    if (nameController.text == "" || nameController.text.length <= 4) {
       if (numberReg.hasMatch(checkNameController)) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Name is required!')!);
-      } else {
         return ScaffoldMessenger.of(context).showSnackBar(
             kSnackBar('Name must be atleast than 4 characters!')!);
+      } else {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Name is required!')!);
       }
     } else if (emailController.text == "") {
       return ScaffoldMessenger.of(context)
@@ -79,8 +77,11 @@ class _SignUpFormState extends State<SignUpForm> {
         passwordConfirmController.text != passwordController.text) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
+    } else if (isChecked == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('You need to agree the terms')!);
     } else {
-      Navigator.pushNamed(context, '/signup/auth');
+      Navigator.pushReplacementNamed(context, Routes.signUpAuth);
     }
   }
 
@@ -104,7 +105,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
                   width: double.infinity,
                   child: TextFormField(
-                    controller: emailController,
+                    controller: nameController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: kWhiteColorShade900,
@@ -136,6 +137,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
                   width: double.infinity,
                   child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     controller: emailController,
                     decoration: InputDecoration(
                       filled: true,
@@ -217,7 +219,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   child: TextFormField(
                     obscureText: isObscured,
                     obscuringCharacter: '•',
-                    controller: passwordController,
+                    controller: passwordConfirmController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: kWhiteColorShade900,
