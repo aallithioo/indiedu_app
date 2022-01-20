@@ -339,6 +339,35 @@ class _SignUpFormState extends State<SignUpForm> {
                 ),
               ),
             ),
+            // Option to create an account or forgot password
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Forgot password
+                Text(
+                  'Have an account? ',
+                  style: tooko.textTheme.button!.copyWith(
+                    fontSize: 12,
+                    fontWeight: kFontWeightLight,
+                  ),
+                ),
+                // Sign up
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signIn);
+                  },
+                  child: Text(
+                    'Sign In',
+                    style: tooko.textTheme.button!.copyWith(
+                      color: kBlueColorShade500,
+                      fontSize: 12,
+                      fontWeight: kFontWeightLight,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -400,9 +429,13 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ],
           ),
-          child: Padding(
-            padding: kPaddingAllLarge - const EdgeInsets.all(4),
-            child: Image.asset('assets/images/png/img_apple_logo.png'),
+          child: TextButton(
+            onPressed: () => ScaffoldMessenger.of(context)
+                .showSnackBar(kSnackBar('Kata sandi tidak boleh kosong!')!),
+            child: Padding(
+              padding: kPaddingAllLarge - const EdgeInsets.all(4),
+              child: Image.asset('assets/images/png/img_apple_logo.png'),
+            ),
           ),
         ),
       ],
