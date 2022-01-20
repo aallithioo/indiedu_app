@@ -10,7 +10,9 @@ class SignInSuccessBody extends StatelessWidget {
       child: Padding(
         padding: kPaddingSymetricHorizontalLarge,
         child: Column(
-          children: [],
+          children: [
+            // Size(width, height)
+          ],
         ),
       ),
     );
