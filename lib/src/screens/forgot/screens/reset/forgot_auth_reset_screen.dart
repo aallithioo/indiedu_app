@@ -1,3 +1,4 @@
+import 'widgets/forgot_auth_reset_body.dart';
 import 'package:flutter/material.dart';
 
 class ForgotAuthResetScreen extends StatelessWidget {
