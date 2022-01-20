@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 
 final TextEditingController emailController = TextEditingController();
 
-class ForgotBody extends StatelessWidget {
-  const ForgotBody({Key? key}) : super(key: key);
+class ForgotAuthBody extends StatelessWidget {
+  const ForgotAuthBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ForgotBody extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(0, kSizeMedium, 0, 0),
               child: Text(
-                'Find your account',
+                'Verify your account',
                 style: tooko.textTheme.headline5!.copyWith(
                   color: kGreyColorShade900,
                   fontWeight: kFontWeightSemiBold,
@@ -45,7 +45,7 @@ class ForgotBody extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeSmall),
               padding: kPaddingSymetricHorizontalMedium,
               child: Text(
-                'Please enter your email and we will send you code.',
+                'Please enter your verification code to reset password.',
                 style: tooko.textTheme.bodyText1!.copyWith(),
                 textAlign: kTextAlignCenter,
               ),
@@ -60,7 +60,7 @@ class ForgotBody extends StatelessWidget {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: kWhiteColorShade900,
-                    hintText: 'Email Address',
+                    hintText: 'Verification Code',
                     hintStyle: tooko.textTheme.bodyText1!.copyWith(
                       color: kGreyColorShade300,
                       fontWeight: kFontWeightLight,
@@ -101,10 +101,20 @@ class ForgotBody extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, Routes.forgotAuth);
                 },
                 child: Text(
-                  'Find Account',
+                  'Verify Account',
                   style: tooko.textTheme.button!.copyWith(
                     color: kWhiteColorShade900,
                   ),
+                ),
+              ),
+            ),
+            // Button
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Resend Verification Code',
+                style: tooko.textTheme.button!.copyWith(
+                  color: kBlueColorShade400,
                 ),
               ),
             ),
