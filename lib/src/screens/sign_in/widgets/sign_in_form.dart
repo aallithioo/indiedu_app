@@ -1,3 +1,4 @@
+import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:aallithioo/src/app/widgets/custom_blur.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -54,88 +55,169 @@ class _SignInFormState extends State<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Sign in with third party
+    return Center(
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Sign in with third party
+            buildThirdPartyButton(),
 
-          // Sign in with email
-          Column(
-            children: [
-              // Email Input
+            // Sign in with email
+            Column(
+              children: [
+                // Email Input
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
+                  width: double.infinity,
+                  child: TextFormField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: kWhiteColorShade900,
+                      hintText: 'Email Address',
+                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                        color: kGreyColorShade300,
+                        fontWeight: kFontWeightLight,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: kBorderRadiusSmall,
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: kBorderRadiusSmall,
+                        borderSide: BorderSide(
+                          color: kBlueColorShade400,
+                        ),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email_rounded,
+                        color: kGreyColorShade400,
+                      ),
+                    ),
+                    cursorColor: kBlueColorShade400,
+                  ),
+                ),
 
-              // Password Input
-            ],
-          ),
-          // Sign in button
-          Container(
-            margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
-            width: MediaQuery.of(context).size.width,
-            height: 60,
-            decoration: BoxDecoration(
-              borderRadius: kBorderRadiusSmall,
-              color: kBlueColorShade400,
-              boxShadow: [
-                BoxShadow(
-                  color: kWhiteColorShade800,
-                  blurRadius: kBlurRadiusHuge,
-                  offset: const Offset(0, 5),
+                // Password Input
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
+                  width: MediaQuery.of(context).size.width,
+                  child: TextFormField(
+                    obscureText: isObscured,
+                    obscuringCharacter: '•',
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: kWhiteColorShade900,
+                      hintText: 'Password',
+                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                        color: kGreyColorShade300,
+                        fontWeight: kFontWeightLight,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: kBorderRadiusSmall,
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: kBorderRadiusSmall,
+                        borderSide: BorderSide(
+                          color: kBlueColorShade500,
+                        ),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.vpn_key_rounded,
+                        color: kGreyColorShade400,
+                      ),
+                      suffixIcon: IconButton(
+                        color: kGreyColorShade400,
+                        icon: Icon(
+                          isObscured ? Icons.visibility : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          setState(
+                            () {
+                              isObscured = !isObscured;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    cursorColor: kBlueColorShade500,
+                  ),
                 ),
               ],
             ),
-            child: TextButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  // KeyboardUtil.hideKeyboard(context);
-                  Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-                }
-              },
-              child: Text(
-                'Let\'s Go',
-                style: tooko.textTheme.button!.copyWith(
-                  color: kWhiteColorShade900,
+            // Sign in button
+            Container(
+              margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
+              width: MediaQuery.of(context).size.width,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: kBorderRadiusSmall,
+                color: kBlueColorShade400,
+                boxShadow: [
+                  BoxShadow(
+                    color: kWhiteColorShade800,
+                    blurRadius: kBlurRadiusHuge,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: TextButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    // KeyboardUtil.hideKeyboard(context);
+                    Navigator.pushReplacementNamed(
+                        context, Routes.signInSuccess);
+                  }
+                },
+                child: Text(
+                  'Let\'s Go',
+                  style: tooko.textTheme.button!.copyWith(
+                    color: kWhiteColorShade900,
+                  ),
                 ),
               ),
             ),
-          ),
-          // Option to create an account or forgot password
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Forgot password
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot Password?',
-                  style: tooko.textTheme.button!.copyWith(
-                    color: kBlueColorShade400,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
+            // Option to create an account or forgot password
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Forgot password
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot Password?',
+                    style: tooko.textTheme.button!.copyWith(
+                      color: kBlueColorShade400,
+                      fontSize: 12,
+                      fontWeight: kFontWeightLight,
+                    ),
                   ),
                 ),
-              ),
-              // Sign up
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.signUp);
-                },
-                child: Text(
-                  'Create Account',
-                  style: tooko.textTheme.button!.copyWith(
-                    color: kBlueColorShade400,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
+                // Sign up
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signUp);
+                  },
+                  child: Text(
+                    'Create Account',
+                    style: tooko.textTheme.button!.copyWith(
+                      color: kBlueColorShade400,
+                      fontSize: 12,
+                      fontWeight: kFontWeightLight,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -343,38 +425,4 @@ class _SignInFormState extends State<SignInForm> {
       ],
     );
   }
-}
-
-buildEmailFormField() {
-  Container(
-    margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
-    width: double.infinity,
-    child: TextFormField(
-      controller: emailController,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: kWhiteColorShade900,
-        hintText: 'Email Address',
-        hintStyle: tooko.textTheme.bodyText1!.copyWith(
-          color: kGreyColorShade300,
-          fontWeight: FontWeight.w300,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: kBorderRadiusSmall,
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: kBorderRadiusSmall,
-          borderSide: BorderSide(
-            color: kBlueColorShade400,
-          ),
-        ),
-        prefixIcon: Icon(
-          Icons.email_rounded,
-          color: kGreyColorShade400,
-        ),
-      ),
-      cursorColor: kBlueColorShade400,
-    ),
-  );
 }
