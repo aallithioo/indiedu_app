@@ -52,15 +52,17 @@ class _SignInFormState extends State<SignInForm> {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is required!')!);
     } else if (emailController.text.isNotEmpty &&
-        passwordController.text.isNotEmpty) {
-      if (_formKey.currentState!.validate()) {
-        _formKey.currentState!.save();
-        // KeyboardUtil.hideKeyboard(context);
-        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-      }
-    } else {
+        emailController.text.contains('@') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (passwordController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
+    } else {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      }
     }
   }
 
@@ -179,11 +181,11 @@ class _SignInFormState extends State<SignInForm> {
               ),
               child: TextButton(
                 onPressed: (emailController.text.isNotEmpty &&
+                        emailController.text.contains('@') &&
                         passwordController.text.isNotEmpty)
                     ? () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          // KeyboardUtil.hideKeyboard(context);
                           Navigator.pushReplacementNamed(
                               context, Routes.signInSuccess);
                         }
