@@ -10,7 +10,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: kAppBar('Sign In'),
-      body: SignInBody(),
+      body: const SignInBody(),
     );
   }
 }

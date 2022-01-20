@@ -26,6 +26,7 @@ class _SignUpFormState extends State<SignUpForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Third party login
           // Name
           Container(
             margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
@@ -184,6 +185,7 @@ class _SignUpFormState extends State<SignUpForm> {
               cursorColor: kBlueColorShade500,
             ),
           ),
+          // Button
         ],
       ),
     );
