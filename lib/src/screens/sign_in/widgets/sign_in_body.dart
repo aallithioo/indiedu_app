@@ -1,12 +1,14 @@
-import 'package:aallithioo/src/app/no_account_text.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/textalign.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
-import 'package:aallithioo/src/screens/sign_in/widgets/sign_in_form.dart';
+import '../../../app/themes/color.dart';
+import '../../../app/themes/fontweight.dart';
+import '../../../app/themes/size.dart';
+import '../../../app/themes/textalign.dart';
+import '../../../app/themes/theme.dart';
+
+import '../../../app/widgets/custom_padding.dart';
+import '../../../app/widgets/custom_sizebox.dart';
+
+import 'sign_in_form.dart';
+
 import 'package:flutter/material.dart';
 
 class SignInBody extends StatelessWidget {
@@ -51,7 +53,7 @@ class SignInBody extends StatelessWidget {
                   ),
                 ),
                 kSizeBoxVerticalSmall,
-                SignInForm(),
+                const SignInForm(),
                 kSizeBoxVerticalLarge,
                 Text(
                   '\u00a9 2022 tooko, All rights reserved.',
