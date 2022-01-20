@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 double kSizeTiny = 8.0;
 double kSizeSmall = 16.0;
 double kSizeMedium = 24.0;

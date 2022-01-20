@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../themes/color.dart';
 import '../themes/theme.dart';
 
 AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
@@ -18,7 +17,7 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: const [
             // IconButton(
             //   icon: firstIcon ??
             //       Icon(
