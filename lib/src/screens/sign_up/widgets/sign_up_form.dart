@@ -1,3 +1,4 @@
+import 'package:aallithioo/src/app/routes/route.dart';
 import 'package:aallithioo/src/app/themes/color.dart';
 import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:aallithioo/src/app/themes/size.dart';
@@ -197,6 +198,41 @@ class _SignUpFormState extends State<SignUpForm> {
               ],
             ),
             // Button
+            Container(
+              margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
+              width: MediaQuery.of(context).size.width,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: kBorderRadiusSmall,
+                color: kBlueColorShade400,
+                boxShadow: [
+                  BoxShadow(
+                    color: kWhiteColorShade800,
+                    blurRadius: kBlurRadiusHuge,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: TextButton(
+                onPressed: (emailController.text.isNotEmpty &&
+                        emailController.text.contains('@') &&
+                        passwordController.text.isNotEmpty)
+                    ? () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          Navigator.pushReplacementNamed(
+                              context, Routes.signUpAuth);
+                        }
+                      }
+                    : err,
+                child: Text(
+                  'Let\'s Go',
+                  style: tooko.textTheme.button!.copyWith(
+                    color: kWhiteColorShade900,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
