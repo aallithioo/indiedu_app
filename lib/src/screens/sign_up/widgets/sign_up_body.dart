@@ -21,7 +21,7 @@ class SignUpBody extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                kSizeBoxHorizontalMedium,
+                kSizeBoxVerticalMedium,
                 // Logo
                 SizedBox(
                   width: 100,
@@ -51,6 +51,14 @@ class SignUpBody extends StatelessWidget {
                 ),
                 kSizeBoxVerticalSmall,
                 const SignUpForm(),
+                kSizeBoxVerticalLarge,
+                Text(
+                  '\u00a9 2022 tooko, All rights reserved.',
+                  style: tooko.textTheme.caption!.copyWith(
+                    color: kGreyColorShade300,
+                  ),
+                ),
+                kSizeBoxVerticalMedium,
               ],
             ),
           ),

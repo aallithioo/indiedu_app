@@ -6,6 +6,8 @@ import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:aallithioo/src/app/widgets/custom_blur.dart';
 import 'package:aallithioo/src/app/widgets/custom_border.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -17,12 +19,70 @@ class SignUpForm extends StatefulWidget {
   State<SignUpForm> createState() => _SignUpFormState();
 }
 
+bool isChecked = false;
+bool? isMatch;
+double passwordStrength = 0.0;
+String? passwordHint;
+var requiredData = const Text(' *', style: TextStyle(color: Colors.red));
+RegExp numberReg = RegExp(r'.*[0-9].*');
+RegExp letterReg = RegExp(r'.*[A-Za-z].*');
+final TextEditingController nameController = TextEditingController();
+final TextEditingController emailController = TextEditingController();
+final TextEditingController phoneController = TextEditingController();
+final TextEditingController passwordController = TextEditingController();
+final TextEditingController passwordConfirmController = TextEditingController();
+late String password;
+late String checkNameController = nameController.text.trim();
+late String checkEmailController = emailController.text.trim();
+late String checkPhoneController = phoneController.text.trim();
+late String checkPasswordController = passwordController.text.trim();
+late String checkPasswordConfirmController =
+    passwordConfirmController.text.trim();
+
 class _SignUpFormState extends State<SignUpForm> {
   @override
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   static bool isObscured = true;
+
+  Future err() async {
+    if (nameController.text == "" || nameController.text.length >= 4) {
+      if (numberReg.hasMatch(checkNameController)) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Nama tidak boleh mengandung angka!')!);
+      } else {
+        return ScaffoldMessenger.of(context).showSnackBar(
+            kSnackBar('Nama harus diisi dan minimal 5 karakter!')!);
+      }
+    } else if (emailController.text == "") {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Alamat email harus diisi!')!);
+    } else if (passwordController.text == "") {
+      if (checkPasswordController.isEmpty) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Kata sandi wajib diisi!')!);
+      } else if (checkPasswordController.length <= 8) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Kata sandi minimal 5 karakter!')!);
+      } else if (numberReg.hasMatch(checkPasswordController)) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Kata sandi harus mengandung angka!')!);
+      } else if (letterReg.hasMatch(checkPasswordController)) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Kata sandi harus mengandung huruf!')!);
+      } else {
+        return ScaffoldMessenger.of(context).showSnackBar(
+            kSnackBar('Kata sandi harus mengandung angka dan huruf!')!);
+      }
+    } else if (passwordConfirmController.text == "" &&
+        passwordConfirmController.text != passwordController.text) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Kata sandi tidak boleh kosong!')!);
+    } else {
+      Navigator.pushNamed(context, '/signup/auth');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +96,8 @@ class _SignUpFormState extends State<SignUpForm> {
             // Third party login
             buildThirdPartyButton(),
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Name
                 Container(
@@ -197,6 +259,50 @@ class _SignUpFormState extends State<SignUpForm> {
                 ),
               ],
             ),
+            kSizeBoxVerticalSmall,
+            // Checkbox
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Checkbox(
+                  value: isChecked,
+                  checkColor: kGreyColorShade50,
+                  side: BorderSide(
+                    color: kGreyColorShade400,
+                  ),
+                  fillColor: MaterialStateProperty.all(kBlueColorShade400),
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = !isChecked;
+                    });
+                  },
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'I agree to the',
+                      style: tooko.textTheme.bodyText1!.copyWith(
+                        color: kGreyColorShade500,
+                        fontSize: kSizeSmall - 4,
+                        fontWeight: kFontWeightLight,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Terms of Service',
+                        style: tooko.textTheme.bodyText1!.copyWith(
+                          color: kBlueColorShade400,
+                          fontSize: kSizeSmall - 4,
+                          fontWeight: kFontWeightLight,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
             // Button
             Container(
               margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, 0),
@@ -226,7 +332,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       }
                     : err,
                 child: Text(
-                  'Let\'s Go',
+                  'Join Now',
                   style: tooko.textTheme.button!.copyWith(
                     color: kWhiteColorShade900,
                   ),
@@ -295,7 +401,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ],
           ),
           child: Padding(
-            padding: kPaddingAllMedium,
+            padding: kPaddingAllLarge - const EdgeInsets.all(4),
             child: Image.asset('assets/images/png/img_apple_logo.png'),
           ),
         ),
