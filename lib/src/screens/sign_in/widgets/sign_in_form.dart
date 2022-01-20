@@ -206,7 +206,9 @@ class _SignInFormState extends State<SignInForm> {
               children: [
                 // Forgot password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.forgot);
+                  },
                   child: Text(
                     'Forgot Password?',
                     style: tooko.textTheme.button!.copyWith(
