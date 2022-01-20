@@ -30,22 +30,22 @@ class _SignInFormState extends State<SignInForm> {
   final List<String?> errors = [];
 
   // Add error messages to the errors list
-  void addError({String? error}) {
-    if (!errors.contains(error)) {
-      setState(() {
-        errors.add(error);
-      });
-    }
-  }
+  // void addError({String? error}) {
+  //   if (!errors.contains(error)) {
+  //     setState(() {
+  //       errors.add(error);
+  //     });
+  //   }
+  // }
 
   // Remove error messages from the errors list
-  void removeError({String? error}) {
-    if (errors.contains(error)) {
-      setState(() {
-        errors.remove(error);
-      });
-    }
-  }
+  // void removeError({String? error}) {
+  //   if (errors.contains(error)) {
+  //     setState(() {
+  //       errors.remove(error);
+  //     });
+  //   }
+  // }
 
   Future err() async {
     if (emailController.text.isEmpty) {
@@ -235,31 +235,6 @@ class _SignInFormState extends State<SignInForm> {
       ),
     );
   }
-
-  // Container(
-  //   width: MediaQuery.of(context).size.width,
-  //   height: 60,
-  //   decoration: BoxDecoration(
-  //     color: kBlueColorShade400,
-  //     borderRadius: kBorderRadiusTiny,
-  //   ),
-  //   child: TextButton(
-  //     onPressed: () {
-  //       if (_formKey.currentState!.validate()) {
-  //         _formKey.currentState!.save();
-  //         // KeyboardUtil.hideKeyboard(context);
-  //         Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-  //       }
-  //     },
-  //     child: Text(
-  //       'Continue',
-  //       style: tooko.textTheme.button!.copyWith(
-  //         color: kGreyColorShade50,
-  //       ),
-  //     ),
-  //   ),
-  // ),
-  // ------------------------------------------------------------
 
 //   TextFormField buildEmailFormField() {
 //     return TextFormField(
