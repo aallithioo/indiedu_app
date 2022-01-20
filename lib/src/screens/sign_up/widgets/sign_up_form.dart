@@ -320,15 +320,20 @@ class _SignUpFormState extends State<SignUpForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: (emailController.text.isNotEmpty &&
-                        emailController.text.contains('@') &&
-                        passwordController.text.isNotEmpty)
+                onPressed: (checkNameController.isNotEmpty &&
+                            numberReg.hasMatch(checkNameController)) &&
+                        checkEmailController.isNotEmpty &&
+                        (checkPasswordController.isNotEmpty &&
+                            numberReg.hasMatch(checkPasswordController) &&
+                            letterReg.hasMatch(checkPasswordController) &&
+                            (checkPasswordController.length <= 8)) &&
+                        checkPasswordConfirmController.isNotEmpty &&
+                        (passwordConfirmController.text ==
+                            passwordController.text) &&
+                        isChecked == true
                     ? () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          Navigator.pushReplacementNamed(
-                              context, Routes.signUpAuth);
-                        }
+                        Navigator.pushReplacementNamed(
+                            context, Routes.signUpAuth);
                       }
                     : err,
                 child: Text(
