@@ -1,3 +1,4 @@
+import '../../widgets/forgot_body.dart';
 import 'package:flutter/material.dart';
 
 class ForgotAuthScreen extends StatelessWidget {
