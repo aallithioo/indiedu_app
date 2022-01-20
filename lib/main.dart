@@ -5,6 +5,7 @@ import 'src/app/routes/route.dart';
 import 'src/screens/intro/intro_screen.dart';
 import 'src/screens/sign_in/screens/success/sign_in_success_screen.dart';
 import 'src/screens/sign_in/sign_in_screen.dart';
+import 'src/screens/sign_up/screens/success/sign_up_auth_success_screen.dart';
 import 'src/screens/sign_up/screens/auth/sign_up_auth_screen.dart';
 import 'src/screens/sign_up/sign_up_screen.dart';
 import 'src/screens/splash/splash_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         Routes.signInSuccess: (_) => const SignInSuccessScreen(),
         Routes.signUp: (_) => const SignUpScreen(),
         Routes.signUpAuth: (_) => const SignUpAuthScreen(),
+        Routes.signUpSuccess: (_) => const SignUpSuccessScreen(),
       },
     );
   }
