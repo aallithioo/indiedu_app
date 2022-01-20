@@ -5,6 +5,8 @@ class SignUpBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea();
+    return SafeArea(
+      child: Column(),
+    );
   }
 }

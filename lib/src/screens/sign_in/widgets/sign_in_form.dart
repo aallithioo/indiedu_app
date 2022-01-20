@@ -27,7 +27,7 @@ class _SignInFormState extends State<SignInForm> {
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   static bool isObscured = true;
-  final List<String?> errors = [];
+  // final List<String?> errors = [];
 
   // Add error messages to the errors list
   // void addError({String? error}) {
