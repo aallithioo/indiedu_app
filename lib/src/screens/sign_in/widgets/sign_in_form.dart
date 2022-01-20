@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+
 import '../../../app/widgets/custom_blur.dart';
 import '../../../app/widgets/custom_padding.dart';
 import '../../../app/widgets/custom_border.dart';
@@ -20,10 +22,9 @@ class SignInForm extends StatefulWidget {
   _SignInFormState createState() => _SignInFormState();
 }
 
-final TextEditingController emailController = TextEditingController();
-final TextEditingController passwordController = TextEditingController();
-
 class _SignInFormState extends State<SignInForm> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   static bool isObscured = true;
   final List<String?> errors = [];
@@ -43,6 +44,23 @@ class _SignInFormState extends State<SignInForm> {
       setState(() {
         errors.remove(error);
       });
+    }
+  }
+
+  Future err() async {
+    if (emailController.text.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is required!')!);
+    } else if (emailController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty) {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        // KeyboardUtil.hideKeyboard(context);
+        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      }
+    } else {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password is required!')!);
     }
   }
 
@@ -160,14 +178,17 @@ class _SignInFormState extends State<SignInForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // KeyboardUtil.hideKeyboard(context);
-                    Navigator.pushReplacementNamed(
-                        context, Routes.signInSuccess);
-                  }
-                },
+                onPressed: (emailController.text.isNotEmpty &&
+                        passwordController.text.isNotEmpty)
+                    ? () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          // KeyboardUtil.hideKeyboard(context);
+                          Navigator.pushReplacementNamed(
+                              context, Routes.signInSuccess);
+                        }
+                      }
+                    : err,
                 child: Text(
                   'Let\'s Go',
                   style: tooko.textTheme.button!.copyWith(
