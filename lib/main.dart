@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
         Routes.signUpAuth: (_) => const SignUpAuthScreen(),
         Routes.signUpSuccess: (_) => const SignUpSuccessScreen(),
         Routes.forgot: (_) => const ForgotScreen(),
-        Routes.forgotAuth: (_) => const ForgotAuthScreen()
+        Routes.forgotAuth: (_) => const ForgotAuthScreen(),
+        Routes.reset: (_) => const ForgotAuthScreen(),
       },
     );
   }

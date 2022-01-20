@@ -1,13 +1,13 @@
-import 'package:aallithioo/src/app/routes/route.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/textalign.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_blur.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+import '../../../../../app/routes/route.dart';
+import '../../../../../app/themes/color.dart';
+import '../../../../../app/themes/fontweight.dart';
+import '../../../../../app/themes/size.dart';
+import '../../../../../app/themes/textalign.dart';
+import '../../../../../app/themes/theme.dart';
+import '../../../../../app/widgets/custom_blur.dart';
+import '../../../../../app/widgets/custom_border.dart';
+import '../../../../../app/widgets/custom_padding.dart';
+import '../../../../../app/widgets/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 
 class ForgotAuthResetBody extends StatefulWidget {
@@ -215,7 +215,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+                  Navigator.pushReplacementNamed(context, Routes.resetSuccess);
                 },
                 child: Text(
                   'Change Password',
