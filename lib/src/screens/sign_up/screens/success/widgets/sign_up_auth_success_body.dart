@@ -1,3 +1,4 @@
+import 'package:aallithioo/src/app/routes/route.dart';
 import 'package:aallithioo/src/app/themes/color.dart';
 import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:aallithioo/src/app/themes/size.dart';
@@ -59,9 +60,11 @@ class SignUpAuthSuccessBody extends StatelessWidget {
                   borderRadius: kBorderRadiusTiny,
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signIn);
+                  },
                   child: Text(
-                    'Continue',
+                    'Sign In Now',
                     style: tooko.textTheme.button!.copyWith(
                       color: kGreyColorShade50,
                     ),
