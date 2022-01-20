@@ -1,3 +1,4 @@
+import 'package:aallithioo/src/screens/forgot/forgot_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app/routes/route.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         Routes.signUp: (_) => const SignUpScreen(),
         Routes.signUpAuth: (_) => const SignUpAuthScreen(),
         Routes.signUpSuccess: (_) => const SignUpSuccessScreen(),
+        Routes.forgot: (_) => const ForgotScreen(),
       },
     );
   }

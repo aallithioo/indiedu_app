@@ -33,7 +33,7 @@ class ForgotBody extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(0, kSizeMedium, 0, 0),
               child: Text(
-                'Verify your account',
+                'Find your account',
                 style: tooko.textTheme.headline5!.copyWith(
                   color: kGreyColorShade900,
                   fontWeight: kFontWeightSemiBold,
@@ -45,7 +45,7 @@ class ForgotBody extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeSmall),
               padding: kPaddingSymetricHorizontalMedium,
               child: Text(
-                'Please enter your verification code to continue.',
+                'Please enter your email and we will send you code.',
                 style: tooko.textTheme.bodyText1!.copyWith(),
                 textAlign: kTextAlignCenter,
               ),
@@ -60,7 +60,7 @@ class ForgotBody extends StatelessWidget {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: kWhiteColorShade900,
-                    hintText: 'Verification Code',
+                    hintText: 'Email Address',
                     hintStyle: tooko.textTheme.bodyText1!.copyWith(
                       color: kGreyColorShade300,
                       fontWeight: kFontWeightLight,
@@ -98,10 +98,10 @@ class ForgotBody extends StatelessWidget {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.signUpSuccess);
+                  Navigator.pushReplacementNamed(context, Routes.forgotAuth);
                 },
                 child: Text(
-                  'Verify Account',
+                  'Find Account',
                   style: tooko.textTheme.button!.copyWith(
                     color: kWhiteColorShade900,
                   ),
@@ -110,9 +110,7 @@ class ForgotBody extends StatelessWidget {
             ),
             // Button
             TextButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, Routes.signUpSuccess);
-              },
+              onPressed: () {},
               child: Text(
                 'Resend Verification Code',
                 style: tooko.textTheme.button!.copyWith(
