@@ -50,35 +50,35 @@ class _SignUpFormState extends State<SignUpForm> {
     if (nameController.text == "" || nameController.text.length >= 4) {
       if (numberReg.hasMatch(checkNameController)) {
         return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Nama tidak boleh mengandung angka!')!);
+            .showSnackBar(kSnackBar('Name is required!')!);
       } else {
         return ScaffoldMessenger.of(context).showSnackBar(
-            kSnackBar('Nama harus diisi dan minimal 5 karakter!')!);
+            kSnackBar('Name must be atleast than 4 characters!')!);
       }
     } else if (emailController.text == "") {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Alamat email harus diisi!')!);
+          .showSnackBar(kSnackBar('Address is required!')!);
     } else if (passwordController.text == "") {
       if (checkPasswordController.isEmpty) {
         return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Kata sandi wajib diisi!')!);
+            .showSnackBar(kSnackBar('Password is required!')!);
       } else if (checkPasswordController.length <= 8) {
         return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Kata sandi minimal 5 karakter!')!);
+            .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
       } else if (numberReg.hasMatch(checkPasswordController)) {
         return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Kata sandi harus mengandung angka!')!);
+            .showSnackBar(kSnackBar('Password must be contain number!')!);
       } else if (letterReg.hasMatch(checkPasswordController)) {
         return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Kata sandi harus mengandung huruf!')!);
+            .showSnackBar(kSnackBar('Password must be contain letter!')!);
       } else {
         return ScaffoldMessenger.of(context).showSnackBar(
-            kSnackBar('Kata sandi harus mengandung angka dan huruf!')!);
+            kSnackBar('Password must be contain number and letter!')!);
       }
     } else if (passwordConfirmController.text == "" &&
         passwordConfirmController.text != passwordController.text) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Kata sandi tidak boleh kosong!')!);
+          .showSnackBar(kSnackBar('Password is required!')!);
     } else {
       Navigator.pushNamed(context, '/signup/auth');
     }
