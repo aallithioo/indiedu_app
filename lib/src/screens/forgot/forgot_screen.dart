@@ -8,7 +8,9 @@ class ForgotScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: ForgotBody(),
+      body: Center(
+        child: ForgotBody(),
+      ),
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'package:aallithioo/src/screens/forgot/screens/reset/forgot_auth_reset_screen.dart';
-import 'package:aallithioo/src/screens/forgot/screens/success/forgot_auth_reset_success_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app/routes/route.dart';
@@ -12,6 +10,8 @@ import 'src/screens/sign_up/screens/auth/sign_up_auth_screen.dart';
 import 'src/screens/sign_up/sign_up_screen.dart';
 import 'src/screens/forgot/forgot_screen.dart';
 import 'src/screens/forgot/screens/auth/forgot_auth_screen.dart';
+import 'src/screens/forgot/screens/reset/forgot_auth_reset_screen.dart';
+import 'src/screens/forgot/screens/success/forgot_auth_reset_success_screen.dart';
 import 'src/screens/splash/splash_screen.dart';
 
 void main() => runApp(const MyApp());
