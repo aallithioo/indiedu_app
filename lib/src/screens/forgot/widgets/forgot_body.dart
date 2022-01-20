@@ -108,16 +108,6 @@ class ForgotBody extends StatelessWidget {
                 ),
               ),
             ),
-            // Button
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                'Resend Verification Code',
-                style: tooko.textTheme.button!.copyWith(
-                  color: kBlueColorShade400,
-                ),
-              ),
-            ),
           ],
         ),
       ),
