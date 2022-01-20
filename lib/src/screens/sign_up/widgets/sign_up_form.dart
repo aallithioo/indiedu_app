@@ -433,7 +433,7 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () => ScaffoldMessenger.of(context)
                 .showSnackBar(kSnackBar('Kata sandi tidak boleh kosong!')!),
             child: Padding(
-              padding: kPaddingAllLarge - const EdgeInsets.all(4),
+              padding: kPaddingAllMedium,
               child: Image.asset('assets/images/png/img_apple_logo.png'),
             ),
           ),
