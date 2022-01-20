@@ -9,10 +9,18 @@ class SignInSuccessBody extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: kPaddingSymetricHorizontalLarge,
-        child: Column(
-          children: [
-            // Size(width, height)
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 200,
+                height: 200,
+                child: Image.asset('assets/images/png/img_dummy_0.png'),
+              ),
+            ],
+          ),
         ),
       ),
     );
