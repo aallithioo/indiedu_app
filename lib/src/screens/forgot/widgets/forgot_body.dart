@@ -25,21 +25,16 @@ class ForgotBody extends StatefulWidget {
 
 class _ForgotBodyState extends State<ForgotBody> {
   Future err() async {
-    if (emailController.text == "") {
-      if (checkEmailController.isEmpty) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Email is required!')!);
-      } else if (checkEmailController.contains('@') == false) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Email is invalid!')!);
-      }
-    } else if (checkEmailController.contains('.') == false) {
+    if (checkEmailController.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is required!')!);
+    } else if (emailController.text.contains('@') == false &&
+        emailController.text.contains('.') == false) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is invalid!')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.forgotAuth);
     }
-    Navigator.pushReplacementNamed(context, Routes.forgotAuth);
   }
 
   @override
