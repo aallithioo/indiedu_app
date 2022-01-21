@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 
 final TextEditingController tokenController = TextEditingController();
 final String checkTokenController = tokenController.text.trim();
+RegExp numberReg = RegExp(r'.*[0-9].*');
 
 class ForgotAuthBody extends StatefulWidget {
   const ForgotAuthBody({Key? key}) : super(key: key);
@@ -26,16 +27,17 @@ class ForgotAuthBody extends StatefulWidget {
 
 class _ForgotAuthBodyState extends State<ForgotAuthBody> {
   Future err() async {
-    if (tokenController.text == "") {
-      if (checkTokenController.isEmpty) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Code is required!')!);
-      } else if (checkTokenController.length != 6) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Code is required!')!);
-      } else {
-        Navigator.pushReplacementNamed(context, Routes.resetSuccess);
-      }
+    if (checkTokenController == "") {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Code is required!')!);
+    } else if (checkTokenController.length != 6) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Code is invalid!')!);
+    } else if (!numberReg.hasMatch(checkTokenController)) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Code is invalid!')!);
+    } else {
+      Navigator.pushReplacementNamed(context, Routes.resetSuccess);
     }
   }
 
