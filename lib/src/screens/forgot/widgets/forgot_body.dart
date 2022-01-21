@@ -1,5 +1,3 @@
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-
 import '../../../app/routes/route.dart';
 
 import '../../../app/themes/color.dart';
@@ -8,6 +6,7 @@ import '../../../app/themes/size.dart';
 import '../../../app/themes/textalign.dart';
 import '../../../app/themes/theme.dart';
 
+import '../../../app/widgets/custom_snackbar.dart';
 import '../../../app/widgets/custom_blur.dart';
 import '../../../app/widgets/custom_border.dart';
 import '../../../app/widgets/custom_padding.dart';
@@ -30,10 +29,17 @@ class _ForgotBodyState extends State<ForgotBody> {
       if (checkEmailController.isEmpty) {
         return ScaffoldMessenger.of(context)
             .showSnackBar(kSnackBar('Email is required!')!);
-      } else {
-        Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+      } else if (checkEmailController.contains('@') == false) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Email is invalid!')!);
       }
+    } else if (checkEmailController.contains('.') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else {
+      Navigator.pushReplacementNamed(context, Routes.forgotAuth);
     }
+    Navigator.pushReplacementNamed(context, Routes.forgotAuth);
   }
 
   @override
@@ -121,7 +127,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (emailController.text == "")
+                    onPressed: (emailController.text == '')
                         ? err
                         : () {
                             Navigator.pushReplacementNamed(
