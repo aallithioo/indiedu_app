@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+
 import '../../../app/routes/route.dart';
 
 import '../../../app/themes/color.dart';
@@ -13,9 +15,26 @@ import '../../../app/widgets/custom_padding.dart';
 import 'package:flutter/material.dart';
 
 final TextEditingController emailController = TextEditingController();
+final String checkEmailController = emailController.text.trim();
 
-class ForgotBody extends StatelessWidget {
+class ForgotBody extends StatefulWidget {
   const ForgotBody({Key? key}) : super(key: key);
+
+  @override
+  State<ForgotBody> createState() => _ForgotBodyState();
+}
+
+class _ForgotBodyState extends State<ForgotBody> {
+  Future err() async {
+    if (emailController.text == "") {
+      if (checkEmailController.isEmpty) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Email is required!')!);
+      } else {
+        Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +121,12 @@ class ForgotBody extends StatelessWidget {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, Routes.forgotAuth);
-                    },
+                    onPressed: (emailController.text == "")
+                        ? err
+                        : () {
+                            Navigator.pushReplacementNamed(
+                                context, Routes.forgotAuth);
+                          },
                     child: Text(
                       'Find Account',
                       style: tooko.textTheme.button!.copyWith(
