@@ -124,7 +124,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (tokenController.text == "" &&
+                    onPressed: (tokenController.text == "" ||
                             checkTokenController.length != 6)
                         ? err
                         : () {
