@@ -35,6 +35,7 @@ class _ForgotBodyState extends State<ForgotBody> {
     } else {
       Navigator.pushReplacementNamed(context, Routes.forgotAuth);
     }
+    Navigator.pushReplacementNamed(context, Routes.forgotAuth);
   }
 
   @override
@@ -122,7 +123,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (emailController.text == '')
+                    onPressed: (checkEmailController.isEmpty)
                         ? err
                         : () {
                             Navigator.pushReplacementNamed(

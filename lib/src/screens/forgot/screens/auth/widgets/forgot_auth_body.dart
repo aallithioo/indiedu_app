@@ -1,5 +1,3 @@
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-
 import '../../../../../app/routes/route.dart';
 
 import '../../../../../app/themes/color.dart';
@@ -8,6 +6,7 @@ import '../../../../../app/themes/size.dart';
 import '../../../../../app/themes/textalign.dart';
 import '../../../../../app/themes/theme.dart';
 
+import '../../../../../app/widgets/custom_snackbar.dart';
 import '../../../../../app/widgets/custom_blur.dart';
 import '../../../../../app/widgets/custom_border.dart';
 import '../../../../../app/widgets/custom_padding.dart';
@@ -27,18 +26,17 @@ class ForgotAuthBody extends StatefulWidget {
 
 class _ForgotAuthBodyState extends State<ForgotAuthBody> {
   Future err() async {
-    if (checkTokenController == "") {
+    if (checkTokenController.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Code is required!')!);
-    } else if (checkTokenController.length != 6) {
-      return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Code is invalid!')!);
-    } else if (!numberReg.hasMatch(checkTokenController)) {
+    } else if (tokenController.text.length != 6 ||
+        !numberReg.hasMatch(tokenController.text)) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Code is invalid!')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.reset);
     }
+    Navigator.pushReplacementNamed(context, Routes.reset);
   }
 
   @override
@@ -127,8 +125,8 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (checkTokenController == "" ||
-                            checkTokenController.length != 6)
+                    onPressed: (checkTokenController.isEmpty &&
+                            tokenController.text.length != 6)
                         ? err
                         : () {
                             Navigator.pushReplacementNamed(
