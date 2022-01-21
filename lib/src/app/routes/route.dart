@@ -31,10 +31,10 @@ class Routes {
   static const home = '/app/home';
 
   // Favorites Screen
-  static const favorites = '/app/favorites';
+  static const myLearning = '/app/my_learning';
 
   // Messages Screen
-  static const message = '/app/message';
+  static const myQuiz = '/app/my_quiz';
 
   // Profile Screen
   static const profile = '/app/profile';
