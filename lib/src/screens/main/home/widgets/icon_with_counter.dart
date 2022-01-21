@@ -33,12 +33,36 @@ class IconButtonWithCounter extends StatelessWidget {
               color: kGreyColorShade50.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
-            child: SvgPicture.asset(
-              svgSrc,
-              height: kSizeSmall,
-              width: kSizeSmall,
-            ),
+            child: SvgPicture.asset(svgSrc),
           ),
+          if (numOfItem != 0)
+            Positioned(
+              top: -3,
+              right: 0,
+              child: Container(
+                height: kSizeSmall,
+                width: kSizeSmall,
+                decoration: BoxDecoration(
+                  color: kBlueColorShade200,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    width: 1.5,
+                    color: kGreyColorShade50,
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "$numOfItem",
+                    style: TextStyle(
+                      fontSize: kSizeTiny,
+                      height: 1,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
