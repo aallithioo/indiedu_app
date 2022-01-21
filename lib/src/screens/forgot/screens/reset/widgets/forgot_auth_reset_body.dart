@@ -219,7 +219,8 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                     onPressed: (passwordController.text != "" &&
                             passwordConfirmController.text != "" &&
                             passwordController.text ==
-                                passwordConfirmController.text)
+                                passwordConfirmController.text &&
+                            checkPasswordController.length > 8)
                         ? () {
                             Navigator.pushReplacementNamed(
                                 context, Routes.resetSuccess);
