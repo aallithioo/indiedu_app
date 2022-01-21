@@ -1,5 +1,4 @@
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-
+import '../../../app/widgets/custom_snackbar.dart';
 import '../../../app/widgets/custom_blur.dart';
 import '../../../app/widgets/custom_padding.dart';
 import '../../../app/widgets/custom_border.dart';
