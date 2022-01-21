@@ -1,5 +1,3 @@
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-
 import '../../../../../app/routes/route.dart';
 
 import '../../../../../app/themes/color.dart';
@@ -8,6 +6,7 @@ import '../../../../../app/themes/size.dart';
 import '../../../../../app/themes/textalign.dart';
 import '../../../../../app/themes/theme.dart';
 
+import '../../../../../app/widgets/custom_snackbar.dart';
 import '../../../../../app/widgets/custom_blur.dart';
 import '../../../../../app/widgets/custom_border.dart';
 import '../../../../../app/widgets/custom_padding.dart';
