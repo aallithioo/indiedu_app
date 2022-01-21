@@ -1,6 +1,11 @@
-import 'package:aallithioo/src/app/enums.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import '../enums.dart';
+
+import '../routes/route.dart';
+
+import '../themes/color.dart';
+
+import 'custom_padding.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -42,8 +47,10 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? kBlueColorShade400
                     : kBlueColorShade200,
               ),
-              onPressed: () =>
-                  Navigator.pushNamed(context, HomeScreen.routeName),
+              onPressed: () => Navigator.pushNamed(
+                context,
+                Routes.home,
+              ),
             ),
             IconButton(
               icon: SvgPicture.asset(
@@ -52,7 +59,10 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? kBlueColorShade400
                     : kBlueColorShade200,
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                Routes.myLearning,
+              ),
             ),
             IconButton(
               icon: SvgPicture.asset(
@@ -61,7 +71,10 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? kBlueColorShade400
                     : kBlueColorShade200,
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                Routes.myQuiz,
+              ),
             ),
             IconButton(
               icon: SvgPicture.asset(
@@ -70,8 +83,10 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? kBlueColorShade400
                     : kBlueColorShade200,
               ),
-              onPressed: () =>
-                  Navigator.pushNamed(context, ProfileScreen.routeName),
+              onPressed: () => Navigator.pushNamed(
+                context,
+                Routes.profile,
+              ),
             ),
           ],
         ),
