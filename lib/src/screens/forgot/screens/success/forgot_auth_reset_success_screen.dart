@@ -1,4 +1,4 @@
-import 'package:aallithioo/src/screens/forgot/screens/success/widgets/forgot_auth_reset_success_body.dart';
+import 'widgets/forgot_auth_reset_success_body.dart';
 import 'package:flutter/material.dart';
 
 class ForgotAuthResetSuccessScreen extends StatelessWidget {

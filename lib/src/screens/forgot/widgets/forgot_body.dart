@@ -1,18 +1,42 @@
-import 'package:aallithioo/src/app/routes/route.dart';
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/fontweight.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/themes/textalign.dart';
-import 'package:aallithioo/src/app/themes/theme.dart';
-import 'package:aallithioo/src/app/widgets/custom_blur.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import '../../../app/routes/route.dart';
+
+import '../../../app/themes/color.dart';
+import '../../../app/themes/fontweight.dart';
+import '../../../app/themes/size.dart';
+import '../../../app/themes/textalign.dart';
+import '../../../app/themes/theme.dart';
+
+import '../../../app/widgets/custom_snackbar.dart';
+import '../../../app/widgets/custom_blur.dart';
+import '../../../app/widgets/custom_border.dart';
+import '../../../app/widgets/custom_padding.dart';
+
 import 'package:flutter/material.dart';
 
 final TextEditingController emailController = TextEditingController();
+final String checkEmailController = emailController.text.trim();
 
-class ForgotBody extends StatelessWidget {
+class ForgotBody extends StatefulWidget {
   const ForgotBody({Key? key}) : super(key: key);
+
+  @override
+  State<ForgotBody> createState() => _ForgotBodyState();
+}
+
+class _ForgotBodyState extends State<ForgotBody> {
+  Future err() async {
+    if (checkEmailController.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is required!')!);
+    } else if (emailController.text.contains('@') == false &&
+        emailController.text.contains('.') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else {
+      Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+    }
+    Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,15 +123,28 @@ class ForgotBody extends StatelessWidget {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, Routes.forgotAuth);
-                    },
+                    onPressed: (checkEmailController.isEmpty)
+                        ? err
+                        : () {
+                            Navigator.pushReplacementNamed(
+                                context, Routes.forgotAuth);
+                          },
                     child: Text(
                       'Find Account',
                       style: tooko.textTheme.button!.copyWith(
                         color: kWhiteColorShade900,
                       ),
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signIn);
+                  },
+                  child: Text(
+                    'Back to Sign In',
+                    style: tooko.textTheme.button!.copyWith(
+                      color: kBlueColorShade400,
                     ),
                   ),
                 ),
