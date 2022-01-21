@@ -1,0 +1,81 @@
+import 'package:aallithioo/src/app/enums.dart';
+import 'package:aallithioo/src/app/themes/color.dart';
+import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({
+    Key? key,
+    required this.selectedMenu,
+  }) : super(key: key);
+
+  final MenuState selectedMenu;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: kPaddingSymetricVerticalSmall,
+      decoration: BoxDecoration(
+        color: kWhiteColorShade900,
+        boxShadow: [
+          BoxShadow(
+            color: kGreyColorShade50.withOpacity(0.15),
+            blurRadius: 10,
+            spreadRadius: 5,
+          ),
+        ],
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(40),
+          topRight: Radius.circular(40),
+        ),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/svg/Shop Icon.svg",
+                color: MenuState.home == selectedMenu
+                    ? kBlueColorShade400
+                    : kBlueColorShade200,
+              ),
+              onPressed: () =>
+                  Navigator.pushNamed(context, HomeScreen.routeName),
+            ),
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/svg/Heart Icon.svg",
+                color: MenuState.myLearning == selectedMenu
+                    ? kBlueColorShade400
+                    : kBlueColorShade200,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/svg/Chat bubble Icon.svg",
+                color: MenuState.myQuiz == selectedMenu
+                    ? kBlueColorShade400
+                    : kBlueColorShade200,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/User Icon.svg",
+                color: MenuState.profile == selectedMenu
+                    ? kBlueColorShade400
+                    : kBlueColorShade200,
+              ),
+              onPressed: () =>
+                  Navigator.pushNamed(context, ProfileScreen.routeName),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
