@@ -121,9 +121,12 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, Routes.reset);
-                    },
+                    onPressed: (tokenController.text == "")
+                        ? err
+                        : () {
+                            Navigator.pushReplacementNamed(
+                                context, Routes.resetSuccess);
+                          },
                     child: Text(
                       'Verify Account',
                       style: tooko.textTheme.button!.copyWith(
