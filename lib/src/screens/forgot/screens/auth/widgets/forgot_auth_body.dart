@@ -30,6 +30,9 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
       if (checkTokenController.isEmpty) {
         return ScaffoldMessenger.of(context)
             .showSnackBar(kSnackBar('Code is required!')!);
+      } else if (checkTokenController.length != 6) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Code is required!')!);
       } else {
         Navigator.pushReplacementNamed(context, Routes.resetSuccess);
       }
@@ -121,7 +124,8 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (tokenController.text == "")
+                    onPressed: (tokenController.text == "" ||
+                            checkTokenController.length != 6)
                         ? err
                         : () {
                             Navigator.pushReplacementNamed(
