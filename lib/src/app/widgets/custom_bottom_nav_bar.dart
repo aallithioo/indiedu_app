@@ -45,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 "assets/icons/svg/Shop Icon.svg",
                 color: MenuState.home == selectedMenu
                     ? kBlueColorShade400
-                    : kBlueColorShade200,
+                    : kGreyColorShade400,
               ),
               onPressed: () => Navigator.pushNamed(
                 context,
@@ -57,7 +57,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 "assets/icons/svg/Heart Icon.svg",
                 color: MenuState.myLearning == selectedMenu
                     ? kBlueColorShade400
-                    : kBlueColorShade200,
+                    : kGreyColorShade400,
               ),
               onPressed: () => Navigator.pushNamed(
                 context,
@@ -69,7 +69,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 "assets/icons/svg/Chat bubble Icon.svg",
                 color: MenuState.myQuiz == selectedMenu
                     ? kBlueColorShade400
-                    : kBlueColorShade200,
+                    : kGreyColorShade400,
               ),
               onPressed: () => Navigator.pushNamed(
                 context,
@@ -78,10 +78,10 @@ class CustomBottomNavBar extends StatelessWidget {
             ),
             IconButton(
               icon: SvgPicture.asset(
-                "assets/icons/User Icon.svg",
+                "assets/icons/svg/User Icon.svg",
                 color: MenuState.profile == selectedMenu
                     ? kBlueColorShade400
-                    : kBlueColorShade200,
+                    : kGreyColorShade400,
               ),
               onPressed: () => Navigator.pushNamed(
                 context,
