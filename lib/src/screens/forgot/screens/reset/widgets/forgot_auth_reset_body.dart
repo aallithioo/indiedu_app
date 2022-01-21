@@ -17,17 +17,17 @@ class ForgotAuthResetBody extends StatefulWidget {
   State<ForgotAuthResetBody> createState() => _ForgotAuthResetBodyState();
 }
 
-bool? isMatch;
-var requiredData = const Text(' *', style: TextStyle(color: Colors.red));
-RegExp numberReg = RegExp(r'.*[0-9].*');
-RegExp letterReg = RegExp(r'.*[A-Za-z].*');
-final TextEditingController passwordController = TextEditingController();
-final TextEditingController passwordConfirmController = TextEditingController();
-late String checkPasswordController = passwordController.text.trim();
-late String checkPasswordConfirmController =
-    passwordConfirmController.text.trim();
-
 class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
+  bool? isMatch;
+  var requiredData = const Text(' *', style: TextStyle(color: Colors.red));
+  RegExp numberReg = RegExp(r'.*[0-9].*');
+  RegExp letterReg = RegExp(r'.*[A-Za-z].*');
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmController =
+      TextEditingController();
+  late String checkPasswordController = passwordController.text.trim();
+  late String checkPasswordConfirmController =
+      passwordConfirmController.text.trim();
   static bool isObscured = true;
 
   Future err() async {
@@ -216,10 +216,15 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, Routes.resetSuccess);
-                    },
+                    onPressed: (passwordController.text != "" &&
+                            passwordConfirmController.text != "" &&
+                            passwordController.text ==
+                                passwordConfirmController.text)
+                        ? () {
+                            Navigator.pushReplacementNamed(
+                                context, Routes.resetSuccess);
+                          }
+                        : err,
                     child: Text(
                       'Change Password',
                       style: tooko.textTheme.button!.copyWith(
