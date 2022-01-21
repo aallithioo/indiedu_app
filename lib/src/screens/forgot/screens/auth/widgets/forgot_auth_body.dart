@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+
 import '../../../../../app/routes/route.dart';
 
 import '../../../../../app/themes/color.dart';
@@ -13,9 +15,26 @@ import '../../../../../app/widgets/custom_padding.dart';
 import 'package:flutter/material.dart';
 
 final TextEditingController tokenController = TextEditingController();
+final String checkTokenController = tokenController.text.trim();
 
-class ForgotAuthBody extends StatelessWidget {
+class ForgotAuthBody extends StatefulWidget {
   const ForgotAuthBody({Key? key}) : super(key: key);
+
+  @override
+  State<ForgotAuthBody> createState() => _ForgotAuthBodyState();
+}
+
+class _ForgotAuthBodyState extends State<ForgotAuthBody> {
+  Future err() async {
+    if (tokenController.text == "") {
+      if (checkTokenController.isEmpty) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Code is required!')!);
+      } else {
+        Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
