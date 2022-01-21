@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
+
 import '../../../../../app/routes/route.dart';
 
 import '../../../../../app/themes/color.dart';
@@ -19,8 +21,20 @@ class SignUpAuthBody extends StatefulWidget {
   State<SignUpAuthBody> createState() => _SignUpAuthBodyState();
 }
 
+final TextEditingController tokenController = TextEditingController();
+final String checkTokenController = tokenController.text.trim();
+
 class _SignUpAuthBodyState extends State<SignUpAuthBody> {
-  final TextEditingController tokenController = TextEditingController();
+  Future err() async {
+    if (tokenController.text == "") {
+      if (checkTokenController.isEmpty) {
+        return ScaffoldMessenger.of(context)
+            .showSnackBar(kSnackBar('Code is required!')!);
+      } else {
+        Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,10 +121,12 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, Routes.signUpSuccess);
-                    },
+                    onPressed: (tokenController.text == "")
+                        ? err
+                        : () {
+                            Navigator.pushReplacementNamed(
+                                context, Routes.signUpSuccess);
+                          },
                     child: Text(
                       'Verify Account',
                       style: tooko.textTheme.button!.copyWith(
