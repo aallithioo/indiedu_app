@@ -37,7 +37,7 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Code is invalid!')!);
     } else {
-      Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+      Navigator.pushReplacementNamed(context, Routes.reset);
     }
   }
 
@@ -86,6 +86,7 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     width: double.infinity,
                     child: TextFormField(
                       controller: tokenController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: kWhiteColorShade900,
@@ -126,12 +127,12 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (tokenController.text == "" ||
+                    onPressed: (checkTokenController == "" ||
                             checkTokenController.length != 6)
                         ? err
                         : () {
                             Navigator.pushReplacementNamed(
-                                context, Routes.resetSuccess);
+                                context, Routes.reset);
                           },
                     child: Text(
                       'Verify Account',
