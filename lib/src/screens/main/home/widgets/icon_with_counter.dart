@@ -26,11 +26,11 @@ class IconButtonWithCounter extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            padding: kPaddingAllSmall,
-            height: kSizeSmall * 2,
-            width: kSizeSmall * 2,
+            padding: kPaddingAllTiny * 1.5,
+            height: kSizeSmall * 3,
+            width: kSizeSmall * 3,
             decoration: BoxDecoration(
-              color: kGreyColorShade50.withOpacity(0.1),
+              color: kGreyColorShade200,
               shape: BoxShape.circle,
             ),
             child: SvgPicture.asset(svgSrc),
