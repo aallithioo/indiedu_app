@@ -22,6 +22,15 @@ class SectionTitle extends StatelessWidget {
             color: tooko.textTheme.bodyText1!.color,
           ),
         ),
+        GestureDetector(
+          onTap: onTap,
+          child: Text(
+            "See More",
+            style: tooko.textTheme.bodyText1!.copyWith(
+              color: tooko.textTheme.bodyText1!.color!.withOpacity(0.7),
+            ),
+          ),
+        )
       ],
     );
   }
