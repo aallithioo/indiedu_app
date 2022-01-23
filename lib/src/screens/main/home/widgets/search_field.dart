@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/themes/theme.dart';
+
 import '../../../../app/themes/color.dart';
 import '../../../../app/themes/size.dart';
 import '../../../../app/widgets/custom_border.dart';
@@ -11,18 +13,23 @@ class SearchField extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       decoration: BoxDecoration(
-        color: kGreyColorShade300,
+        color: kGreyColorShade200,
         borderRadius: kBorderRadiusSmall,
       ),
       child: TextField(
         onChanged: (value) => print(value),
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           hintText: "Search Course",
+          hintStyle: tooko.textTheme.bodyText2!.copyWith(
+            color: kGreyColorShade500,
+          ),
           prefixIcon: Icon(
             Icons.search,
+            color: kGreyColorShade500,
+            size: kSizeMedium,
           ),
         ),
       ),
