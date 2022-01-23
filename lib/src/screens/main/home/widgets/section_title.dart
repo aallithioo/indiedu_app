@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/themes/color.dart';
+
 import '../../../../app/themes/theme.dart';
 
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           title,
@@ -27,8 +30,8 @@ class SectionTitle extends StatelessWidget {
           onTap: onTap,
           child: Text(
             "See More",
-            style: tooko.textTheme.bodyText1!.copyWith(
-              color: tooko.textTheme.bodyText1!.color!.withOpacity(0.7),
+            style: tooko.textTheme.bodyText2!.copyWith(
+              color: kGreyColorShade400,
             ),
           ),
         )
