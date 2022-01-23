@@ -1,4 +1,5 @@
-import 'package:aallithioo/src/app/themes/theme.dart';
+import '../../../../app/themes/theme.dart';
+
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
