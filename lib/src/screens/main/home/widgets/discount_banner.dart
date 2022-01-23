@@ -15,9 +15,17 @@ class DiscountBanner extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: kMarginAllSmall,
-      padding: kPaddingAllSmall,
+      padding: kPaddingAllMedium,
       decoration: BoxDecoration(
-        color: kBlueColorShade300,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            kBlueColorShade300,
+            kBlueColorShade600,
+            kBlueColorShade500,
+          ],
+        ),
         borderRadius: kBorderRadiusSmall,
       ),
       child: Text.rich(
@@ -30,6 +38,7 @@ class DiscountBanner extends StatelessWidget {
             TextSpan(
               text: 'Cashback 20%',
               style: tooko.textTheme.bodyText1!.copyWith(
+                color: kGreyColorShade50,
                 fontSize: kSizeMedium,
                 fontWeight: kFontWeightBold,
               ),
