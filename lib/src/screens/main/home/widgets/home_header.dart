@@ -13,6 +13,7 @@ class HomeHeader extends StatelessWidget {
       child: Padding(
         padding: kPaddingSymetricHorizontalMedium,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // TODO: Add search bar
             SearchField(),
