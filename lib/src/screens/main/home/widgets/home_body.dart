@@ -14,9 +14,9 @@ class HomeBody extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: kSizeMedium),
-            HomeHeader(),
-            SizedBox(height: kSizeMedium),
-            PopularProduct(),
+            const HomeHeader(),
+            SizedBox(height: kSizeSmall),
+            const PopularProduct(),
             SizedBox(height: kSizeMedium),
           ],
         ),
