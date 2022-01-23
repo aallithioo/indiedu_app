@@ -1,6 +1,6 @@
-import 'package:aallithioo/src/app/themes/color.dart';
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/widgets/custom_border.dart';
+import '../../../../app/themes/color.dart';
+import '../../../../app/themes/size.dart';
+import '../../../../app/widgets/custom_border.dart';
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
