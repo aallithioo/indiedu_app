@@ -11,17 +11,14 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        child: Padding(
-          padding: kPaddingSymetricHorizontalLarge,
-          child: Column(
-            children: [
-              SizedBox(height: kSizeMedium),
-              HomeHeader(),
-              SizedBox(height: kSizeMedium),
-              PopularProduct(),
-              SizedBox(height: kSizeMedium),
-            ],
-          ),
+        child: Column(
+          children: [
+            SizedBox(height: kSizeMedium),
+            HomeHeader(),
+            SizedBox(height: kSizeMedium),
+            PopularProduct(),
+            SizedBox(height: kSizeMedium),
+          ],
         ),
       ),
     );
