@@ -21,20 +21,20 @@ class PopularProduct extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              ...List.generate(
-                demoProducts.length,
-                (index) {
-                  if (demoProducts[index].isPopular)
-                    return ProductCard(product: demoProducts[index]);
+              // children: [
+              //   ...List.generate(
+              //     demoProducts.length,
+              //     (index) {
+              //       if (demoProducts[index].isPopular)
+              //         return ProductCard(product: demoProducts[index]);
 
-                  return SizedBox
-                      .shrink(); // here by default width and height is 0
-                },
+              //       return SizedBox
+              //           .shrink(); // here by default width and height is 0
+              //     },
+              //   ),
+              //   kSizeBoxVerticalMedium,
+              // ],
               ),
-              kSizeBoxVerticalMedium,
-            ],
-          ),
         ),
       ],
     );
