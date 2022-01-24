@@ -23,7 +23,7 @@ class _IntroBodyState extends State<IntroBody> {
   int currentPage = 0;
   List<Map<String, String>> introData = [
     {
-      "text": "Welcome to Tooko, Let's shop!",
+      "text": "Welcome to indiedu, Let's shop!",
       "image": "assets/images/png/img_dummy_0.png",
     },
     {
@@ -91,7 +91,7 @@ class _IntroBodyState extends State<IntroBody> {
                         },
                         child: Text(
                           "Continue",
-                          style: tooko.textTheme.button!.copyWith(
+                          style: indiedu.textTheme.button!.copyWith(
                             color: kGreyColorShade50,
                             fontSize: kSizeSmall,
                             fontWeight: kFontWeightMedium,

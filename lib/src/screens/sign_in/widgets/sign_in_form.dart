@@ -90,7 +90,7 @@ class _SignInFormState extends State<SignInForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Email Address',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -124,7 +124,7 @@ class _SignInFormState extends State<SignInForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Password',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -191,7 +191,7 @@ class _SignInFormState extends State<SignInForm> {
                     : err,
                 child: Text(
                   'Let\'s Go',
-                  style: tooko.textTheme.button!.copyWith(
+                  style: indiedu.textTheme.button!.copyWith(
                     color: kWhiteColorShade900,
                   ),
                 ),
@@ -209,7 +209,7 @@ class _SignInFormState extends State<SignInForm> {
                   },
                   child: Text(
                     'Forgot Password?',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kBlueColorShade400,
                       fontSize: 12,
                       fontWeight: kFontWeightLight,
@@ -223,7 +223,7 @@ class _SignInFormState extends State<SignInForm> {
                   },
                   child: Text(
                     'Create Account',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kBlueColorShade400,
                       fontSize: 12,
                       fontWeight: kFontWeightLight,
@@ -262,7 +262,7 @@ class _SignInFormState extends State<SignInForm> {
 //       },
 //       decoration: InputDecoration(
 //         hintText: 'Email Address',
-//         hintStyle: tooko.textTheme.bodyText2!.copyWith(
+//         hintStyle: indiedu.textTheme.bodyText2!.copyWith(
 //           color: kGreyColorShade400,
 //         ),
 //         errorText: errors.contains(kEmailNullError) ? kEmailNullError : null,
@@ -312,7 +312,7 @@ class _SignInFormState extends State<SignInForm> {
 //       },
 //       decoration: InputDecoration(
 //         hintText: 'Password',
-//         hintStyle: tooko.textTheme.bodyText2!.copyWith(
+//         hintStyle: indiedu.textTheme.bodyText2!.copyWith(
 //           color: kGreyColorShade400,
 //         ),
 //         errorText: errors.contains(kPassNullError) ? kPassNullError : null,

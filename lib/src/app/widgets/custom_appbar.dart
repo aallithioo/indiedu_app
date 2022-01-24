@@ -10,8 +10,8 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
       children: [
         Text(
           title,
-          style: tooko.textTheme.headline6!.copyWith(
-            color: tooko.textTheme.headline6!.color,
+          style: indiedu.textTheme.headline6!.copyWith(
+            color: indiedu.textTheme.headline6!.color,
             fontWeight: kFontWeightMedium,
           ),
         ),
@@ -42,7 +42,7 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
       ],
     ),
     backgroundColor: Colors.transparent,
-    foregroundColor: tooko.textTheme.headline1!.color,
+    foregroundColor: indiedu.textTheme.headline1!.color,
     shadowColor: Colors.transparent,
     elevation: 0.0,
     automaticallyImplyLeading: false,

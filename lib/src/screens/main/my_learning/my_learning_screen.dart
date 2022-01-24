@@ -26,7 +26,7 @@ class MyLearningScreen extends StatelessWidget {
               Image.asset('assets/images/png/img_no_course.png'),
               Text(
                 'You have no course',
-                style: tooko.textTheme.headline6!.copyWith(
+                style: indiedu.textTheme.headline6!.copyWith(
                   fontSize: kSizeMedium,
                   fontWeight: kFontWeightSemiBold,
                 ),
@@ -34,7 +34,7 @@ class MyLearningScreen extends StatelessWidget {
               kSizeBoxVerticalSmall,
               Text(
                 'Wake up and let\'s make new progress..',
-                style: tooko.textTheme.bodyText1!.copyWith(
+                style: indiedu.textTheme.bodyText1!.copyWith(
                   fontSize: 14,
                   fontWeight: kFontWeightLight,
                 ),

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'typography.dart';
 import 'themedata.dart';
 
-class TookoTheme {
+class IndieduTheme {
   // Theme data
-  static ThemeData kTookoLightThemeData() => kLightThemeData();
-  static ThemeData kTookoDarkThemeData() => kDarkThemeData();
+  static ThemeData kIndieduLightThemeData() => kLightThemeData();
+  static ThemeData kIndieduDarkThemeData() => kDarkThemeData();
 
   // Text theme
-  static TextTheme kTookoLightTextTheme() => kLightText;
-  static TextTheme kTookoDarkTextTheme() => kDarkText;
+  static TextTheme kIndieduLightTextTheme() => kLightText;
+  static TextTheme kIndieduDarkTextTheme() => kDarkText;
 }
 
-final tooko = TookoTheme.kTookoLightThemeData();
+final indiedu = IndieduTheme.kIndieduLightThemeData();

@@ -32,14 +32,14 @@ class DiscountBanner extends StatelessWidget {
       ),
       child: Text.rich(
         TextSpan(
-          style: tooko.textTheme.bodyText1!.copyWith(
+          style: indiedu.textTheme.bodyText1!.copyWith(
             color: kGreyColorShade50,
           ),
           children: [
             const TextSpan(text: 'A Summer Surprise\n'),
             TextSpan(
               text: 'Cashback 20%',
-              style: tooko.textTheme.bodyText1!.copyWith(
+              style: indiedu.textTheme.bodyText1!.copyWith(
                 color: kGreyColorShade50,
                 fontSize: kSizeMedium,
                 fontWeight: kFontWeightBold,

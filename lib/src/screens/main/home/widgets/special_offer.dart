@@ -104,14 +104,14 @@ class SpecialOfferCard extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: "$category\n",
-                          style: tooko.textTheme.bodyText1!.copyWith(
+                          style: indiedu.textTheme.bodyText1!.copyWith(
                             color: kGreyColorShade50,
                             fontWeight: kFontWeightSemiBold,
                           ),
                         ),
                         TextSpan(
                           text: "$numOfBrands Class",
-                          style: tooko.textTheme.bodyText1!.copyWith(
+                          style: indiedu.textTheme.bodyText1!.copyWith(
                             color: kGreyColorShade50,
                             fontSize: 12,
                           ),

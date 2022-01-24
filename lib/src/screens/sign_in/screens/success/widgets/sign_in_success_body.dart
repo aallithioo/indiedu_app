@@ -36,7 +36,7 @@ class SignInSuccessBody extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                 child: Text(
                   'Hello! Name',
-                  style: tooko.textTheme.headline5!.copyWith(
+                  style: indiedu.textTheme.headline5!.copyWith(
                     color: kGreyColorShade900,
                     fontWeight: kFontWeightSemiBold,
                   ),
@@ -48,8 +48,8 @@ class SignInSuccessBody extends StatelessWidget {
                 padding: kPaddingSymetricHorizontalMedium,
                 child: Text(
                   'Let\'s make new progress and do our best',
-                  style: tooko.textTheme.bodyText1!.copyWith(
-                    color: tooko.textTheme.bodyText1!.color!.withOpacity(0.7),
+                  style: indiedu.textTheme.bodyText1!.copyWith(
+                    color: indiedu.textTheme.bodyText1!.color!.withOpacity(0.7),
                   ),
                   textAlign: kTextAlignCenter,
                 ),
@@ -68,7 +68,7 @@ class SignInSuccessBody extends StatelessWidget {
                   },
                   child: Text(
                     'Continue',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kGreyColorShade50,
                     ),
                   ),

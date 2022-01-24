@@ -55,7 +55,7 @@ class DemoProductCard extends StatelessWidget {
               kSizeBoxVerticalSmall,
               Text(
                 product.title,
-                style: tooko.textTheme.headline6!.copyWith(
+                style: indiedu.textTheme.headline6!.copyWith(
                   color: kGreyColorShade900,
                 ),
                 maxLines: 2,
@@ -65,7 +65,7 @@ class DemoProductCard extends StatelessWidget {
                 children: [
                   Text(
                     '\$${product.price}',
-                    style: tooko.textTheme.bodyText1!.copyWith(
+                    style: indiedu.textTheme.bodyText1!.copyWith(
                       color: kBlueColorShade400,
                       fontWeight: kFontWeightSemiBold,
                     ),

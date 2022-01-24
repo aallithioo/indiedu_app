@@ -24,7 +24,7 @@ class WarnScreen extends StatelessWidget {
             children: [
               Text(
                 'EARLY ACCESS',
-                style: tooko.textTheme.headline6!.copyWith(
+                style: indiedu.textTheme.headline6!.copyWith(
                   color: kErrorColor,
                   fontSize: kSizeMedium,
                   fontWeight: kFontWeightBold,
@@ -33,7 +33,7 @@ class WarnScreen extends StatelessWidget {
               kSizeBoxVerticalMedium,
               Text(
                 'Please be known that the app still in the development and this patch is the EARLY ACCESS version, as the developer of this app we are open for every critics, suggesstions, and all that can improve this app better',
-                style: tooko.textTheme.bodyText2!.copyWith(
+                style: indiedu.textTheme.bodyText2!.copyWith(
                   color: kGreyColorShade600,
                   fontSize: 14,
                   fontWeight: kFontWeightLight,
@@ -50,7 +50,7 @@ class WarnScreen extends StatelessWidget {
                 },
                 child: Text(
                   'Be a Beta Tester',
-                  style: tooko.textTheme.button!.copyWith(
+                  style: indiedu.textTheme.button!.copyWith(
                     color: kBlueColorShade400,
                   ),
                 ),

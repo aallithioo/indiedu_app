@@ -60,7 +60,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                   margin: EdgeInsets.fromLTRB(0, kSizeMedium, 0, 0),
                   child: Text(
                     'Verify your account',
-                    style: tooko.textTheme.headline5!.copyWith(
+                    style: indiedu.textTheme.headline5!.copyWith(
                       color: kGreyColorShade900,
                       fontWeight: kFontWeightSemiBold,
                     ),
@@ -72,7 +72,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                   padding: kPaddingSymetricHorizontalMedium,
                   child: Text(
                     'Please enter your verification code to continue.',
-                    style: tooko.textTheme.bodyText1!.copyWith(),
+                    style: indiedu.textTheme.bodyText1!.copyWith(),
                     textAlign: kTextAlignCenter,
                   ),
                 ),
@@ -87,7 +87,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                         filled: true,
                         fillColor: kWhiteColorShade900,
                         hintText: 'Verification Code',
-                        hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                        hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                           color: kGreyColorShade300,
                           fontWeight: kFontWeightLight,
                         ),
@@ -132,7 +132,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                           },
                     child: Text(
                       'Verify Account',
-                      style: tooko.textTheme.button!.copyWith(
+                      style: indiedu.textTheme.button!.copyWith(
                         color: kWhiteColorShade900,
                       ),
                     ),
@@ -146,7 +146,7 @@ class _SignUpAuthBodyState extends State<SignUpAuthBody> {
                   },
                   child: Text(
                     'Resend Verification Code',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kBlueColorShade400,
                     ),
                   ),

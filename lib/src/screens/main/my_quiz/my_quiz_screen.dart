@@ -27,7 +27,7 @@ class MyQuizScreen extends StatelessWidget {
                 Image.asset('assets/images/png/img_no_homework.png'),
                 Text(
                   'Huurrrayyy..',
-                  style: tooko.textTheme.headline6!.copyWith(
+                  style: indiedu.textTheme.headline6!.copyWith(
                     fontSize: kSizeMedium,
                     fontWeight: kFontWeightSemiBold,
                   ),
@@ -35,7 +35,7 @@ class MyQuizScreen extends StatelessWidget {
                 kSizeBoxVerticalSmall,
                 Text(
                   'There is no homework! 🎉',
-                  style: tooko.textTheme.bodyText1!.copyWith(
+                  style: indiedu.textTheme.bodyText1!.copyWith(
                     fontSize: 14,
                     fontWeight: kFontWeightLight,
                   ),
