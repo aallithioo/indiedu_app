@@ -1,5 +1,6 @@
 import 'package:aallithioo/src/app/themes/size.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/category.dart';
 import 'package:aallithioo/src/screens/main/home/widgets/discount_banner.dart';
 import 'package:aallithioo/src/screens/main/home/widgets/home_header.dart';
 import 'package:aallithioo/src/screens/main/home/widgets/popular_product.dart';
@@ -19,6 +20,9 @@ class HomeBody extends StatelessWidget {
             const HomeHeader(),
             SizedBox(height: kSizeSmall),
             const DiscountBanner(),
+            SizedBox(height: kSizeSmall),
+            const CategoryCard(),
+            SizedBox(height: kSizeSmall),
             const SpecialOffer(),
             SizedBox(height: kSizeSmall),
             const PopularProduct(),

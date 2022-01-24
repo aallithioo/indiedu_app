@@ -12,11 +12,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Flash Deal"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
-      {"icon": "assets/icons/Discover.svg", "text": "More"},
+      {"icon": "assets/icons/svg/Flash Icon.svg", "text": "Flash Deal"},
+      {"icon": "assets/icons/svg/Bill Icon.svg", "text": "Bill"},
+      {"icon": "assets/icons/svg/Game Icon.svg", "text": "Game"},
+      {"icon": "assets/icons/svg/Gift Icon.svg", "text": "Daily Gift"},
+      {"icon": "assets/icons/svg/Discover.svg", "text": "More"},
     ];
 
     return Padding(
@@ -52,27 +52,24 @@ class CatergoryCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: press,
-      child: SizedBox(
-        width: kSizeLarge,
-        child: Column(
-          children: [
-            Container(
-              padding: kPaddingAllSmall,
-              height: kSizeLarge * 1.5,
-              width: kSizeLarge * 1.5,
-              decoration: BoxDecoration(
-                color: kGreyColorShade300,
-                borderRadius: kBorderRadiusSmall,
-              ),
-              child: SvgPicture.asset(icon),
+      child: Column(
+        children: [
+          Container(
+            padding: kPaddingAllSmall,
+            height: 55,
+            width: 55,
+            decoration: BoxDecoration(
+              color: kGreyColorShade200,
+              borderRadius: kBorderRadiusSmall,
             ),
-            kSizeBoxVerticalTiny,
-            Text(
-              text,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
+            child: SvgPicture.asset(icon),
+          ),
+          kSizeBoxVerticalTiny,
+          Text(
+            text,
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
