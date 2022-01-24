@@ -20,6 +20,7 @@ class HomeBody extends StatelessWidget {
             SizedBox(height: kSizeSmall),
             const DiscountBanner(),
             const SpecialOffer(),
+            SizedBox(height: kSizeSmall),
             const PopularProduct(),
             SizedBox(height: kSizeMedium),
           ],

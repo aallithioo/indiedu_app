@@ -28,7 +28,19 @@ class SpecialOffer extends StatelessWidget {
             children: [
               SpecialOfferCard(
                 category: "Smartphone",
-                image: "assets/images/png/img_dummy_0.png",
+                image: "assets/images/jpg/img_small_0.jpg",
+                numOfBrands: 18,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                category: "Smartphone",
+                image: "assets/images/jpg/img_small_1.jpg",
+                numOfBrands: 18,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                category: "Smartphone",
+                image: "assets/images/jpg/img_small_2.jpg",
                 numOfBrands: 18,
                 press: () {},
               ),
