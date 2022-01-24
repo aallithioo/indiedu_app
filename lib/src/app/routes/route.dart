@@ -2,6 +2,9 @@ class Routes {
   // Splash Screen
   static const splash = '/';
 
+  // Warn Screen
+  static const warn = '/warn';
+
   // Intro Screen
   static const intro = '/intro';
 
