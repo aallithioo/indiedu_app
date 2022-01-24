@@ -1,3 +1,10 @@
+import 'package:aallithioo/src/app/themes/size.dart';
+import 'package:aallithioo/src/app/widgets/custom_padding.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/category.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/discount_banner.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/home_header.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/popular_product.dart';
+import 'package:aallithioo/src/screens/main/home/widgets/special_offer.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -8,7 +15,19 @@ class HomeBody extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [
+            SizedBox(height: kSizeMedium),
+            const HomeHeader(),
+            SizedBox(height: kSizeSmall),
+            const DiscountBanner(),
+            SizedBox(height: kSizeSmall),
+            const CategoryCard(),
+            SizedBox(height: kSizeSmall),
+            const SpecialOffer(),
+            SizedBox(height: kSizeSmall),
+            const PopularProduct(),
+            SizedBox(height: kSizeMedium),
+          ],
         ),
       ),
     );
