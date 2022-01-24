@@ -25,7 +25,14 @@ class SpecialOffer extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [],
+            children: [
+              SpecialOfferCard(
+                category: "Smartphone",
+                image: "assets/images/png/Image Banner 2.png",
+                numOfBrands: 18,
+                press: () {},
+              ),
+            ],
           ),
         ),
       ],
