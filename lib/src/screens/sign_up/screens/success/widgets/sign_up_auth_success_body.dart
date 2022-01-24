@@ -36,7 +36,7 @@ class SignUpAuthSuccessBody extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                 child: Text(
                   'Huuraayyyy!',
-                  style: tooko.textTheme.headline5!.copyWith(
+                  style: indiedu.textTheme.headline5!.copyWith(
                     color: kGreyColorShade900,
                     fontWeight: kFontWeightSemiBold,
                   ),
@@ -48,8 +48,8 @@ class SignUpAuthSuccessBody extends StatelessWidget {
                 padding: kPaddingSymetricHorizontalMedium,
                 child: Text(
                   'Welcome to be part of our family. We hope you have what you need and what you want and make your dream come true',
-                  style: tooko.textTheme.bodyText1!.copyWith(
-                    color: tooko.textTheme.bodyText1!.color!.withOpacity(0.7),
+                  style: indiedu.textTheme.bodyText1!.copyWith(
+                    color: indiedu.textTheme.bodyText1!.color!.withOpacity(0.7),
                   ),
                   textAlign: kTextAlignCenter,
                 ),
@@ -68,7 +68,7 @@ class SignUpAuthSuccessBody extends StatelessWidget {
                   },
                   child: Text(
                     'Sign In Now',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kGreyColorShade50,
                     ),
                   ),

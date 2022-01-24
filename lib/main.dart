@@ -21,6 +21,7 @@ import 'src/screens/forgot/forgot_screen.dart';
 import 'src/screens/forgot/screens/auth/forgot_auth_screen.dart';
 import 'src/screens/forgot/screens/reset/forgot_auth_reset_screen.dart';
 import 'src/screens/forgot/screens/success/forgot_auth_reset_success_screen.dart';
+import 'src/screens/warn/warn_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.splash,
       routes: <String, WidgetBuilder>{
         Routes.splash: (_) => const SplashScreen(),
+        Routes.warn: (_) => const WarnScreen(),
         Routes.intro: (_) => const IntroScreen(),
         Routes.signIn: (_) => const SignInScreen(),
         Routes.signInSuccess: (_) => const SignInSuccessScreen(),

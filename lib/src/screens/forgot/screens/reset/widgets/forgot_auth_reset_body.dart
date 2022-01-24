@@ -79,7 +79,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                   margin: EdgeInsets.fromLTRB(0, kSizeMedium, 0, 0),
                   child: Text(
                     'Chage Password',
-                    style: tooko.textTheme.headline5!.copyWith(
+                    style: indiedu.textTheme.headline5!.copyWith(
                       color: kGreyColorShade900,
                       fontWeight: kFontWeightSemiBold,
                     ),
@@ -91,7 +91,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                   padding: kPaddingSymetricHorizontalMedium,
                   child: Text(
                     'Don\'t let anyone knows your password and please to use strong.',
-                    style: tooko.textTheme.bodyText1!.copyWith(),
+                    style: indiedu.textTheme.bodyText1!.copyWith(),
                     textAlign: kTextAlignCenter,
                   ),
                 ),
@@ -110,7 +110,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                             filled: true,
                             fillColor: kWhiteColorShade900,
                             hintText: 'Password',
-                            hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                            hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                               color: kGreyColorShade300,
                               fontWeight: kFontWeightLight,
                             ),
@@ -159,7 +159,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                             filled: true,
                             fillColor: kWhiteColorShade900,
                             hintText: 'Retype Password',
-                            hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                            hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                               color: kGreyColorShade300,
                               fontWeight: kFontWeightLight,
                             ),
@@ -228,7 +228,7 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                         : err,
                     child: Text(
                       'Change Password',
-                      style: tooko.textTheme.button!.copyWith(
+                      style: indiedu.textTheme.button!.copyWith(
                         color: kWhiteColorShade900,
                       ),
                     ),

@@ -60,7 +60,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                   margin: EdgeInsets.fromLTRB(0, kSizeMedium, 0, 0),
                   child: Text(
                     'Find your account',
-                    style: tooko.textTheme.headline5!.copyWith(
+                    style: indiedu.textTheme.headline5!.copyWith(
                       color: kGreyColorShade900,
                       fontWeight: kFontWeightSemiBold,
                     ),
@@ -72,7 +72,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                   padding: kPaddingSymetricHorizontalMedium,
                   child: Text(
                     'Please enter your email and we will send you code.',
-                    style: tooko.textTheme.bodyText1!.copyWith(),
+                    style: indiedu.textTheme.bodyText1!.copyWith(),
                     textAlign: kTextAlignCenter,
                   ),
                 ),
@@ -87,7 +87,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                         filled: true,
                         fillColor: kWhiteColorShade900,
                         hintText: 'Email Address',
-                        hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                        hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                           color: kGreyColorShade300,
                           fontWeight: kFontWeightLight,
                         ),
@@ -131,7 +131,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                           },
                     child: Text(
                       'Find Account',
-                      style: tooko.textTheme.button!.copyWith(
+                      style: indiedu.textTheme.button!.copyWith(
                         color: kWhiteColorShade900,
                       ),
                     ),
@@ -143,7 +143,7 @@ class _ForgotBodyState extends State<ForgotBody> {
                   },
                   child: Text(
                     'Back to Sign In',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kBlueColorShade400,
                     ),
                   ),

@@ -36,7 +36,7 @@ class SignInBody extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                   child: Text(
                     'Welcome back!',
-                    style: tooko.textTheme.headline5!.copyWith(
+                    style: indiedu.textTheme.headline5!.copyWith(
                       color: kGreyColorShade900,
                       fontWeight: kFontWeightSemiBold,
                     ),
@@ -48,7 +48,7 @@ class SignInBody extends StatelessWidget {
                   padding: kPaddingSymetricHorizontalMedium,
                   child: Text(
                     'Please type your email and password to sign in.',
-                    style: tooko.textTheme.bodyText1!.copyWith(),
+                    style: indiedu.textTheme.bodyText1!.copyWith(),
                     textAlign: kTextAlignCenter,
                   ),
                 ),
@@ -56,8 +56,8 @@ class SignInBody extends StatelessWidget {
                 const SignInForm(),
                 kSizeBoxVerticalLarge,
                 Text(
-                  '\u00a9 2022 tooko, All rights reserved.',
-                  style: tooko.textTheme.caption!.copyWith(
+                  '\u00a9 2022 indiedu, All rights reserved.',
+                  style: indiedu.textTheme.caption!.copyWith(
                     color: kGreyColorShade300,
                   ),
                 ),

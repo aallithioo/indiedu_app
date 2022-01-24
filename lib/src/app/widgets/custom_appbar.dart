@@ -1,3 +1,4 @@
+import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:flutter/material.dart';
 import '../themes/theme.dart';
 
@@ -9,9 +10,9 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
       children: [
         Text(
           title,
-          style: tooko.textTheme.headline6!.copyWith(
-            color: tooko.textTheme.headline6!.color,
-            fontWeight: FontWeight.w300,
+          style: indiedu.textTheme.headline6!.copyWith(
+            color: indiedu.textTheme.headline6!.color,
+            fontWeight: kFontWeightMedium,
           ),
         ),
         Row(
@@ -41,8 +42,9 @@ AppBar kAppBar(String title, [Icon? firstIcon, Icon? secondIcon]) {
       ],
     ),
     backgroundColor: Colors.transparent,
-    foregroundColor: tooko.textTheme.headline1!.color,
+    foregroundColor: indiedu.textTheme.headline1!.color,
     shadowColor: Colors.transparent,
     elevation: 0.0,
+    automaticallyImplyLeading: false,
   );
 }

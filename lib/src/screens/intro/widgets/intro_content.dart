@@ -21,9 +21,9 @@ class IntroContent extends StatelessWidget {
       children: [
         const Spacer(),
         Text(
-          'tooko',
-          style: tooko.textTheme.headline4!.copyWith(
-            color: tooko.textTheme.headline4!.color,
+          'indiedu',
+          style: indiedu.textTheme.headline4!.copyWith(
+            color: indiedu.textTheme.headline4!.color,
             fontWeight: kFontWeightBold,
           ),
           textAlign: kTextAlignCenter,

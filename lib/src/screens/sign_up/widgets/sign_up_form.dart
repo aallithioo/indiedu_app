@@ -112,7 +112,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Name',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -145,7 +145,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Email Address',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -179,7 +179,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Password',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -226,7 +226,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       filled: true,
                       fillColor: kWhiteColorShade900,
                       hintText: 'Retype Password',
-                      hintStyle: tooko.textTheme.bodyText1!.copyWith(
+                      hintStyle: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade300,
                         fontWeight: kFontWeightLight,
                       ),
@@ -286,7 +286,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   children: [
                     Text(
                       'I agree to the',
-                      style: tooko.textTheme.bodyText1!.copyWith(
+                      style: indiedu.textTheme.bodyText1!.copyWith(
                         color: kGreyColorShade500,
                         fontSize: kSizeSmall - 4,
                         fontWeight: kFontWeightLight,
@@ -296,7 +296,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       onPressed: () {},
                       child: Text(
                         'Terms of Service',
-                        style: tooko.textTheme.bodyText1!.copyWith(
+                        style: indiedu.textTheme.bodyText1!.copyWith(
                           color: kBlueColorShade400,
                           fontSize: kSizeSmall - 4,
                           fontWeight: kFontWeightLight,
@@ -342,7 +342,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     : err,
                 child: Text(
                   'Join Now',
-                  style: tooko.textTheme.button!.copyWith(
+                  style: indiedu.textTheme.button!.copyWith(
                     color: kWhiteColorShade900,
                   ),
                 ),
@@ -356,7 +356,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 // Forgot password
                 Text(
                   'Have an account? ',
-                  style: tooko.textTheme.button!.copyWith(
+                  style: indiedu.textTheme.button!.copyWith(
                     fontSize: 12,
                     fontWeight: kFontWeightLight,
                   ),
@@ -368,7 +368,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   },
                   child: Text(
                     'Sign In',
-                    style: tooko.textTheme.button!.copyWith(
+                    style: indiedu.textTheme.button!.copyWith(
                       color: kBlueColorShade500,
                       fontSize: 12,
                       fontWeight: kFontWeightLight,

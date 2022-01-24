@@ -22,15 +22,15 @@ class SectionTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: tooko.textTheme.bodyText1!.copyWith(
-            color: tooko.textTheme.bodyText1!.color,
+          style: indiedu.textTheme.bodyText1!.copyWith(
+            color: indiedu.textTheme.bodyText1!.color,
           ),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
             "See More",
-            style: tooko.textTheme.bodyText2!.copyWith(
+            style: indiedu.textTheme.bodyText2!.copyWith(
               color: kGreyColorShade400,
             ),
           ),

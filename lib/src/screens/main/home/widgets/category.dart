@@ -59,7 +59,8 @@ class CatergoryCardItem extends StatelessWidget {
             height: 55,
             width: 55,
             decoration: BoxDecoration(
-              color: kGreyColorShade200,
+              // color: kGreyColorShade200,
+              color: Color(0xFFFFECDF),
               borderRadius: kBorderRadiusSmall,
             ),
             child: SvgPicture.asset(icon),

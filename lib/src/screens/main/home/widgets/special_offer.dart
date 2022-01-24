@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/themes/fontweight.dart';
+
 import '../../../../app/themes/color.dart';
 import '../../../../app/themes/size.dart';
 import '../../../../app/themes/theme.dart';
@@ -30,21 +32,15 @@ class SpecialOffer extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                category: "Smartphone",
+                category: "Math",
                 image: "assets/images/png/img_dummy_2.png",
-                numOfBrands: 28,
+                numOfBrands: 4,
                 press: () {},
               ),
               SpecialOfferCard(
-                category: "Smartphone",
+                category: "Social",
                 image: "assets/images/png/img_dummy_2.png",
-                numOfBrands: 28,
-                press: () {},
-              ),
-              SpecialOfferCard(
-                category: "Smartphone",
-                image: "assets/images/png/img_dummy_2.png",
-                numOfBrands: 28,
+                numOfBrands: 6,
                 press: () {},
               ),
             ],
@@ -64,7 +60,8 @@ class SpecialOfferCard extends StatelessWidget {
     required this.press,
   }) : super(key: key);
 
-  final String category, image;
+  final String category;
+  final String image;
   final int numOfBrands;
   final GestureTapCallback press;
 
@@ -89,11 +86,13 @@ class SpecialOfferCard extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                       colors: [
-                        kBlueColorShade100.withOpacity(0.5),
-                        kBlueColorShade200.withOpacity(0.5),
+                        kBlueColorShade500,
+                        kBlueColorShade400,
+                        kBlueColorShade500,
+                        kBlueColorShade600,
                       ],
                     ),
                   ),
@@ -105,14 +104,16 @@ class SpecialOfferCard extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: "$category\n",
-                          style: tooko.textTheme.bodyText1!.copyWith(
+                          style: indiedu.textTheme.bodyText1!.copyWith(
                             color: kGreyColorShade50,
+                            fontWeight: kFontWeightSemiBold,
                           ),
                         ),
                         TextSpan(
-                          text: "$numOfBrands Brands",
-                          style: tooko.textTheme.bodyText1!.copyWith(
+                          text: "$numOfBrands Class",
+                          style: indiedu.textTheme.bodyText1!.copyWith(
                             color: kGreyColorShade50,
+                            fontSize: 12,
                           ),
                         ),
                       ],

@@ -23,7 +23,7 @@ class SearchField extends StatelessWidget {
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           hintText: "Search Course",
-          hintStyle: tooko.textTheme.bodyText2!.copyWith(
+          hintStyle: indiedu.textTheme.bodyText2!.copyWith(
             color: kGreyColorShade500,
           ),
           prefixIcon: Icon(
