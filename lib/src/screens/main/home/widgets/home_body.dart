@@ -1,10 +1,11 @@
-import 'package:aallithioo/src/app/themes/size.dart';
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/screens/main/home/widgets/category.dart';
-import 'package:aallithioo/src/screens/main/home/widgets/discount_banner.dart';
-import 'package:aallithioo/src/screens/main/home/widgets/home_header.dart';
-import 'package:aallithioo/src/screens/main/home/widgets/popular_product.dart';
-import 'package:aallithioo/src/screens/main/home/widgets/special_offer.dart';
+import '../../../../app/themes/size.dart';
+
+import 'category.dart';
+import 'discount_banner.dart';
+import 'home_header.dart';
+import 'popular_product.dart';
+import 'special_offer.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -20,11 +21,10 @@ class HomeBody extends StatelessWidget {
             const HomeHeader(),
             SizedBox(height: kSizeSmall),
             const DiscountBanner(),
-            SizedBox(height: kSizeSmall),
             const CategoryCard(),
             SizedBox(height: kSizeSmall),
             const SpecialOffer(),
-            SizedBox(height: kSizeSmall),
+            SizedBox(height: kSizeMedium),
             const PopularProduct(),
             SizedBox(height: kSizeMedium),
           ],
