@@ -28,20 +28,20 @@ class SpecialOffer extends StatelessWidget {
             children: [
               SpecialOfferCard(
                 category: "Smartphone",
-                image: "assets/images/jpg/img_small_0.jpg",
-                numOfBrands: 18,
+                image: "assets/images/png/img_dummy_2.png",
+                numOfBrands: 28,
                 press: () {},
               ),
               SpecialOfferCard(
                 category: "Smartphone",
-                image: "assets/images/jpg/img_small_1.jpg",
-                numOfBrands: 18,
+                image: "assets/images/png/img_dummy_2.png",
+                numOfBrands: 28,
                 press: () {},
               ),
               SpecialOfferCard(
                 category: "Smartphone",
-                image: "assets/images/jpg/img_small_2.jpg",
-                numOfBrands: 18,
+                image: "assets/images/png/img_dummy_2.png",
+                numOfBrands: 28,
                 press: () {},
               ),
             ],
@@ -68,18 +68,19 @@ class SpecialOfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: kPaddingSymetricHorizontalMedium,
+      padding: kPaddingSymetricHorizontalSmall * 1.2,
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: kSizeHuge * 4,
-          height: kSizeHuge * 1.5,
+          width: kSizeHuge * 3.6,
+          height: kSizeHuge * 1.4,
           child: ClipRRect(
-            borderRadius: kBorderRadiusSmall,
+            borderRadius: kBorderRadiusSmall * 1.1,
             child: Stack(
               children: [
                 Image.asset(
                   image,
+                  alignment: Alignment.center,
                   fit: BoxFit.cover,
                 ),
                 Container(

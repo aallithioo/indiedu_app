@@ -22,6 +22,8 @@ class DiscountBanner extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             kBlueColorShade300,
+            kBlueColorShade400,
+            kBlueColorShade500,
             kBlueColorShade600,
             kBlueColorShade500,
           ],
