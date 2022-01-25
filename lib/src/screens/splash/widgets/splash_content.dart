@@ -10,7 +10,7 @@ class SplashContent extends StatelessWidget {
       height: 100,
       child: const Image(
         image: AssetImage(
-          "assets/images/png/img_dummy_1.png",
+          "assets/images/png/img_logo.png",
         ),
       ),
     );

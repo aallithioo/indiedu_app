@@ -25,17 +25,38 @@ class ForgotBody extends StatefulWidget {
 
 class _ForgotBodyState extends State<ForgotBody> {
   Future err() async {
-    if (checkEmailController.isEmpty) {
+    // if (checkEmailController.isEmpty) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Email is required!')!);
+    // } else if (emailController.text.contains('@') == false &&
+    //     emailController.text.contains('.') == false) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Email is invalid!')!);
+    // } else {
+    //   Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+    // }
+    // Navigator.pushReplacementNamed(context, Routes.forgotAuth);
+    if (emailController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is required!')!);
-    } else if (emailController.text.contains('@') == false &&
-        emailController.text.contains('.') == false) {
+    } else if (emailController.text.length < 5) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too short!')!);
+    } else if (emailController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too long!')!);
+    } else if (emailController.text.contains('@') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains('.') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains(' ') == true) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is invalid!')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.forgotAuth);
     }
-    Navigator.pushReplacementNamed(context, Routes.forgotAuth);
   }
 
   @override
@@ -123,12 +144,13 @@ class _ForgotBodyState extends State<ForgotBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (checkEmailController.isEmpty)
-                        ? err
-                        : () {
-                            Navigator.pushReplacementNamed(
-                                context, Routes.forgotAuth);
-                          },
+                    onPressed: err,
+                    // onPressed: (checkEmailController.isEmpty)
+                    //     ? err
+                    //     : () {
+                    //         Navigator.pushReplacementNamed(
+                    //             context, Routes.forgotAuth);
+                    //       },
                     child: Text(
                       'Find Account',
                       style: indiedu.textTheme.button!.copyWith(

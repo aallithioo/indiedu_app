@@ -3,6 +3,7 @@ import 'package:aallithioo/src/app/themes/size.dart';
 import 'package:aallithioo/src/app/widgets/custom_border.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
 import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,8 +14,8 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/icons/svg/Flash Icon.svg", "text": "Flash Deal"},
-      {"icon": "assets/icons/svg/Bill Icon.svg", "text": "Bill"},
-      {"icon": "assets/icons/svg/Game Icon.svg", "text": "Game"},
+      {"icon": "assets/icons/svg/Bill Icon.svg", "text": "Transaction"},
+      {"icon": "assets/icons/svg/Game Icon.svg", "text": "Playground"},
       {"icon": "assets/icons/svg/Gift Icon.svg", "text": "Daily Gift"},
       {"icon": "assets/icons/svg/Discover.svg", "text": "More"},
     ];
@@ -29,7 +30,8 @@ class CategoryCard extends StatelessWidget {
           (index) => CatergoryCardItem(
             icon: categories[index]['icon'],
             text: categories[index]['text'],
-            press: () {},
+            press: () => ScaffoldMessenger.of(context)
+                .showSnackBar(kSnackBar('Feature are not available yet!')!),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:aallithioo/src/app/themes/color.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 
 import '../../../../app/themes/theme.dart';
 
@@ -27,7 +28,8 @@ class SectionTitle extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: onTap,
+          onTap: () => ScaffoldMessenger.of(context)
+              .showSnackBar(kSnackBar('Feature are not available yet!')!),
           child: Text(
             "See More",
             style: indiedu.textTheme.bodyText2!.copyWith(

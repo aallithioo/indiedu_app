@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/app/widgets/custom_border.dart';
+
 import '../../../app/widgets/custom_padding.dart';
 import '../../../app/widgets/custom_sizebox.dart';
 
@@ -36,10 +38,13 @@ class IntroContent extends StatelessWidget {
         const Spacer(),
         Padding(
           padding: kPaddingSymetricHorizontalMedium,
-          child: Image.asset(
-            image!,
-            height: MediaQuery.of(context).size.height / 3,
-            width: MediaQuery.of(context).size.width,
+          child: ClipRRect(
+            borderRadius: kBorderRadiusSmall,
+            child: Image.asset(
+              image!,
+              height: MediaQuery.of(context).size.height / 3,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
         ),
       ],

@@ -35,7 +35,7 @@ class SignInSuccessBody extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                 child: Text(
-                  'Hello! Name',
+                  'Hi, Folks',
                   style: indiedu.textTheme.headline5!.copyWith(
                     color: kGreyColorShade900,
                     fontWeight: kFontWeightSemiBold,

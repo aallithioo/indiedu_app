@@ -47,43 +47,101 @@ class _SignUpFormState extends State<SignUpForm> {
   static bool isObscured = true;
 
   Future err() async {
-    if (nameController.text == "" || nameController.text.length <= 4) {
-      if (numberReg.hasMatch(checkNameController)) {
-        return ScaffoldMessenger.of(context).showSnackBar(
-            kSnackBar('Name must be atleast than 4 characters!')!);
-      } else {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Name is required!')!);
-      }
-    } else if (emailController.text == "") {
+    // if (nameController.text == "" || nameController.text.length <= 4) {
+    //   if (numberReg.hasMatch(checkNameController)) {
+    //     return ScaffoldMessenger.of(context).showSnackBar(
+    //         kSnackBar('Name must be atleast than 4 characters!')!);
+    //   } else {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Name is required!')!);
+    //   }
+    // } else if (emailController.text == "") {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Address is required!')!);
+    // } else if (passwordController.text == "") {
+    //   if (checkPasswordController.isEmpty) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password is required!')!);
+    //   } else if (checkPasswordController.length <= 8) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
+    //   } else if (numberReg.hasMatch(checkPasswordController)) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be contain number!')!);
+    //   } else if (letterReg.hasMatch(checkPasswordController)) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be contain letter!')!);
+    //   } else {
+    //     return ScaffoldMessenger.of(context).showSnackBar(
+    //         kSnackBar('Password must be contain number and letter!')!);
+    //   }
+    // } else if (passwordConfirmController.text == "" &&
+    //     passwordConfirmController.text != passwordController.text) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Password is required!')!);
+    // } else if (isChecked == false) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('You need to agree the terms')!);
+    // } else {
+    //   Navigator.pushReplacementNamed(context, Routes.signUpAuth);
+    // }
+
+    if (nameController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Address is required!')!);
-    } else if (passwordController.text == "") {
-      if (checkPasswordController.isEmpty) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password is required!')!);
-      } else if (checkPasswordController.length <= 8) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
-      } else if (numberReg.hasMatch(checkPasswordController)) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be contain number!')!);
-      } else if (letterReg.hasMatch(checkPasswordController)) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be contain letter!')!);
-      } else {
-        return ScaffoldMessenger.of(context).showSnackBar(
-            kSnackBar('Password must be contain number and letter!')!);
-      }
-    } else if (passwordConfirmController.text == "" &&
-        passwordConfirmController.text != passwordController.text) {
+          .showSnackBar(kSnackBar('Name is required!')!);
+    } else if (nameController.text.length < 3) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Name too short!')!);
+    } else if (nameController.text.length > 16) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Name too long!')!);
+    } else if (nameController.text.contains(' ') == true) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Name is invalid!')!);
+    } else if (numberReg.hasMatch(nameController.text) == true) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Name is invalid!')!);
+    } else if (emailController.text.isEmpty) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is required!')!);
+    } else if (emailController.text.length < 5) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too short!')!);
+    } else if (emailController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too long!')!);
+    } else if (emailController.text.contains('@') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains('.') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains(' ') == true) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (passwordController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
+    } else if (passwordController.text.length < 8) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too short!')!);
+    } else if (passwordController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too long!')!);
+    } else if (numberReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains number!')!);
+    } else if (letterReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains letter!')!);
+    } else if (passwordConfirmController.text != passwordController.text) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password not match!')!);
     } else if (isChecked == false) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('You need to agree the terms')!);
     } else {
-      Navigator.pushReplacementNamed(context, Routes.signUpAuth);
+      Navigator.pushReplacementNamed(context, Routes.signInSuccess);
     }
   }
 
@@ -324,22 +382,23 @@ class _SignUpFormState extends State<SignUpForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: (checkNameController.isNotEmpty &&
-                            numberReg.hasMatch(checkNameController)) &&
-                        checkEmailController.isNotEmpty &&
-                        (checkPasswordController.isNotEmpty &&
-                            numberReg.hasMatch(checkPasswordController) &&
-                            letterReg.hasMatch(checkPasswordController) &&
-                            (checkPasswordController.length <= 8)) &&
-                        checkPasswordConfirmController.isNotEmpty &&
-                        (passwordConfirmController.text ==
-                            passwordController.text) &&
-                        isChecked == true
-                    ? () {
-                        Navigator.pushReplacementNamed(
-                            context, Routes.signUpAuth);
-                      }
-                    : err,
+                onPressed: err,
+                // onPressed: (checkNameController.isNotEmpty &&
+                //             numberReg.hasMatch(checkNameController)) &&
+                //         checkEmailController.isNotEmpty &&
+                //         (checkPasswordController.isNotEmpty &&
+                //             numberReg.hasMatch(checkPasswordController) &&
+                //             letterReg.hasMatch(checkPasswordController) &&
+                //             (checkPasswordController.length <= 8)) &&
+                //         checkPasswordConfirmController.isNotEmpty &&
+                //         (passwordConfirmController.text ==
+                //             passwordController.text) &&
+                //         isChecked == true
+                //     ? () {
+                //         Navigator.pushReplacementNamed(
+                //             context, Routes.signUpAuth);
+                //       }
+                //     : err,
                 child: Text(
                   'Join Now',
                   style: indiedu.textTheme.button!.copyWith(

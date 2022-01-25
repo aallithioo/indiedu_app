@@ -25,6 +25,8 @@ class _SignInFormState extends State<SignInForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  RegExp numberReg = RegExp(r'.*[0-9].*');
+  RegExp letterReg = RegExp(r'.*[A-Za-z].*');
   static bool isObscured = true;
   // final List<String?> errors = [];
 
@@ -47,21 +49,58 @@ class _SignInFormState extends State<SignInForm> {
   // }
 
   Future err() async {
+    // if (emailController.text.isEmpty) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Email is required!')!);
+    // } else if (emailController.text.isNotEmpty &&
+    //     emailController.text.contains('@') == false) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Email is invalid!')!);
+    // } else if (passwordController.text.isEmpty) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Password is required!')!);
+    // } else {
+    //   if (_formKey.currentState!.validate()) {
+    //     _formKey.currentState!.save();
+    //     Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+    //   }
+    // }
+
     if (emailController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is required!')!);
-    } else if (emailController.text.isNotEmpty &&
-        emailController.text.contains('@') == false) {
+    } else if (emailController.text.length < 5) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too short!')!);
+    } else if (emailController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email too long!')!);
+    } else if (emailController.text.contains('@') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains('.') == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Email is invalid!')!);
+    } else if (emailController.text.contains(' ') == true) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is invalid!')!);
     } else if (passwordController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
+    } else if (passwordController.text.length < 8) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too short!')!);
+    } else if (passwordController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too long!')!);
+    } else if (numberReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains number!')!);
+    } else if (letterReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains letter!')!);
     } else {
-      if (_formKey.currentState!.validate()) {
-        _formKey.currentState!.save();
-        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-      }
+      Navigator.pushReplacementNamed(context, Routes.signInSuccess);
     }
   }
 
@@ -178,17 +217,21 @@ class _SignInFormState extends State<SignInForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: (emailController.text.isNotEmpty &&
-                        emailController.text.contains('@') &&
-                        passwordController.text.isNotEmpty)
-                    ? () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          Navigator.pushReplacementNamed(
-                              context, Routes.signInSuccess);
-                        }
-                      }
-                    : err,
+                onPressed: err,
+                // onPressed: (emailController.text.isNotEmpty &&
+                //         emailController.text.contains('@') &&
+                //         emailController.text.contains('.') &&
+                //         passwordController.text.length > 8)
+                //     ? () {
+                //         if (_formKey.currentState!.validate()) {
+                //           _formKey.currentState!.save();
+                //           Navigator.pushReplacementNamed(
+                //             context,
+                //             Routes.signInSuccess,
+                //           );
+                //         }
+                //       }
+                //     : err,
                 child: Text(
                   'Let\'s Go',
                   style: indiedu.textTheme.button!.copyWith(
