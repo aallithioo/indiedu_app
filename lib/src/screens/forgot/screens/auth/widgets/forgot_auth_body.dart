@@ -144,13 +144,14 @@ class _ForgotAuthBodyState extends State<ForgotAuthBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (checkTokenController.isEmpty &&
-                            tokenController.text.length != 6)
-                        ? err
-                        : () {
-                            Navigator.pushReplacementNamed(
-                                context, Routes.reset);
-                          },
+                    onPressed: err,
+                    // onPressed: (checkTokenController.isEmpty &&
+                    //         tokenController.text.length != 6)
+                    //     ? err
+                    //     : () {
+                    //         Navigator.pushReplacementNamed(
+                    //             context, Routes.reset);
+                    //       },
                     child: Text(
                       'Verify Account',
                       style: indiedu.textTheme.button!.copyWith(
