@@ -376,22 +376,23 @@ class _SignUpFormState extends State<SignUpForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: (checkNameController.isNotEmpty &&
-                            numberReg.hasMatch(checkNameController)) &&
-                        checkEmailController.isNotEmpty &&
-                        (checkPasswordController.isNotEmpty &&
-                            numberReg.hasMatch(checkPasswordController) &&
-                            letterReg.hasMatch(checkPasswordController) &&
-                            (checkPasswordController.length <= 8)) &&
-                        checkPasswordConfirmController.isNotEmpty &&
-                        (passwordConfirmController.text ==
-                            passwordController.text) &&
-                        isChecked == true
-                    ? () {
-                        Navigator.pushReplacementNamed(
-                            context, Routes.signUpAuth);
-                      }
-                    : err,
+                onPressed: err,
+                // onPressed: (checkNameController.isNotEmpty &&
+                //             numberReg.hasMatch(checkNameController)) &&
+                //         checkEmailController.isNotEmpty &&
+                //         (checkPasswordController.isNotEmpty &&
+                //             numberReg.hasMatch(checkPasswordController) &&
+                //             letterReg.hasMatch(checkPasswordController) &&
+                //             (checkPasswordController.length <= 8)) &&
+                //         checkPasswordConfirmController.isNotEmpty &&
+                //         (passwordConfirmController.text ==
+                //             passwordController.text) &&
+                //         isChecked == true
+                //     ? () {
+                //         Navigator.pushReplacementNamed(
+                //             context, Routes.signUpAuth);
+                //       }
+                //     : err,
                 child: Text(
                   'Join Now',
                   style: indiedu.textTheme.button!.copyWith(
