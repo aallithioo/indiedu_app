@@ -58,9 +58,12 @@ class DemoProductCard extends StatelessWidget {
                 product.title,
                 style: indiedu.textTheme.headline6!.copyWith(
                   color: kGreyColorShade900,
+                  fontSize: kSizeSmall,
+                  fontWeight: kFontWeightMedium,
                 ),
                 maxLines: 2,
               ),
+              kSizeBoxVerticalSmall,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -68,6 +71,7 @@ class DemoProductCard extends StatelessWidget {
                     '\$${product.price}',
                     style: indiedu.textTheme.bodyText1!.copyWith(
                       color: kBlueColorShade400,
+                      fontSize: kSizeSmall,
                       fontWeight: kFontWeightSemiBold,
                     ),
                   ),
@@ -75,19 +79,19 @@ class DemoProductCard extends StatelessWidget {
                     borderRadius: kBorderRadiusMedium * 2,
                     onTap: () {},
                     child: Container(
-                      padding: kPaddingAllTiny,
+                      padding: kPaddingAllTiny / 1.3,
                       height: kSizeMedium,
                       width: kSizeMedium,
                       decoration: BoxDecoration(
                         color: product.isFavourite
                             ? kErrorColor
-                            : kGreyColorShade100,
+                            : kGreyColorShade300,
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
                         'assets/icons/svg/Heart Icon_2.svg',
                         color: product.isFavourite
-                            ? kErrorColor
+                            ? kGreyColorShade50
                             : kGreyColorShade100,
                       ),
                     ),
