@@ -30,23 +30,26 @@ class SpecialOffer extends StatelessWidget {
         kSizeBoxVerticalMedium,
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SpecialOfferCard(
-                category: "Math",
-                image: "assets/images/png/img_banner_0.png",
-                numOfBrands: 4,
-                press: () => ScaffoldMessenger.of(context)
-                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
-              ),
-              SpecialOfferCard(
-                category: "Social",
-                image: "assets/images/png/img_banner_1.png",
-                numOfBrands: 6,
-                press: () => ScaffoldMessenger.of(context)
-                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
-              ),
-            ],
+          child: Padding(
+            padding: kPaddingSymetricHorizontalTiny * 1.5,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  category: "Math",
+                  image: "assets/images/png/img_banner_0.png",
+                  numOfBrands: 4,
+                  press: () => ScaffoldMessenger.of(context).showSnackBar(
+                      kSnackBar('Feature are not available yet!')!),
+                ),
+                SpecialOfferCard(
+                  category: "Social",
+                  image: "assets/images/png/img_banner_1.png",
+                  numOfBrands: 6,
+                  press: () => ScaffoldMessenger.of(context).showSnackBar(
+                      kSnackBar('Feature are not available yet!')!),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -71,11 +74,11 @@ class SpecialOfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: kPaddingSymetricHorizontalSmall * 1.2,
+      padding: kPaddingSymetricHorizontalTiny * 1.2,
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: kSizeHuge * 3.6,
+          width: kSizeHuge * 3.4,
           height: kSizeHuge * 1.4,
           child: ClipRRect(
             borderRadius: kBorderRadiusSmall * 1.1,
@@ -89,13 +92,11 @@ class SpecialOfferCard extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                       colors: [
-                        // kBlueColorShade500,
-                        // kBlueColorShade400,
-                        // kBlueColorShade500,
-                        // kBlueColorShade600,
+                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(0.15),
                       ],
                     ),
                   ),
