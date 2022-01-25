@@ -217,20 +217,21 @@ class _SignInFormState extends State<SignInForm> {
                 ],
               ),
               child: TextButton(
-                onPressed: (emailController.text.isNotEmpty &&
-                        emailController.text.contains('@') &&
-                        emailController.text.contains('.') &&
-                        passwordController.text.length > 8)
-                    ? () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          Navigator.pushReplacementNamed(
-                            context,
-                            Routes.signInSuccess,
-                          );
-                        }
-                      }
-                    : err,
+                onPressed: err,
+                // onPressed: (emailController.text.isNotEmpty &&
+                //         emailController.text.contains('@') &&
+                //         emailController.text.contains('.') &&
+                //         passwordController.text.length > 8)
+                //     ? () {
+                //         if (_formKey.currentState!.validate()) {
+                //           _formKey.currentState!.save();
+                //           Navigator.pushReplacementNamed(
+                //             context,
+                //             Routes.signInSuccess,
+                //           );
+                //         }
+                //       }
+                //     : err,
                 child: Text(
                   'Let\'s Go',
                   style: indiedu.textTheme.button!.copyWith(
