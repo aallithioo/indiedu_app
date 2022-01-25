@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 final TextEditingController tokenController = TextEditingController();
 final String checkTokenController = tokenController.text.trim();
 RegExp numberReg = RegExp(r'.*[0-9].*');
+RegExp letterReg = RegExp(r'.*[A-Za-z].*');
 
 class ForgotAuthBody extends StatefulWidget {
   const ForgotAuthBody({Key? key}) : super(key: key);
@@ -26,17 +27,35 @@ class ForgotAuthBody extends StatefulWidget {
 
 class _ForgotAuthBodyState extends State<ForgotAuthBody> {
   Future err() async {
-    if (checkTokenController.isEmpty) {
+    // if (checkTokenController.isEmpty) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Code is required!')!);
+    // } else if (tokenController.text.length != 6 ||
+    //     !numberReg.hasMatch(tokenController.text)) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Code is invalid!')!);
+    // } else {
+    //   Navigator.pushReplacementNamed(context, Routes.reset);
+    // }
+    // Navigator.pushReplacementNamed(context, Routes.reset);
+    if (tokenController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Code is required!')!);
-    } else if (tokenController.text.length != 6 ||
-        !numberReg.hasMatch(tokenController.text)) {
+    } else if (tokenController.text.length != 6) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Code too short!')!);
+    } else if (tokenController.text.contains(' ') == true) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Code is invalid!')!);
+      // } else if (symbolReg.hasMatch(tokenController.text) == true) {
+      //   return ScaffoldMessenger.of(context)
+      //       .showSnackBar(kSnackBar('Code is required!')!);
+    } else if (letterReg.hasMatch(tokenController.text) == true) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Code is invalid!')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.reset);
     }
-    Navigator.pushReplacementNamed(context, Routes.reset);
   }
 
   @override
