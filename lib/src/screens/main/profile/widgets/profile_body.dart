@@ -1,7 +1,7 @@
-import 'package:aallithioo/src/app/widgets/custom_padding.dart';
-import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
-import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
-import 'package:aallithioo/src/screens/main/profile/widgets/profile_pic.dart';
+import '../../../../app/widgets/custom_padding.dart';
+import '../../../../app/widgets/custom_sizebox.dart';
+import '../../../../app/widgets/custom_snackbar.dart';
+import 'profile_pic.dart';
 import 'package:flutter/material.dart';
 
 import 'profile_menu.dart';
