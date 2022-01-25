@@ -31,27 +31,48 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
   static bool isObscured = true;
 
   Future err() async {
-    if (passwordController.text == "") {
-      if (checkPasswordController.isEmpty) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password is required!')!);
-      } else if (checkPasswordController.length <= 8) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
-      } else if (numberReg.hasMatch(checkPasswordController)) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be contain number!')!);
-      } else if (letterReg.hasMatch(checkPasswordController)) {
-        return ScaffoldMessenger.of(context)
-            .showSnackBar(kSnackBar('Password must be contain letter!')!);
-      } else {
-        return ScaffoldMessenger.of(context).showSnackBar(
-            kSnackBar('Password must be contain number and letter!')!);
-      }
-    } else if (passwordConfirmController.text == "" &&
-        passwordConfirmController.text != passwordController.text) {
+    // if (passwordController.text == "") {
+    //   if (checkPasswordController.isEmpty) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password is required!')!);
+    //   } else if (checkPasswordController.length <= 8) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
+    //   } else if (numberReg.hasMatch(checkPasswordController)) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be contain number!')!);
+    //   } else if (letterReg.hasMatch(checkPasswordController)) {
+    //     return ScaffoldMessenger.of(context)
+    //         .showSnackBar(kSnackBar('Password must be contain letter!')!);
+    //   } else {
+    //     return ScaffoldMessenger.of(context).showSnackBar(
+    //         kSnackBar('Password must be contain number and letter!')!);
+    //   }
+    // } else if (passwordConfirmController.text == "" &&
+    //     passwordConfirmController.text != passwordController.text) {
+    //   return ScaffoldMessenger.of(context)
+    //       .showSnackBar(kSnackBar('Password is required!')!);
+    // } else {
+    //   Navigator.pushReplacementNamed(context, Routes.resetSuccess);
+    // }
+    if (passwordController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password is required!')!);
+    } else if (passwordController.text.length < 8) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too short!')!);
+    } else if (passwordController.text.length > 64) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password too long!')!);
+    } else if (numberReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains number!')!);
+    } else if (letterReg.hasMatch(passwordController.text) == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password must contains letter!')!);
+    } else if (passwordConfirmController.text != passwordController.text) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password not match!')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.resetSuccess);
     }
@@ -216,16 +237,17 @@ class _ForgotAuthResetBodyState extends State<ForgotAuthResetBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (passwordController.text != "" &&
-                            passwordConfirmController.text != "" &&
-                            passwordController.text ==
-                                passwordConfirmController.text &&
-                            checkPasswordController.length > 8)
-                        ? () {
-                            Navigator.pushReplacementNamed(
-                                context, Routes.resetSuccess);
-                          }
-                        : err,
+                    onPressed: err,
+                    // onPressed: (passwordController.text != "" &&
+                    //         passwordConfirmController.text != "" &&
+                    //         passwordController.text ==
+                    //             passwordConfirmController.text &&
+                    //         checkPasswordController.length > 8)
+                    //     ? () {
+                    //         Navigator.pushReplacementNamed(
+                    //             context, Routes.resetSuccess);
+                    //       }
+                    //     : err,
                     child: Text(
                       'Change Password',
                       style: indiedu.textTheme.button!.copyWith(
