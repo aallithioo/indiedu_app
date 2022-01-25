@@ -1,5 +1,6 @@
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
 import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 import 'package:aallithioo/src/screens/main/profile/widgets/profile_pic.dart';
 import 'package:flutter/material.dart';
 
@@ -22,27 +23,32 @@ class ProfileBody extends StatelessWidget {
               ProfileMenu(
                 text: "My Account",
                 icon: "assets/icons/User Icon.svg",
-                press: () => {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
               ProfileMenu(
                 text: "Notifications",
                 icon: "assets/icons/Bell.svg",
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
               ProfileMenu(
                 text: "Settings",
                 icon: "assets/icons/Settings.svg",
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
               ProfileMenu(
                 text: "Help Center",
                 icon: "assets/icons/Question mark.svg",
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
               ProfileMenu(
                 text: "Log Out",
                 icon: "assets/icons/Log out.svg",
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
             ],
           ),
