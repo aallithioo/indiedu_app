@@ -134,6 +134,12 @@ class _SignUpFormState extends State<SignUpForm> {
     } else if (letterReg.hasMatch(passwordController.text) == false) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password must contains letter!')!);
+    } else if (passwordConfirmController.text != passwordController.text) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('Password not match!')!);
+    } else if (isChecked == false) {
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(kSnackBar('You need to agree the terms')!);
     } else {
       Navigator.pushReplacementNamed(context, Routes.signInSuccess);
     }
