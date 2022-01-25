@@ -10,7 +10,14 @@ import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
 import 'package:flutter/material.dart';
 
 class MyLearningScreen extends StatelessWidget {
-  const MyLearningScreen({Key? key}) : super(key: key);
+  const MyLearningScreen({
+    Key? key,
+    String? image,
+    String? title,
+    String? subject,
+    String? grade,
+    String? imageTeacher,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

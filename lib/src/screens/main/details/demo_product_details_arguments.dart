@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:aallithioo/src/data/models/product.dart';
 import 'package:flutter/material.dart';
 

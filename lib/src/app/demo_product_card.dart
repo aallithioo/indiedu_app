@@ -5,9 +5,10 @@ import 'package:aallithioo/src/app/themes/theme.dart';
 import 'package:aallithioo/src/app/widgets/custom_border.dart';
 import 'package:aallithioo/src/app/widgets/custom_padding.dart';
 import 'package:aallithioo/src/app/widgets/custom_sizebox.dart';
-import 'package:aallithioo/src/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:aallithioo/src/data/models/product.dart';
 
 import '../screens/main/details/demo_product_details_arguments.dart';
 
