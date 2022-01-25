@@ -14,8 +14,8 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/icons/svg/Flash Icon.svg", "text": "Flash Deal"},
-      {"icon": "assets/icons/svg/Bill Icon.svg", "text": "Bill"},
-      {"icon": "assets/icons/svg/Game Icon.svg", "text": "Game"},
+      {"icon": "assets/icons/svg/Bill Icon.svg", "text": "Transaction"},
+      {"icon": "assets/icons/svg/Game Icon.svg", "text": "Playground"},
       {"icon": "assets/icons/svg/Gift Icon.svg", "text": "Daily Gift"},
       {"icon": "assets/icons/svg/Discover.svg", "text": "More"},
     ];
