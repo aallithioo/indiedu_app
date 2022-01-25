@@ -144,12 +144,13 @@ class _ForgotBodyState extends State<ForgotBody> {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: (checkEmailController.isEmpty)
-                        ? err
-                        : () {
-                            Navigator.pushReplacementNamed(
-                                context, Routes.forgotAuth);
-                          },
+                    onPressed: err,
+                    // onPressed: (checkEmailController.isEmpty)
+                    //     ? err
+                    //     : () {
+                    //         Navigator.pushReplacementNamed(
+                    //             context, Routes.forgotAuth);
+                    //       },
                     child: Text(
                       'Find Account',
                       style: indiedu.textTheme.button!.copyWith(
