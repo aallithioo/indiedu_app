@@ -1,4 +1,5 @@
 import 'package:aallithioo/src/app/themes/fontweight.dart';
+import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 
 import '../../../../app/themes/color.dart';
 import '../../../../app/themes/size.dart';
@@ -33,15 +34,17 @@ class SpecialOffer extends StatelessWidget {
             children: [
               SpecialOfferCard(
                 category: "Math",
-                image: "assets/images/png/img_dummy_2.png",
+                image: "assets/images/png/img_banner_0.png",
                 numOfBrands: 4,
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
               SpecialOfferCard(
                 category: "Social",
-                image: "assets/images/png/img_dummy_2.png",
+                image: "assets/images/png/img_banner_1.png",
                 numOfBrands: 6,
-                press: () {},
+                press: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(kSnackBar('Feature are not available yet!')!),
               ),
             ],
           ),
@@ -89,10 +92,10 @@ class SpecialOfferCard extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        kBlueColorShade500,
-                        kBlueColorShade400,
-                        kBlueColorShade500,
-                        kBlueColorShade600,
+                        // kBlueColorShade500,
+                        // kBlueColorShade400,
+                        // kBlueColorShade500,
+                        // kBlueColorShade600,
                       ],
                     ),
                   ),
