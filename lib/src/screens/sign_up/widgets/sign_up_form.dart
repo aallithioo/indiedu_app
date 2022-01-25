@@ -91,16 +91,16 @@ class _SignUpFormState extends State<SignUpForm> {
           .showSnackBar(kSnackBar('Name is required!')!);
     } else if (nameController.text.length < 3) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Code is required!')!);
+          .showSnackBar(kSnackBar('Name too short!')!);
     } else if (nameController.text.length > 16) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Code is required!')!);
+          .showSnackBar(kSnackBar('Name too long!')!);
     } else if (nameController.text.contains(' ') == true) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Code is required!')!);
+          .showSnackBar(kSnackBar('Name is invalid!')!);
     } else if (numberReg.hasMatch(nameController.text) == true) {
       return ScaffoldMessenger.of(context)
-          .showSnackBar(kSnackBar('Code is required!')!);
+          .showSnackBar(kSnackBar('Name is invalid!')!);
     } else if (emailController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is required!')!);
