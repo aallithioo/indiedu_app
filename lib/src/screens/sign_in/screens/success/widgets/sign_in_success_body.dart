@@ -27,11 +27,11 @@ class SignInSuccessBody extends StatelessWidget {
             children: [
               const Spacer(),
               SizedBox(
-                width: 200,
-                height: 200,
-                child: Image.asset('assets/images/png/img_dummy_0.png'),
+                width: 300,
+                height: 300,
+                child: Image.asset('assets/images/png/img_signin_success.png'),
               ),
-              kSizeBoxVerticalLarge,
+              kSizeBoxVerticalSmall,
               Container(
                 margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                 child: Text(
@@ -47,7 +47,7 @@ class SignInSuccessBody extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeLarge),
                 padding: kPaddingSymetricHorizontalMedium,
                 child: Text(
-                  'Let\'s make new progress and do our best',
+                  'Let\'s make new progress\nand do our best',
                   style: indiedu.textTheme.bodyText1!.copyWith(
                     color: indiedu.textTheme.bodyText1!.color!.withOpacity(0.7),
                   ),
