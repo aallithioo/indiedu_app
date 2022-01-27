@@ -25,80 +25,89 @@ class DemoProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: kSizeSmall),
-      child: SizedBox(
-        width: kSizeHuge * 2,
-        child: GestureDetector(
-          onTap: () => Navigator.pushNamed(
-            context,
-            'isi-route-disini',
-            arguments: DemoProductDetailsArguments(product: product),
-          ),
-          child: Column(
-            children: [
-              AspectRatio(
-                aspectRatio: 1.02,
-                child: Container(
-                  padding: kPaddingAllMedium,
-                  decoration: BoxDecoration(
-                    color: kGreyColorShade200,
-                    borderRadius: kBorderRadiusSmall,
-                  ),
-                  child: Hero(
-                    tag: product.id.toString(),
-                    child: Image.asset(
-                      product.images[0],
+    return SingleChildScrollView(
+      physics: ScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: EdgeInsets.only(left: kSizeSmall),
+        child: SizedBox(
+          width: kSizeHuge * 2,
+          child: GestureDetector(
+            onTap: () => Navigator.pushNamed(
+              context,
+              'isi-route-disini',
+              arguments: DemoProductDetailsArguments(product: product),
+            ),
+            child: Column(
+              children: [
+                AspectRatio(
+                  aspectRatio: 1.02,
+                  child: Container(
+                    padding: kPaddingAllTiny,
+                    decoration: BoxDecoration(
+                      color: kGreyColorShade200,
+                      borderRadius: kBorderRadiusSmall,
                     ),
-                  ),
-                ),
-              ),
-              kSizeBoxVerticalSmall,
-              Text(
-                product.title,
-                style: indiedu.textTheme.headline6!.copyWith(
-                  color: kGreyColorShade900,
-                  fontSize: kSizeSmall,
-                  fontWeight: kFontWeightMedium,
-                ),
-                maxLines: 2,
-              ),
-              kSizeBoxVerticalSmall,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '\$${product.price}',
-                    style: indiedu.textTheme.bodyText1!.copyWith(
-                      color: kBlueColorShade400,
-                      fontSize: kSizeSmall,
-                      fontWeight: kFontWeightSemiBold,
-                    ),
-                  ),
-                  InkWell(
-                    borderRadius: kBorderRadiusMedium * 2,
-                    onTap: () {},
-                    child: Container(
-                      padding: kPaddingAllTiny / 1.3,
-                      height: kSizeMedium,
-                      width: kSizeMedium,
-                      decoration: BoxDecoration(
-                        color: product.isFavourite
-                            ? kErrorColor
-                            : kGreyColorShade300,
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/svg/Heart Icon_2.svg',
-                        color: product.isFavourite
-                            ? kGreyColorShade50
-                            : kGreyColorShade100,
+                    child: Hero(
+                      tag: product.id.toString(),
+                      child: ClipRRect(
+                        borderRadius: kBorderRadiusTiny,
+                        child: Image.asset(
+                          product.images[0],
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                kSizeBoxVerticalSmall,
+                Text(
+                  product.title,
+                  style: indiedu.textTheme.headline6!.copyWith(
+                    color: kGreyColorShade900,
+                    fontSize: kSizeSmall,
+                    fontWeight: kFontWeightMedium,
+                  ),
+                  maxLines: 2,
+                  textAlign: TextAlign.left,
+                ),
+                kSizeBoxVerticalTiny,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '\$${product.price}',
+                      style: indiedu.textTheme.bodyText1!.copyWith(
+                        color: kBlueColorShade400,
+                        fontSize: kSizeSmall - 2,
+                        fontWeight: kFontWeightSemiBold,
+                      ),
+                    ),
+                    InkWell(
+                      borderRadius: kBorderRadiusMedium * 2,
+                      onTap: () {},
+                      child: Container(
+                        padding: kPaddingAllTiny / 1.3,
+                        height: kSizeMedium,
+                        width: kSizeMedium,
+                        decoration: BoxDecoration(
+                          color: product.isFavourite
+                              ? kErrorColor
+                              : kGreyColorShade300,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/icons/svg/Heart Icon_2.svg',
+                          color: product.isFavourite
+                              ? kGreyColorShade50
+                              : kGreyColorShade100,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -36,14 +36,14 @@ class SpecialOffer extends StatelessWidget {
               children: [
                 SpecialOfferCard(
                   category: "Math",
-                  image: "assets/images/png/img_banner_0.png",
+                  image: "assets/images/png/img_special_math.png",
                   numOfBrands: 4,
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                       kSnackBar('Feature are not available yet!')!),
                 ),
                 SpecialOfferCard(
                   category: "Social",
-                  image: "assets/images/png/img_banner_1.png",
+                  image: "assets/images/png/img_special_social.png",
                   numOfBrands: 6,
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                       kSnackBar('Feature are not available yet!')!),
@@ -95,8 +95,8 @@ class SpecialOfferCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
+                        const Color(0xFF343434).withOpacity(0.03),
+                        const Color(0xFF343434).withOpacity(0.07),
                       ],
                     ),
                   ),
@@ -109,14 +109,14 @@ class SpecialOfferCard extends StatelessWidget {
                         TextSpan(
                           text: "$category\n",
                           style: indiedu.textTheme.bodyText1!.copyWith(
-                            color: kGreyColorShade50,
+                            color: kGreyColorShade900,
                             fontWeight: kFontWeightSemiBold,
                           ),
                         ),
                         TextSpan(
                           text: "$numOfBrands Class",
                           style: indiedu.textTheme.bodyText1!.copyWith(
-                            color: kGreyColorShade50,
+                            color: kGreyColorShade900,
                             fontSize: 12,
                           ),
                         ),

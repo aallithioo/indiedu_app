@@ -1,4 +1,5 @@
 import 'package:aallithioo/src/app/themes/color.dart';
+import 'package:aallithioo/src/app/themes/fontweight.dart';
 import 'package:aallithioo/src/app/widgets/custom_snackbar.dart';
 
 import '../../../../app/themes/theme.dart';
@@ -25,6 +26,7 @@ class SectionTitle extends StatelessWidget {
           title,
           style: indiedu.textTheme.bodyText1!.copyWith(
             color: indiedu.textTheme.bodyText1!.color,
+            fontWeight: kFontWeightMedium,
           ),
         ),
         GestureDetector(

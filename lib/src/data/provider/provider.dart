@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -126,7 +125,7 @@ class UserService {
 
     /// Register Response
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       final data = json.decode(response.body);
       UserModel user = UserModel.fromJson(data);
       // user.token = 'Bearer ' + data['token'];

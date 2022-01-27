@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Product {
   final int id;
-  final String title, description;
+  final String title;
+  // final String description;
   final List<String> images;
   final List<Color> colors;
   final double rating, price;
@@ -17,7 +18,7 @@ class Product {
     this.isPopular = false,
     required this.title,
     required this.price,
-    required this.description,
+    // required this.description,
   });
 }
 
@@ -27,20 +28,20 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/images/png/ps4_console_white_1.png",
-      "assets/images/png/ps4_console_white_2.png",
-      "assets/images/png/ps4_console_white_3.png",
-      "assets/images/png/ps4_console_white_4.png",
+      "assets/images/png/img_course_math.png",
+      // "assets/images/png/ps4_console_white_2.png",
+      // "assets/images/png/ps4_console_white_3.png",
+      // "assets/images/png/ps4_console_white_4.png",
     ],
     colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
-    description: description,
+    title: "Algebra 101 Ways",
+    price: 10.99,
+    // description: description,
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
@@ -48,34 +49,34 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/images/png/Image Popular Product 2.png",
+      "assets/images/png/img_course_social.png",
     ],
     colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
-    description: description,
+    title: "Social Interaction",
+    price: 5.5,
+    // // description: description,
     rating: 4.1,
     isPopular: true,
   ),
   Product(
     id: 3,
     images: [
-      "assets/images/png/glap.png",
+      "assets/images/png/img_course_art.png",
     ],
     colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
+    title: "Learn Art Painting",
+    price: 10.55,
+    // description: description,
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
@@ -83,21 +84,60 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/png/wireless headset.png",
+      "assets/images/png/img_course_math.png",
+      // "assets/images/png/ps4_console_white_2.png",
+      // "assets/images/png/ps4_console_white_3.png",
+      // "assets/images/png/ps4_console_white_4.png",
     ],
     colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
-    price: 20.20,
-    description: description,
+    title: "Algebra 101 Ways",
+    price: 10.99,
+    // description: description,
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 5,
+    images: [
+      "assets/images/png/img_course_social.png",
+    ],
+    colors: [
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Social Interaction",
+    price: 5.5,
+    // // description: description,
+    rating: 4.1,
+    isPopular: true,
+  ),
+  Product(
+    id: 6,
+    images: [
+      "assets/images/png/img_course_art.png",
+    ],
+    colors: [
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Learn Art Painting",
+    price: 10.55,
+    // description: description,
     rating: 4.1,
     isFavourite: true,
+    isPopular: true,
   ),
 ];
 
-const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+// const String description =
+//     "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";

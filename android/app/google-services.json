@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "354028696445",
+    "project_id": "indiedu-company",
+    "storage_bucket": "indiedu-company.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354028696445:android:a3b60eede8296db6065214",
+        "android_client_info": {
+          "package_name": "com.example.aallithioo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354028696445-hsplsq1jp69c36ohugm39eudm667vvtl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1R9HI7KzfOKFe1TTGcNZMfrvDGkqI1Tk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354028696445-hsplsq1jp69c36ohugm39eudm667vvtl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

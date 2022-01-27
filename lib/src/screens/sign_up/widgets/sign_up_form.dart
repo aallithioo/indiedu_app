@@ -1,3 +1,6 @@
+import 'package:aallithioo/src/data/provider/provider.dart';
+import 'package:provider/provider.dart';
+
 import '../../../app/routes/route.dart';
 
 import '../../../app/themes/color.dart';
@@ -29,63 +32,24 @@ String? passwordHint;
 var requiredData = const Text(' *', style: TextStyle(color: Colors.red));
 RegExp numberReg = RegExp(r'.*[0-9].*');
 RegExp letterReg = RegExp(r'.*[A-Za-z].*');
-final TextEditingController nameController = TextEditingController();
-final TextEditingController emailController = TextEditingController();
 final TextEditingController phoneController = TextEditingController();
-final TextEditingController passwordController = TextEditingController();
-final TextEditingController passwordConfirmController = TextEditingController();
 late String password;
-late String checkNameController = nameController.text.trim();
-late String checkEmailController = emailController.text.trim();
 late String checkPhoneController = phoneController.text.trim();
+final TextEditingController passwordConfirmController = TextEditingController();
 late String checkPasswordController = passwordController.text.trim();
 late String checkPasswordConfirmController =
     passwordConfirmController.text.trim();
+final TextEditingController passwordController = TextEditingController();
 
 class _SignUpFormState extends State<SignUpForm> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  late String checkNameController = nameController.text.trim();
+  late String checkEmailController = emailController.text.trim();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   static bool isObscured = true;
 
   Future err() async {
-    // if (nameController.text == "" || nameController.text.length <= 4) {
-    //   if (numberReg.hasMatch(checkNameController)) {
-    //     return ScaffoldMessenger.of(context).showSnackBar(
-    //         kSnackBar('Name must be atleast than 4 characters!')!);
-    //   } else {
-    //     return ScaffoldMessenger.of(context)
-    //         .showSnackBar(kSnackBar('Name is required!')!);
-    //   }
-    // } else if (emailController.text == "") {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('Address is required!')!);
-    // } else if (passwordController.text == "") {
-    //   if (checkPasswordController.isEmpty) {
-    //     return ScaffoldMessenger.of(context)
-    //         .showSnackBar(kSnackBar('Password is required!')!);
-    //   } else if (checkPasswordController.length <= 8) {
-    //     return ScaffoldMessenger.of(context)
-    //         .showSnackBar(kSnackBar('Password must be atleast 8 characters!')!);
-    //   } else if (numberReg.hasMatch(checkPasswordController)) {
-    //     return ScaffoldMessenger.of(context)
-    //         .showSnackBar(kSnackBar('Password must be contain number!')!);
-    //   } else if (letterReg.hasMatch(checkPasswordController)) {
-    //     return ScaffoldMessenger.of(context)
-    //         .showSnackBar(kSnackBar('Password must be contain letter!')!);
-    //   } else {
-    //     return ScaffoldMessenger.of(context).showSnackBar(
-    //         kSnackBar('Password must be contain number and letter!')!);
-    //   }
-    // } else if (passwordConfirmController.text == "" &&
-    //     passwordConfirmController.text != passwordController.text) {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('Password is required!')!);
-    // } else if (isChecked == false) {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('You need to agree the terms')!);
-    // } else {
-    //   Navigator.pushReplacementNamed(context, Routes.signUpAuth);
-    // }
-
     if (nameController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Name is required!')!);
@@ -141,7 +105,25 @@ class _SignUpFormState extends State<SignUpForm> {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('You need to agree the terms')!);
     } else {
-      Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      AuthProvider authProvider = Provider.of<AuthProvider>(
+        context,
+        listen: false,
+      );
+      bool? isValid = await authProvider.register(
+        nameController.text,
+        emailController.text,
+        passwordController.text,
+      );
+
+      if (isValid == true) {
+        Navigator.pushReplacementNamed(context, Routes.signUpSuccess);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          kSnackBar(
+            'Something wrong or Email have been taken!',
+          )!,
+        );
+      }
     }
   }
 
@@ -480,10 +462,10 @@ class _SignUpFormState extends State<SignUpForm> {
 
                 if (credential.accessToken != null &&
                     credential.idToken != null) {
-                  // Navigator.pushReplacementNamed(
-                  //   context,
-                  //   Routes.controller,
-                  // );
+                  Navigator.pushReplacementNamed(
+                    context,
+                    Routes.signInSuccess,
+                  );
                 }
               },
               child: Image.asset('assets/images/png/img_google_logo.png'),

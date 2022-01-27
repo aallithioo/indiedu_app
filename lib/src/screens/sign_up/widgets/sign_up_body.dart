@@ -35,7 +35,7 @@ class SignUpBody extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                   child: Text(
-                    'Welcome back!',
+                    'Hi, There 👋',
                     style: indiedu.textTheme.headline5!.copyWith(
                       color: kGreyColorShade900,
                       fontWeight: kFontWeightSemiBold,
@@ -47,7 +47,7 @@ class SignUpBody extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeLarge),
                   padding: kPaddingSymetricHorizontalMedium,
                   child: Text(
-                    'Please type your email and password to sign in.',
+                    'Please fulfill the field to join with us.',
                     style: indiedu.textTheme.bodyText1!.copyWith(),
                     textAlign: kTextAlignCenter,
                   ),
