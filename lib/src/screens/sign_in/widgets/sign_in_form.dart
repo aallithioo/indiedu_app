@@ -432,12 +432,10 @@ class _SignInFormState extends State<SignInForm> {
 
                 FirebaseAuth.instance.signInWithCredential(credential);
 
+                // sign in logic
                 if (credential.accessToken != null &&
                     credential.idToken != null) {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    Routes.signInSuccess,
-                  );
+                  Navigator.pushNamed(context, Routes.signInSuccess);
                 }
               },
               child: Image.asset('assets/images/png/img_google_logo.png'),

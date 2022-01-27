@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "354028696445-mnchdll3ime3rat0utlphcgga9ij9s47.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.aallithioo",
-            "certificate_hash": "c09645e6d0f1f7cb47cd505498323f4ac354ba34"
-          }
-        },
-        {
           "client_id": "354028696445-hsplsq1jp69c36ohugm39eudm667vvtl.apps.googleusercontent.com",
           "client_type": 3
         }

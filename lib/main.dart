@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'src/app/routes/route.dart';
 
@@ -23,7 +24,13 @@ import 'src/screens/forgot/screens/reset/forgot_auth_reset_screen.dart';
 import 'src/screens/forgot/screens/success/forgot_auth_reset_success_screen.dart';
 import 'src/screens/warn/warn_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    const MyApp(),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
