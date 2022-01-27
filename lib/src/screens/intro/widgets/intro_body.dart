@@ -23,16 +23,16 @@ class _IntroBodyState extends State<IntroBody> {
   int currentPage = 0;
   List<Map<String, String>> introData = [
     {
-      "text": "Welcome to indiedu, Let's shop!",
-      "image": "assets/images/png/img_dummy_0.png",
+      "text": "Welcome to indiedu, Let's get learn!",
+      "image": "assets/images/png/img_intro_0.png",
     },
     {
       "text": "We help people to find the best products",
-      "image": "assets/images/png/img_dummy_0.png",
+      "image": "assets/images/png/img_intro_1.png",
     },
     {
-      "text": "We show the easy way to buy",
-      "image": "assets/images/png/img_dummy_0.png",
+      "text": "We show the easy way to learn",
+      "image": "assets/images/png/img_intro_2.png",
     },
   ];
 
