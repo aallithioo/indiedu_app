@@ -31,44 +31,8 @@ class _SignInFormState extends State<SignInForm> {
   RegExp numberReg = RegExp(r'.*[0-9].*');
   RegExp letterReg = RegExp(r'.*[A-Za-z].*');
   static bool isObscured = true;
-  // final List<String?> errors = [];
-
-  // Add error messages to the errors list
-  // void addError({String? error}) {
-  //   if (!errors.contains(error)) {
-  //     setState(() {
-  //       errors.add(error);
-  //     });
-  //   }
-  // }
-
-  // Remove error messages from the errors list
-  // void removeError({String? error}) {
-  //   if (errors.contains(error)) {
-  //     setState(() {
-  //       errors.remove(error);
-  //     });
-  //   }
-  // }
 
   Future err() async {
-    // if (emailController.text.isEmpty) {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('Email is required!')!);
-    // } else if (emailController.text.isNotEmpty &&
-    //     emailController.text.contains('@') == false) {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('Email is invalid!')!);
-    // } else if (passwordController.text.isEmpty) {
-    //   return ScaffoldMessenger.of(context)
-    //       .showSnackBar(kSnackBar('Password is required!')!);
-    // } else {
-    //   if (_formKey.currentState!.validate()) {
-    //     _formKey.currentState!.save();
-    //     Navigator.pushReplacementNamed(context, Routes.signInSuccess);
-    //   }
-    // }
-
     if (emailController.text.isEmpty) {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Email is required!')!);
@@ -238,22 +202,6 @@ class _SignInFormState extends State<SignInForm> {
               ),
               child: TextButton(
                 onPressed: err,
-
-                // },
-                // onPressed: (emailController.text.isNotEmpty &&
-                //         emailController.text.contains('@') &&
-                //         emailController.text.contains('.') &&
-                //         passwordController.text.length > 8)
-                //     ? () {
-                //         if (_formKey.currentState!.validate()) {
-                //           _formKey.currentState!.save();
-                //           Navigator.pushReplacementNamed(
-                //             context,
-                //             Routes.signInSuccess,
-                //           );
-                //         }
-                //       }
-                //     : err,
                 child: Text(
                   'Let\'s Go',
                   style: indiedu.textTheme.button!.copyWith(
@@ -302,121 +250,6 @@ class _SignInFormState extends State<SignInForm> {
       ),
     );
   }
-
-//   TextFormField buildEmailFormField() {
-//     return TextFormField(
-//       keyboardType: TextInputType.emailAddress,
-//       onSaved: (newValue) => _emailController = newValue,
-//       onChanged: (value) {
-//         if (value.isNotEmpty) {
-//           removeError(error: kEmailNullError);
-//         } else if (emailValidatorRegExp.hasMatch(value)) {
-//           addError(error: kInvalidEmailError);
-//         }
-//         return;
-//       },
-//       validator: (value) {
-//         if (value!.isEmpty) {
-//           addError(error: kEmailNullError);
-//           return "";
-//         } else if (!emailValidatorRegExp.hasMatch(value)) {
-//           addError(error: kInvalidEmailError);
-//           return "";
-//         }
-//         return null;
-//       },
-//       decoration: InputDecoration(
-//         hintText: 'Email Address',
-//         hintStyle: indiedu.textTheme.bodyText2!.copyWith(
-//           color: kGreyColorShade400,
-//         ),
-//         errorText: errors.contains(kEmailNullError) ? kEmailNullError : null,
-//         errorStyle: TextStyle(color: kErrorColor),
-//         filled: true,
-//         fillColor: kGreyColorShade200,
-//         floatingLabelBehavior: FloatingLabelBehavior.always,
-//         border: OutlineInputBorder(
-//           borderRadius: kBorderRadiusTiny,
-//           borderSide: BorderSide.none,
-//         ),
-//         focusedBorder: OutlineInputBorder(
-//           borderRadius: kBorderRadiusTiny,
-//           borderSide: BorderSide(
-//             color: kBlueColorShade400,
-//           ),
-//         ),
-//         prefixIcon: Icon(
-//           Icons.email_rounded,
-//           color: kGreyColorShade400,
-//         ),
-//       ),
-//     );
-//   }
-
-//   TextFormField buildPasswordFormField() {
-//     return TextFormField(
-//       obscureText: isObscured,
-//       onSaved: (newValue) => _passwordController = newValue,
-//       onChanged: (value) {
-//         if (value.isNotEmpty) {
-//           removeError(error: kPassNullError);
-//         } else if (value.length >= 8) {
-//           addError(error: kShortPassError);
-//         }
-//         return;
-//       },
-//       validator: (value) {
-//         if (value!.isEmpty) {
-//           addError(error: kPassNullError);
-//           return "";
-//         } else if (value.length < 8) {
-//           addError(error: kShortPassError);
-//           return "";
-//         }
-//         return null;
-//       },
-//       decoration: InputDecoration(
-//         hintText: 'Password',
-//         hintStyle: indiedu.textTheme.bodyText2!.copyWith(
-//           color: kGreyColorShade400,
-//         ),
-//         errorText: errors.contains(kPassNullError) ? kPassNullError : null,
-//         errorStyle: TextStyle(color: kErrorColor),
-//         filled: true,
-//         fillColor: kGreyColorShade200,
-//         floatingLabelBehavior: FloatingLabelBehavior.always,
-//         border: OutlineInputBorder(
-//           borderRadius: kBorderRadiusTiny,
-//           borderSide: BorderSide.none,
-//         ),
-//         focusedBorder: OutlineInputBorder(
-//           borderRadius: kBorderRadiusTiny,
-//           borderSide: BorderSide(
-//             color: kBlueColorShade400,
-//           ),
-//         ),
-//         prefixIcon: Icon(
-//           Icons.vpn_key_rounded,
-//           color: kGreyColorShade400,
-//         ),
-//         suffixIcon: IconButton(
-//           color: kGreyColorShade400,
-//           icon: Icon(
-//             isObscured ? Icons.visibility : Icons.visibility_off,
-//           ),
-//           onPressed: () {
-//             setState(
-//               () {
-//                 isObscured = !isObscured;
-//               },
-//             );
-//           },
-//         ),
-//       ),
-//       cursorColor: kBlueColorShade400,
-//     );
-//   }
-// }
 
   buildThirdPartyButton() {
     return Row(

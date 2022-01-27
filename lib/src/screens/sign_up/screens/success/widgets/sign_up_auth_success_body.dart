@@ -47,7 +47,7 @@ class SignUpAuthSuccessBody extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, kSizeSmall, 0, kSizeLarge),
                 padding: kPaddingSymetricHorizontalMedium,
                 child: Text(
-                  'Welcome to be part of our family. We hope you have what you need and what you want and make your dream come true',
+                  'Welcome to be part of our family. We hope you have what you need and what you want and make your dream come true\n\nPlease too verify your account first, we have sent email verification to your email address.\nPlease check your email and click the link to verify your account.',
                   style: indiedu.textTheme.bodyText1!.copyWith(
                     color: indiedu.textTheme.bodyText1!.color!.withOpacity(0.7),
                   ),
