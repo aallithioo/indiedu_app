@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,7 +17,10 @@ class ProfilePic extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/images/png/Profile Image.png"),
+            backgroundImage: NetworkImage(
+              FirebaseAuth.instance.currentUser!.photoURL ??
+                  'http://cdn.jsdelivr.net/gh/aallithioo/CDN/images/png/guest.png',
+            ),
           ),
           Positioned(
             right: -16,
