@@ -84,7 +84,10 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/png/img_course_art.png",
+      "assets/images/png/img_course_math.png",
+      // "assets/images/png/ps4_console_white_2.png",
+      // "assets/images/png/ps4_console_white_3.png",
+      // "assets/images/png/ps4_console_white_4.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -92,16 +95,17 @@ List<Product> demoProducts = [
       const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
-    price: 20.20,
+    title: "Algebra 101 Ways",
+    price: 10.99,
     // description: description,
-    rating: 4.1,
+    rating: 4.8,
     isFavourite: true,
+    isPopular: true,
   ),
   Product(
     id: 5,
     images: [
-      "assets/images/png/img_course_art.png",
+      "assets/images/png/img_course_social.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -109,11 +113,11 @@ List<Product> demoProducts = [
       const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
-    price: 20.20,
-    // description: description,
+    title: "Social Interaction",
+    price: 5.5,
+    // // description: description,
     rating: 4.1,
-    isFavourite: true,
+    isPopular: true,
   ),
   Product(
     id: 6,
@@ -126,28 +130,12 @@ List<Product> demoProducts = [
       const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
-    price: 20.20,
+    title: "Learn Art Painting",
+    price: 10.55,
     // description: description,
     rating: 4.1,
     isFavourite: true,
-  ),
-  Product(
-    id: 7,
-    images: [
-      "assets/images/png/img_course_art.png",
-    ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
-    price: 20.20,
-    // description: description,
-    rating: 4.1,
-    isFavourite: true,
+    isPopular: true,
   ),
 ];
 

@@ -1,4 +1,4 @@
-import 'package:aallithioo/src/data/provider/provider.dart';
+import '../../../data/provider/provider.dart';
 
 import '../../../app/widgets/custom_snackbar.dart';
 import '../../../app/widgets/custom_blur.dart';
@@ -103,13 +103,29 @@ class _SignInFormState extends State<SignInForm> {
       return ScaffoldMessenger.of(context)
           .showSnackBar(kSnackBar('Password must contains letter!')!);
     } else {
-      Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      AuthProvider authProvider = Provider.of<AuthProvider>(
+        context,
+        listen: false,
+      );
+      bool? isValid = await authProvider.login(
+        emailController.text,
+        passwordController.text,
+      );
+
+      if (isValid == true) {
+        Navigator.pushReplacementNamed(context, Routes.signInSuccess);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          kSnackBar(
+            'Wrong email or password!',
+          )!,
+        );
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
     return Center(
       child: Form(
         key: _formKey,
@@ -222,6 +238,8 @@ class _SignInFormState extends State<SignInForm> {
               ),
               child: TextButton(
                 onPressed: err,
+
+                // },
                 // onPressed: (emailController.text.isNotEmpty &&
                 //         emailController.text.contains('@') &&
                 //         emailController.text.contains('.') &&

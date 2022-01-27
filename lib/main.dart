@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+
+import 'src/data/provider/provider.dart';
 
 import 'src/app/routes/route.dart';
 
@@ -37,27 +40,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splash,
-      routes: <String, WidgetBuilder>{
-        Routes.splash: (_) => const SplashScreen(),
-        Routes.warn: (_) => const WarnScreen(),
-        Routes.intro: (_) => const IntroScreen(),
-        Routes.signIn: (_) => const SignInScreen(),
-        Routes.signInSuccess: (_) => const SignInSuccessScreen(),
-        Routes.signUp: (_) => const SignUpScreen(),
-        Routes.signUpAuth: (_) => const SignUpAuthScreen(),
-        Routes.signUpSuccess: (_) => const SignUpSuccessScreen(),
-        Routes.forgot: (_) => const ForgotScreen(),
-        Routes.forgotAuth: (_) => const ForgotAuthScreen(),
-        Routes.reset: (_) => const ForgotAuthResetScreen(),
-        Routes.resetSuccess: (_) => const ForgotAuthResetSuccessScreen(),
-        Routes.home: (_) => const HomeScreen(),
-        Routes.myLearning: (_) => const MyLearningScreen(),
-        Routes.myQuiz: (_) => const MyQuizScreen(),
-        Routes.profile: (_) => const ProfileScreen(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.splash,
+        routes: <String, WidgetBuilder>{
+          Routes.splash: (_) => const SplashScreen(),
+          Routes.warn: (_) => const WarnScreen(),
+          Routes.intro: (_) => const IntroScreen(),
+          Routes.signIn: (_) => const SignInScreen(),
+          Routes.signInSuccess: (_) => const SignInSuccessScreen(),
+          Routes.signUp: (_) => const SignUpScreen(),
+          Routes.signUpAuth: (_) => const SignUpAuthScreen(),
+          Routes.signUpSuccess: (_) => const SignUpSuccessScreen(),
+          Routes.forgot: (_) => const ForgotScreen(),
+          Routes.forgotAuth: (_) => const ForgotAuthScreen(),
+          Routes.reset: (_) => const ForgotAuthResetScreen(),
+          Routes.resetSuccess: (_) => const ForgotAuthResetSuccessScreen(),
+          Routes.home: (_) => const HomeScreen(),
+          Routes.myLearning: (_) => const MyLearningScreen(),
+          Routes.myQuiz: (_) => const MyQuizScreen(),
+          Routes.profile: (_) => const ProfileScreen(),
+        },
+      ),
     );
   }
 }
