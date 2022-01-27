@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:aallithioo/src/data/provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
+import '../../data/provider/provider.dart';
 
 import '../../app/routes/route.dart';
 
 import 'widgets/splash_body.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

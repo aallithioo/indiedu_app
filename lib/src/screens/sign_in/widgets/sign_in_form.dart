@@ -287,17 +287,18 @@ class _SignInFormState extends State<SignInForm> {
                   idToken: googleAuth?.idToken,
                 );
 
+                saveTokenGoogle(String token) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setString('accessToken', credential.accessToken!);
+                }
+
                 FirebaseAuth.instance.signInWithCredential(credential);
 
                 // sign in logic
                 if (credential.accessToken != null &&
                     credential.idToken != null) {
-                  saveTokenGoogle(String token) async {
-                    SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
-                    prefs.setString('accessToken', credential.accessToken!);
-                  }
-
+                  saveTokenGoogle(credential.accessToken!);
                   Navigator.pushNamed(context, Routes.signInSuccess);
                 }
               },
