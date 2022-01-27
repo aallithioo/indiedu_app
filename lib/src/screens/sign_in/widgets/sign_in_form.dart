@@ -1,3 +1,5 @@
+import 'package:aallithioo/src/data/provider/provider.dart';
+
 import '../../../app/widgets/custom_snackbar.dart';
 import '../../../app/widgets/custom_blur.dart';
 import '../../../app/widgets/custom_padding.dart';
@@ -13,6 +15,7 @@ import '../../../app/themes/color.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignInForm extends StatefulWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -106,6 +109,7 @@ class _SignInFormState extends State<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
     return Center(
       child: Form(
         key: _formKey,
