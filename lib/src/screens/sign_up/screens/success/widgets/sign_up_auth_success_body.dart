@@ -27,11 +27,11 @@ class SignUpAuthSuccessBody extends StatelessWidget {
             children: [
               const Spacer(),
               SizedBox(
-                width: 200,
-                height: 200,
-                child: Image.asset('assets/images/png/img_dummy_0.png'),
+                width: 300,
+                height: 300,
+                child: Image.asset('assets/images/png/img_signin_success.png'),
               ),
-              kSizeBoxVerticalLarge,
+              kSizeBoxVerticalMedium,
               Container(
                 margin: EdgeInsets.fromLTRB(0, kSizeTiny, 0, 0),
                 child: Text(

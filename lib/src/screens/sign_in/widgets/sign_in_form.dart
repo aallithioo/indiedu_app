@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../../data/provider/provider.dart';
 
 import '../../../app/widgets/custom_snackbar.dart';
@@ -290,6 +292,12 @@ class _SignInFormState extends State<SignInForm> {
                 // sign in logic
                 if (credential.accessToken != null &&
                     credential.idToken != null) {
+                  saveTokenGoogle(String token) async {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    prefs.setString('accessToken', credential.accessToken!);
+                  }
+
                   Navigator.pushNamed(context, Routes.signInSuccess);
                 }
               },
