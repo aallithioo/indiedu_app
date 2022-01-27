@@ -34,7 +34,7 @@ class ProfileBody extends StatelessWidget {
                 const SizedBox(height: 20),
                 ProfileMenu(
                   text: "My Account",
-                  icon: "assets/icons/User Icon.svg",
+                  icon: "assets/icons/svg/User Icon.svg",
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                     kSnackBar(
                       'Feature are not available yet!',
@@ -43,7 +43,7 @@ class ProfileBody extends StatelessWidget {
                 ),
                 ProfileMenu(
                   text: "Notifications",
-                  icon: "assets/icons/Bell.svg",
+                  icon: "assets/icons/svg/Bell.svg",
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                     kSnackBar(
                       'Feature are not available yet!',
@@ -52,7 +52,7 @@ class ProfileBody extends StatelessWidget {
                 ),
                 ProfileMenu(
                   text: "Settings",
-                  icon: "assets/icons/Settings.svg",
+                  icon: "assets/icons/svg/Settings.svg",
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                     kSnackBar(
                       'Feature are not available yet!',
@@ -61,7 +61,7 @@ class ProfileBody extends StatelessWidget {
                 ),
                 ProfileMenu(
                   text: "Help Center",
-                  icon: "assets/icons/Question mark.svg",
+                  icon: "assets/icons/svg/Question mark.svg",
                   press: () => ScaffoldMessenger.of(context).showSnackBar(
                     kSnackBar(
                       'Feature are not available yet!',
@@ -70,7 +70,7 @@ class ProfileBody extends StatelessWidget {
                 ),
                 ProfileMenu(
                   text: "Log Out",
-                  icon: "assets/icons/Log out.svg",
+                  icon: "assets/icons/svg/Log out.svg",
                   press: () {
                     GoogleSignIn().signOut();
                     Navigator.pushReplacementNamed(
