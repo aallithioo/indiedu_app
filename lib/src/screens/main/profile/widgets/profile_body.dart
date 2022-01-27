@@ -1,4 +1,6 @@
+import 'package:aallithioo/src/data/provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../app/routes/route.dart';
 
@@ -72,6 +74,11 @@ class ProfileBody extends StatelessWidget {
                   text: "Log Out",
                   icon: "assets/icons/svg/Log out.svg",
                   press: () {
+                    AuthProvider authProvider =
+                        Provider.of<AuthProvider>(context);
+
+                    FirebaseAuth.instance.signOut();
+                    authProvider.removeToken();
                     GoogleSignIn().signOut();
                     Navigator.pushReplacementNamed(
                       context,
