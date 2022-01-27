@@ -40,15 +40,19 @@ class DemoProductCard extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 1.02,
                 child: Container(
-                  padding: kPaddingAllMedium,
+                  padding: kPaddingAllTiny,
                   decoration: BoxDecoration(
                     color: kGreyColorShade200,
                     borderRadius: kBorderRadiusSmall,
                   ),
                   child: Hero(
                     tag: product.id.toString(),
-                    child: Image.asset(
-                      product.images[0],
+                    child: ClipRRect(
+                      borderRadius: kBorderRadiusTiny,
+                      child: Image.asset(
+                        product.images[0],
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
@@ -64,7 +68,7 @@ class DemoProductCard extends StatelessWidget {
                 maxLines: 2,
                 textAlign: TextAlign.left,
               ),
-              kSizeBoxVerticalSmall,
+              kSizeBoxVerticalTiny,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -72,7 +76,7 @@ class DemoProductCard extends StatelessWidget {
                     '\$${product.price}',
                     style: indiedu.textTheme.bodyText1!.copyWith(
                       color: kBlueColorShade400,
-                      fontSize: kSizeSmall,
+                      fontSize: kSizeSmall - 2,
                       fontWeight: kFontWeightSemiBold,
                     ),
                   ),

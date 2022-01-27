@@ -27,7 +27,7 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/images/jpg/math.jpg",
+      "assets/images/png/img_course_math.png",
       // "assets/images/png/ps4_console_white_2.png",
       // "assets/images/png/ps4_console_white_3.png",
       // "assets/images/png/ps4_console_white_4.png",
@@ -48,7 +48,7 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/images/jpg/social.jpg",
+      "assets/images/png/img_course_social.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -65,7 +65,7 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/jpg/art.jpg",
+      "assets/images/png/img_course_art.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -83,7 +83,7 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/jpg/art.jpg",
+      "assets/images/png/img_course_art.png",
     ],
     colors: [
       const Color(0xFFF6625E),
