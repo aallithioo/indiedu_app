@@ -62,6 +62,7 @@ class DemoProductCard extends StatelessWidget {
                   fontWeight: kFontWeightMedium,
                 ),
                 maxLines: 2,
+                textAlign: TextAlign.left,
               ),
               kSizeBoxVerticalSmall,
               Row(
