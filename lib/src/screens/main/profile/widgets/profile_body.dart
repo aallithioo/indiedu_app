@@ -1,6 +1,4 @@
-import 'package:aallithioo/src/data/provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
+import '../../../../data/provider/provider.dart';
 
 import '../../../../app/routes/route.dart';
 
@@ -11,6 +9,8 @@ import '../../../../app/widgets/custom_snackbar.dart';
 import 'profile_pic.dart';
 import 'profile_menu.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
 
