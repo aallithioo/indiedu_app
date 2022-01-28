@@ -1,4 +1,7 @@
+import '../../../../app/themes/color.dart';
+
 import 'widgets/sign_up_auth_success_body.dart';
+
 import 'package:flutter/material.dart';
 
 class SignUpSuccessScreen extends StatelessWidget {
@@ -6,8 +9,9 @@ class SignUpSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SignUpAuthSuccessBody(),
+    return Scaffold(
+      backgroundColor: kWhiteColorShade900,
+      body: const SignUpAuthSuccessBody(),
     );
   }
 }

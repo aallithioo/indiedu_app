@@ -32,20 +32,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
     await authProvider.checkToken();
 
-    print(authProvider.token!.token);
+    print('token : ' + authProvider.token!.token.toString());
     Timer(
       const Duration(seconds: 2),
       () {
-        if (authProvider.token!.token != null ||
-            FirebaseAuth.instance.currentUser!.uid != null) {
+        if (authProvider.token!.token != null) {
           Navigator.pushReplacementNamed(
             context,
-            Routes.warn,
+            Routes.home,
           );
         } else {
           Navigator.pushReplacementNamed(
             context,
-            Routes.signIn,
+            Routes.warn,
           );
         }
       },

@@ -1,6 +1,10 @@
+import '../../../../data/provider/provider.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePic extends StatelessWidget {
   const ProfilePic({
@@ -16,11 +20,13 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: NetworkImage(
-              FirebaseAuth.instance.currentUser!.photoURL ??
-                  'http://cdn.jsdelivr.net/gh/aallithioo/CDN/images/png/guest.png',
+              'http://cdn.jsdelivr.net/gh/aallithioo/CDN/images/png/guest.png',
             ),
+            // backgroundImage: AssetImage(
+            //   'assets/images/png/Profile Image.png',
+            // ),
           ),
           Positioned(
             right: -16,

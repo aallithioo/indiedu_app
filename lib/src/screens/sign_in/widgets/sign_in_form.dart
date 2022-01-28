@@ -287,13 +287,13 @@ class _SignInFormState extends State<SignInForm> {
                   idToken: googleAuth?.idToken,
                 );
 
+                FirebaseAuth.instance.signInWithCredential(credential);
+
                 saveTokenGoogle(String token) async {
                   SharedPreferences prefs =
                       await SharedPreferences.getInstance();
                   prefs.setString('accessToken', credential.accessToken!);
                 }
-
-                FirebaseAuth.instance.signInWithCredential(credential);
 
                 // sign in logic
                 if (credential.accessToken != null &&
