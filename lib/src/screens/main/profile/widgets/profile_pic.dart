@@ -21,12 +21,12 @@ class ProfilePic extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           const CircleAvatar(
-            // backgroundImage: NetworkImage(
-            //   'http://cdn.jsdelivr.net/gh/aallithioo/CDN/images/png/guest.png',
-            // ),
-            backgroundImage: AssetImage(
-              'assets/images/png/Profile Image.png',
+            backgroundImage: NetworkImage(
+              'http://cdn.jsdelivr.net/gh/aallithioo/CDN/images/png/guest.png',
             ),
+            // backgroundImage: AssetImage(
+            //   'assets/images/png/Profile Image.png',
+            // ),
           ),
           Positioned(
             right: -16,
