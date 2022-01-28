@@ -14,6 +14,7 @@ dependencies:
   firebase: ^9.0.2
   firebase_auth: ^3.3.5
   firebase_storage: ^10.2.5
+  firebase_user_stream: ^1.1.0
   flutter:
     sdk: flutter
   flutter_svg: ^1.0.2

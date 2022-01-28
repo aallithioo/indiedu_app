@@ -19,6 +19,18 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // AuthProvider authProvider = Provider.of<AuthProvider>(
+    //   context,
+    //   // listen: false,
+    // );
+
+    // Future<String> kWhoAmI() async {
+    //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    //   User? user = firebaseAuth.currentUser;
+    //   final uri = user!.photoURL.toString();
+    //   return uri;
+    // }
+
     return SafeArea(
       child: Padding(
         padding: kPaddingSymetricVerticalLarge,
@@ -29,10 +41,10 @@ class ProfileBody extends StatelessWidget {
                 kSizeBoxVerticalMedium,
                 const ProfilePic(),
                 const SizedBox(height: 20),
-                Text(
-                  FirebaseAuth.instance.currentUser!.displayName ?? 'Guest',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
+                // Text(
+                //   kWhoAmI().toString() == '' ? 'No Name' : kWhoAmI().toString(),
+                //   style: Theme.of(context).textTheme.headline6,
+                // ),
                 const SizedBox(height: 20),
                 ProfileMenu(
                   text: "My Account",
@@ -74,8 +86,10 @@ class ProfileBody extends StatelessWidget {
                   text: "Log Out",
                   icon: "assets/icons/svg/Log out.svg",
                   press: () {
-                    AuthProvider authProvider =
-                        Provider.of<AuthProvider>(context);
+                    AuthProvider authProvider = Provider.of<AuthProvider>(
+                      context,
+                      listen: false,
+                    );
 
                     FirebaseAuth.instance.signOut();
                     authProvider.removeToken();

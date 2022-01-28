@@ -1,7 +1,10 @@
-import 'package:aallithioo/src/app/enums.dart';
-import 'package:aallithioo/src/app/widgets/custom_appbar.dart';
-import 'package:aallithioo/src/app/widgets/custom_bottom_nav_bar.dart';
-import 'package:aallithioo/src/screens/main/profile/widgets/profile_body.dart';
+import '../../../app/enums.dart';
+
+import '../../../app/widgets/custom_appbar.dart';
+import '../../../app/widgets/custom_bottom_nav_bar.dart';
+
+import 'widgets/profile_body.dart';
+
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -11,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: kAppBar('Profile'),
-      body: ProfileBody(),
+      body: const ProfileBody(),
       bottomNavigationBar:
           const CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
